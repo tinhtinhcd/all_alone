@@ -24,9 +24,9 @@ namespace UI.MainMenu
         public override void _PhysicsProcess(double delta)
         {
             Vector3 newRotationDeg = _initialRotationDeg;
-            newRotationDeg.x += _maxRotationDeg.x * RandNoiseValue(1);
-            newRotationDeg.y += _maxRotationDeg.y * RandNoiseValue(2);
-            newRotationDeg.z += _maxRotationDeg.z * RandNoiseValue(3);
+            newRotationDeg.X += _maxRotationDeg.X * RandNoiseValue(1);
+            newRotationDeg.Y += _maxRotationDeg.Y * RandNoiseValue(2);
+            newRotationDeg.Z += _maxRotationDeg.Z * RandNoiseValue(3);
             
             RotationDegrees = newRotationDeg;
         }
@@ -34,7 +34,7 @@ namespace UI.MainMenu
         private float RandNoiseValue(int seed)
         {
             _noise.Seed = seed;
-            return _noise.GetNoise1d(OS.GetTicksMsec() * 0.001f * _shakeSpeed);
+            return _noise.GetNoise1D(Time.GetTicksMsec() * 0.001f * _shakeSpeed);
         }
     }
 }

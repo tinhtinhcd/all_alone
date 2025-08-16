@@ -55,7 +55,7 @@ namespace HealthSystem
         {
             if (_regenRate > 0 && Points < PointsMax && _regenDelayTimer.IsStopped())
             {
-                IncrementPoints((float)delta * _regenRate);
+                IncrementPoints((float)(float)delta * _regenRate);
                 EmitSignal(nameof(Increased));
             }
         }

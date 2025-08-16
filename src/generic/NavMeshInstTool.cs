@@ -20,7 +20,7 @@ namespace GameGeneral
 
         public override void _Ready()
         {
-            if (!Engine.EditorHint)
+            if (!Engine.IsEditorHint())
             {
                 GetNode<MeshInstance3D>("NavArea").QueueFree();
             }
@@ -28,10 +28,10 @@ namespace GameGeneral
 
         private void UpdateBake()
         {
-            if (Engine.EditorHint)
+            if (Engine.IsEditorHint())
             {
                 MeshInstance3D boundingBox = GetNode<MeshInstance3D>("NavArea");
-                AABB filterAabb = new AABB();
+                Aabb filterAabb = new Aabb();
                 filterAabb = boundingBox.GetAabb();
                 // Vector3 overflow = new Vector3(Navmesh.AgentRadius, 0, Navmesh.AgentRadius) * 2;
                 // filterAabb.Position -= overflow;

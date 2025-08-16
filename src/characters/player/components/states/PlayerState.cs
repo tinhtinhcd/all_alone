@@ -56,7 +56,7 @@ namespace ZombieHoardGame.PlayerCharacter.States
                 // }
                 if (_userInput.MoveDirectionXZ != Vector3.Zero)
                 {
-                    if (_userInput.IsSprintPressed && (_userInput.MoveDirectionXZ.z < 0))
+                    if (_userInput.IsSprintPressed && (_userInput.MoveDirectionXZ.Z < 0))
                     {
                         targetState = "Sprinting";
                     }
@@ -96,20 +96,17 @@ namespace ZombieHoardGame.PlayerCharacter.States
             if (!_player.IsOnFloor())
             {
                 Vector3 _updatedVelocity = _player.Velocity;
-                _updatedVelocity.y = Mathf.Max(
-                    _player.Velocity.y - (_gravityAcceleration * delta),
+                _updatedVelocity.Y = Mathf.Max(
+                    _player.Velocity.Y - (_gravityAcceleration * delta),
                     _player.MaxFallSpeed
                 );
                 _player.Velocity = _updatedVelocity;
             }
         }
 
-        protected void PlayerMoveAndSlideWithSnap(float delta)
+        protected void PlayerMoveAndSlide()
         {
-            _player.Velocity = _player.MoveAndSlideWithSnap(
-                _player.Velocity, _snapVector, Vector3.Up, true,
-                4, _player.MaxFloorAngle
-            );
+            _player.Velocity = _player.MoveAndSlide();
         }
 
         //////////////////////////////

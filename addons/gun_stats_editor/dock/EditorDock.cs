@@ -26,9 +26,8 @@ namespace GunStatsEditor
         {
             List<String> allNames = new List<String>();
 
-            DirAccess dir = new DirAccess();
-            dir.Open(_gunDirectoryPath);
-            dir.ListDirBegin(true, true);
+            DirAccess dir = DirAccess.Open(_gunDirectoryPath);
+            dir.ListDirBegin();
 
             String fileName = dir.GetNext();
             while (fileName != "")
@@ -169,7 +168,7 @@ namespace GunStatsEditor
                     break;
             }
 
-            newCell.Align = LineEdit.AlignEnum.Center;
+            // Note: SpinBox alignment is handled differently in Godot 4.x
             newCell.AllowGreater = false;
             newCell.AllowLesser = false;
             newCell.Value = value;
@@ -202,7 +201,7 @@ namespace GunStatsEditor
                 gunStats.IsAutomatic = gunStatCells[nameof(GunStats.IsAutomatic)].Value == 1;
                 gunStats.BuyCost = (int)gunStatCells[nameof(GunStats.BuyCost)].Value;
 
-                Error err = ResourceSaver.Save(saveFilePath, gunStats);
+                Error err = ResourceSaver.Save(gunStats, saveFilePath);
             }
         }
     }

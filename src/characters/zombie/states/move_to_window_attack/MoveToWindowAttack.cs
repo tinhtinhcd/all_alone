@@ -15,7 +15,7 @@ namespace ZombieHoardGame.ZombieCharacter.States
         public override void Enter()
         {
             base.Enter();
-            NavTarget = _blackboard.TargetBoardedWindow.ZombieAttackPointTransform.origin;
+            NavTarget = _blackboard.TargetBoardedWindow.ZombieAttackPointTransform.Origin;
             _blackboard.IsInPlayerArea = false;
             _blackboard.TargetBoardedWindow.ZombieReserveAttackPoint(_blackboard.Character);
             _blackboard.AnimStateMachine.Travel("walk");

@@ -41,9 +41,9 @@ namespace PowerUps
             Random r = new Random();
             int randIndex = r.Next(0, _powerUpsData.Count);
             PowerUpData newPowerUpData = _powerUpsData[randIndex];
-            PowerUp newPowerUp = _powerUpPackedScene.Instance<PowerUp>();
+            PowerUp newPowerUp = _powerUpPackedScene.Instantiate<PowerUp>();
             AddChild(newPowerUp);
-            newPowerUp.GlobalTranslation = location;
+            newPowerUp.GlobalPosition = location;
             newPowerUp.ResourceData = newPowerUpData;
 
             newPowerUp.Connect(nameof(PowerUp.CollectedByPlayer), new Callable(this, nameof(OnPowerUpCollectedByPlayer)));
@@ -84,7 +84,7 @@ namespace PowerUps
 
         private async void ActivateDoubleTap(Texture2D icon)
         {
-            ShowPowerupIcon(PowerUp.Type.DoubleTap, icon, _timerDouleTap.WaitTime);
+            ShowPowerupIcon(PowerUp.Type.DoubleTap, icon, (float)_timerDouleTap.WaitTime);
             LevelServices.Instance.BulletSpawner.DoubleProjectileSpawn = true;
             _timerDouleTap.Start();
             await ToSignal(_timerDouleTap, "timeout");
@@ -94,7 +94,7 @@ namespace PowerUps
 
         private async void ActivateDoublePoints(Texture2D icon)
         {
-            ShowPowerupIcon(PowerUp.Type.DoublePoints, icon, _timerDoulePoints.WaitTime);
+            ShowPowerupIcon(PowerUp.Type.DoublePoints, icon, (float)_timerDoulePoints.WaitTime);
             LevelServices.Instance.PointsAwarder.DoublePoints = true;
             _timerDoulePoints.Start();
             await ToSignal(_timerDoulePoints, "timeout");
@@ -121,9 +121,9 @@ namespace PowerUps
             }
             
             TextureRect iconRect = new TextureRect();
-            iconRect.Expand = true;
+            iconRect.ExpandMode = TextureRect.ExpandModeEnum.FitWidthProportional;
             iconRect.CustomMinimumSize = new Vector2(90, 0);
-            iconRect.Texture2D = icon;
+            iconRect.Texture = icon;
             _powerupIconsContainer.AddChild(iconRect);
             _activeIcons[powerupType] = iconRect;
 
@@ -143,7 +143,7 @@ namespace PowerUps
             {
                 iconTween.TweenInterval(3);
             }
-            iconTween.TweenCallback(this, nameof(ClearActiveIcon), new Godot.Collections.Array(){powerupType});
+            iconTween.TweenCallback(Callable.From(() => ClearActiveIcon(powerupType)));
             iconTween.Play();
         }
     }

@@ -20,7 +20,7 @@ namespace ZombieHoardGame.PlayerCharacter.States
             UpdateSnapVector();
             MoveVelocityXZTowardZero(delta);
             ApplyGravity(delta);
-            PlayerMoveAndSlideWithSnap(delta);
+            PlayerMoveAndSlide();
         }
 
         public override void Enter()
@@ -47,8 +47,8 @@ namespace ZombieHoardGame.PlayerCharacter.States
         {
             Vector3 newVelocity = _player.Velocity;
             Vector3 frictionedVelocityXZ = _player.Velocity.MoveToward(Vector3.Zero, _frictionXZ * delta);
-            newVelocity.x = frictionedVelocityXZ.x;
-            newVelocity.z = frictionedVelocityXZ.z;
+            newVelocity.X = frictionedVelocityXZ.X;
+            newVelocity.Z = frictionedVelocityXZ.Z;
             _player.Velocity = newVelocity;
         }
     }

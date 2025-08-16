@@ -26,20 +26,20 @@ namespace UI
         public override void _Ready()
         {
             _animPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
-            _labelRounds = (Label)FindNode("ValueRounds");
-            _labelTime = (Label)FindNode("ValueTime");
-            _labelPoints = (Label)FindNode("ValuePoints");
-            _labelKilled = (Label)FindNode("ValueKilled");
-            _labelHeadshot = (Label)FindNode("ValueHeadshot");
-            _labelPowerups = (Label)FindNode("ValuePowerup");
-            _labelHighRound = (Label)FindNode("LabelHighRound");
-            _labelHighRound.PivotOffset = _labelHighRound.Size * 0.5f;
+            _labelRounds = (Label)GetNode("ValueRounds");
+            _labelTime = (Label)GetNode("ValueTime");
+            _labelPoints = (Label)GetNode("ValuePoints");
+            _labelKilled = (Label)GetNode("ValueKilled");
+            _labelHeadshot = (Label)GetNode("ValueHeadshot");
+            _labelPowerups = (Label)GetNode("ValuePowerup");
+            _labelHighRound = (Label)GetNode("LabelHighRound");
+            _labelHighRound.PivotOffset = _labelHighRound.GetViewport().GetVisibleRect().Size * 0.5f;
         }
         
 
         public async void Popup(int zombiesKilled, int zombiesKilledHeadshot)
         {
-            LevelServices services = LevelServices.Instance;
+            LevelServices services = LevelServices.Instantiate;
             int roundsFinished = services.RoundCounter.RoundsStarted - 1;
             _labelRounds.Text = (roundsFinished).ToString();
             _labelTime.Text = services.Stopwatch.ElapsedTimeFormattedString();

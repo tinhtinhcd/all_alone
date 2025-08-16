@@ -23,7 +23,7 @@ namespace ZombieHoardGame.PlayerCharacter
         {
             CacheNodeReferences();
             _crosshairShader = (ShaderMaterial)_crosshair.Material;
-            _crosshairShader.SetShaderParameter("edgeLength", GetViewportRect().Size.y);
+            _crosshairShader.SetShaderParameter("edgeLength", GetViewportRect().GetViewport().GetVisibleRect().Size.Y);
             _progressBarReload.Hide();
         }
 
@@ -43,9 +43,9 @@ namespace ZombieHoardGame.PlayerCharacter
         public void ShowReloadBar(float time)
         {
             Tween tween = GetTree().CreateTween();
-            tween.TweenCallback(_progressBarReload, "show");
+            tween.TweenCallback(_progressBarReload);
             tween.TweenProperty(_progressBarReload, "value", 100f, time).From(0f);
-            tween.TweenCallback(_progressBarReload, "hide");
+            tween.TweenCallback(_progressBarReload);
             tween.Play();
         }
 
@@ -84,7 +84,7 @@ namespace ZombieHoardGame.PlayerCharacter
 
         public void UpdateCrosshair(float spread, float camFOV)
         {
-            float viewportSizeY = GetViewportRect().Size.y;
+            float viewportSizeY = GetViewportRect().GetViewport().GetVisibleRect().Size.Y;
 		    float pixlesPerDegree = viewportSizeY / camFOV;
             int crosshairDiamiter = (int)Mathf.Floor(pixlesPerDegree * spread); // in pixles
 
@@ -100,7 +100,7 @@ namespace ZombieHoardGame.PlayerCharacter
             if (effectStrength > 0)
             {
                 _hurtAudio.Play();
-                _hurtAudio.VolumeDb = GD.LinearToDb(effectStrength);
+                _hurtAudio.VolumeDb = AudioServer.LinearToDb(effectStrength);
             }
             else
             {

@@ -21,15 +21,15 @@ namespace UI.MultiPage
         public override void _Ready()
         {
             _pageContainer = GetNode<Control>("Pages");
-            Vector2 viewportSize = GetViewport().Size;
+            Vector2 viewportSize = GetViewport().GetViewport().GetVisibleRect().Size;
 
             foreach (Page page in _pageContainer.GetChildren())
             {
                 _pages.Add(page.Name, page);
 
                 Vector2 pageViewportPosition = new Vector2(
-                    page.Coordinates.x * viewportSize.x,
-                    page.Coordinates.y * viewportSize.y
+                    page.Coordinates.X * viewportSize.X,
+                    page.Coordinates.Y * viewportSize.Y
                 );
                 page.Position = pageViewportPosition;
 
@@ -57,20 +57,20 @@ namespace UI.MultiPage
         //////////////////////////////
         private void OnViewportSizeChanged()
         {
-            Vector2 viewportSize = GetViewport().Size;
+            Vector2 viewportSize = GetViewport().GetViewport().GetVisibleRect().Size;
             
             // Move page container
             _pageContainer.Position = new Vector2(
-                _curentPage.Coordinates.x * - viewportSize.x,
-                _curentPage.Coordinates.y * - viewportSize.y
+                _curentPage.Coordinates.X * - viewportSize.X,
+                _curentPage.Coordinates.Y * - viewportSize.Y
             );
 
             // Move all pages
             foreach (Page page in _pages.Values)
             {
                 Vector2 pageViewportPosition = new Vector2(
-                    page.Coordinates.x * viewportSize.x,
-                    page.Coordinates.y * viewportSize.y
+                    page.Coordinates.X * viewportSize.X,
+                    page.Coordinates.Y * viewportSize.Y
                 );
                 page.Position = pageViewportPosition;
             }
@@ -88,13 +88,13 @@ namespace UI.MultiPage
         //////////////////////////////
         private async void ChangeCurrentPage(String tergetPageName)
         {
-            Vector2 viewportSize = GetViewport().Size;
+            Vector2 viewportSize = GetViewport().GetViewport().GetVisibleRect().Size;
             Page newPage = _pages[tergetPageName];
             Page oldPage = _curentPage;
             Vector2 coordinateChange = oldPage.Coordinates - newPage.Coordinates;
             Vector2 coordinateChangeViewport = new Vector2(
-                coordinateChange.x * viewportSize.x,
-                coordinateChange.y * viewportSize.y
+                coordinateChange.X * viewportSize.X,
+                coordinateChange.Y * viewportSize.Y
             );
 
             // Deactivate old page

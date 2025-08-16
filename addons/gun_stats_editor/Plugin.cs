@@ -13,7 +13,7 @@ namespace GunStatsEditor
         {
             _dock = ResourceLoader.Load<PackedScene>(
                 "res://addons/gun_stats_editor/dock/EditorDock.tscn"
-            ).Instance<EditorDock>();
+            ).Instantiate<EditorDock>();
 
             AddControlToBottomPanel(_dock, "Gun Stats");
         }

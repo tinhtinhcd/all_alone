@@ -30,7 +30,7 @@ namespace Weapons
 
         private void SpawnBulletProjectile(Vector3 spawnPoint, Vector3 directionForward, Vector3 directionRight, float spread, Gun originGun, Node3D origin)
         {
-            Bullet _newBullet = _bulletPackedScene.Instance<Bullet>();
+            Bullet _newBullet = _bulletPackedScene.Instantiate<Bullet>();
 
             float deflection = (float)(Mathf.DegToRad(spread * 0.5f) * GD.RandfRange(-1, 1));
             Vector3 bulletDirection = directionForward.Rotated(directionRight, deflection);

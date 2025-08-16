@@ -27,11 +27,11 @@ namespace ZombieHoardGame
 
         public void UpdateLevelHighestRound(String levelName, int newBest)
         {
-            File fileChecker = new File();
+            FileAccess fileChecker = new FileAccess();
             if (!fileChecker.FileExists(LevelBestsFilePath))
             {
                 // Create new file
-                fileChecker.Open(LevelBestsFilePath, File.ModeFlags.Write);
+                fileChecker.Open(LevelBestsFilePath, FileAccess.ModeFlags.Write);
             }
             fileChecker.Close();
 

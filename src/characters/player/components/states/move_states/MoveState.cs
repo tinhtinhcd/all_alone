@@ -37,12 +37,12 @@ namespace ZombieHoardGame.PlayerCharacter.States
             UpdateSnapVector();
 
             Vector3 inputDirectionXZ = _userInput.MoveDirectionXZ.Rotated(
-                Vector3.Up, _player.GetCameraBasis().GetEuler().y
+                Vector3.Up, _player.GetCameraBasis().GetEuler().Y
             );
 
             ApplyMovementInput(delta, inputDirectionXZ);
             ApplyGravity(delta);
-            PlayerMoveAndSlideWithSnap(delta);
+            PlayerMoveAndSlide();
         }
 
         protected void ApplyMovementInput(float delta, Vector3 inputDirectionXZ)
@@ -52,14 +52,14 @@ namespace ZombieHoardGame.PlayerCharacter.States
             {
                 Vector3 velocityTargetXZ = inputDirectionXZ * _targetSpeedXZ;
                 Vector3 velocityActualXZ = _player.Velocity.MoveToward(velocityTargetXZ, _accelerationXZ * delta);
-                newVelocity.x = velocityActualXZ.x;
-                newVelocity.z = velocityActualXZ.z;
+                newVelocity.X = velocityActualXZ.X;
+                newVelocity.Z = velocityActualXZ.Z;
             }
             else
             {
                 Vector3 frictionedVelocityXZ = _player.Velocity.MoveToward(Vector3.Zero, _frictionXZ * delta);
-                newVelocity.x = frictionedVelocityXZ.x;
-                newVelocity.z = frictionedVelocityXZ.z;
+                newVelocity.X = frictionedVelocityXZ.X;
+                newVelocity.Z = frictionedVelocityXZ.Z;
             }
             _player.Velocity = newVelocity;
         }

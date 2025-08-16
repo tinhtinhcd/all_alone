@@ -69,7 +69,7 @@ namespace ZombieHoardGame.PlayerCharacter
         //////////////////////////////
         public override void _Ready()
         {
-            GetNode<SubViewport>("CanvasLayer/SubViewportContainer/GunViewport").Size = DisplayServer.WindowGetSize();
+            GetNode<SubViewport>("CanvasLayer/SubViewportContainer/GunViewport").GetViewport().GetVisibleRect().Size = DisplayServer.WindowGetSize();
             
             CacheNodeReferences();
             ConnectComponentSignals();
@@ -220,7 +220,7 @@ namespace ZombieHoardGame.PlayerCharacter
         {
             if (_guns.Count < 2)
             {
-                Gun newGun = gunPackedScene.Instance<Gun>();
+                Gun newGun = gunPackedScene.Instantiate<Gun>();
                 _guns.Add(newGun);
                 _gunsAnchor.AddChild(newGun);
                 if (_currentGun == null)
@@ -234,7 +234,7 @@ namespace ZombieHoardGame.PlayerCharacter
             }
             else
             {
-                Gun newGun = gunPackedScene.Instance<Gun>();
+                Gun newGun = gunPackedScene.Instantiate<Gun>();
                 _guns[_currentGunIndex] = newGun;
                 _currentGun.QueueFree();
                 _gunsAnchor.AddChild(newGun);
@@ -302,7 +302,7 @@ namespace ZombieHoardGame.PlayerCharacter
             if (_currentGun.Fire())
             {
                 _hud.UpdateAmmoLabel(_currentGun.AmmoLoaded, _currentGun.AmmoRemainder);
-                LevelServices.Instance.BulletSpawner.SpawnGunShot(
+                LevelServices.Instantiate.BulletSpawner.SpawnGunShot(
                     _head.GlobalPosition, -GetCameraBasis().Z, GetCameraBasis().X, 
                     spread, _currentGun, this
                 );

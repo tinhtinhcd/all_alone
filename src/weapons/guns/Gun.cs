@@ -85,14 +85,14 @@ namespace Weapons
             _muzzleFlashSprite.Modulate = new Color(1,1,1,0);
             _muzzleFlashLight.Hide();
 
-            _muzzleFlashFrameCount = _muzzleFlashSprite.Frames.GetFrameCount("default");
+            _muzzleFlashFrameCount = _muzzleFlashSprite.SpriteFrames.GetFrameCount("default");
         }
 
         public override void _PhysicsProcess(double delta)
         {
             if (_fireSpreadGain > 0)
             {
-                _fireSpreadGain = Mathf.MoveToward(_fireSpreadGain, 0, delta * _fireSpreadRecoverySpeed);
+                _fireSpreadGain = Mathf.MoveToward(_fireSpreadGain, 0, (float)delta * _fireSpreadRecoverySpeed);
             }
         }
         
@@ -162,12 +162,12 @@ namespace Weapons
             _muzzleFlashSprite.Frame = _rng.Next(0, _muzzleFlashFrameCount);
 
             Tween flashTween = CreateTween();
-            flashTween.TweenCallback(_muzzleFlashLight, "show");
+            flashTween.TweenCallback(_muzzleFlashLight);
             flashTween.SetParallel(true);
             flashTween.TweenProperty(_muzzleFlashLight, "light_energy", 0.0f, flashDuration).From(0.5f);
             flashTween.TweenProperty(_muzzleFlashSprite, "modulate", new Color(1,1,1,0), flashDuration).From(Colors.White);
             flashTween.SetParallel(false);
-            flashTween.TweenCallback(_muzzleFlashLight, "hide");
+            flashTween.TweenCallback(_muzzleFlashLight);
         }
     }
 }

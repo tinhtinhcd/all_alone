@@ -91,13 +91,13 @@ namespace ZombieHoardGame
         private void OnMenuQuitRequested()
         {
             EndSession();
-            Main.Instance.TransitionToMainMenu();
+            Main.Instantiate.TransitionToMainMenu();
         }
 
         private void OnMenuRestartRequested()
         {
             EndSession();
-            Main.Instance.TransitionToLevel(Filename.GetFile().Split(".")[0]);
+            Main.Instantiate.TransitionToLevel(Filename.GetFile().Split(".")[0]);
         }
 
 
@@ -118,7 +118,7 @@ namespace ZombieHoardGame
 
         private void SpawnPlayer()
         {
-            _player = (Player)_playerPackedScene.Instance();
+            _player = (Player)_playerPackedScene.Instantiate();
             AddChild(_player);
             _player.GlobalTransform = GetNode<Marker3D>("PlayerSpawnPoint").GlobalTransform;
             _player.IncrementPoints(_playerInitialPoints);
@@ -126,7 +126,7 @@ namespace ZombieHoardGame
 
         private void SetUpLevelServices()
         {
-            LevelServices services = LevelServices.Instance;
+            LevelServices services = LevelServices.Instantiate;
             services.BulletSpawner = GetNode<BulletSpawner>("BulletSpawner");
             services.PowerUpSpawner = GetNode<PowerUpSpawner>("PowerUpSpawner");
             services.PointsAwarder = GetNode<PointsAwarder>("PointsAwarder");

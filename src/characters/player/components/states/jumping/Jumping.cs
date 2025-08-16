@@ -18,10 +18,10 @@ namespace ZombieHoardGame.PlayerCharacter.States
         public override void PhysicsUpdate(float delta)
         {
             Vector3 newVelocity = _player.Velocity;
-            newVelocity.y += _impluseSpeed;
+            newVelocity.Y += _impluseSpeed;
             _player.Velocity = newVelocity;
             _snapVector = Vector3.Zero;
-            PlayerMoveAndSlideWithSnap(delta);
+            PlayerMoveAndSlide();
             UpdateState();
         }
 

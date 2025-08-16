@@ -70,7 +70,7 @@ namespace UI
         {
             if (IsActive)
             {
-                _userPreferences.Fxaa = _checkBtnVsync.Pressed;
+                _userPreferences.ScreenSpaceAa = _checkBtnVsync.Pressed;
             }
         }
 
@@ -78,7 +78,7 @@ namespace UI
         {
             if (IsActive)
             {
-                _userPreferences.Msaa = (SubViewport.MSAA)index;
+                _userPreferences.Msaa = (Viewport.Msaa)index;
             }
         }
 
@@ -87,15 +87,15 @@ namespace UI
         {
             _userPreferences = GetNode<UserPreferences>("/root/UserPreferences");
             
-            _sliderAudioMaster = (HSlider)FindNode("SliderAudioMaster");
-            _sliderAudioSfx = (HSlider)FindNode("SliderAudioSFX");
-            _sliderAudioMusic = (HSlider)FindNode("SliderAudioMusic");
-            _sliderAudioUI = (HSlider)FindNode("SliderAudioUI");
-            _sliderMouseSensitivity = (HSlider)FindNode("SliderMouseSense");
-            _checkBtnBorderless = (CheckButton)FindNode("BorderlessCheckButton");
-            _checkBtnVsync = (CheckButton)FindNode("VSyncCheckButton");
-            _checkBtnFxaa = (CheckButton)FindNode("FXAACheckButton");
-            _optionBtnMsaa = (OptionButton)FindNode("MSAAOptionButton");
+            _sliderAudioMaster = (HSlider)GetNode("SliderAudioMaster");
+            _sliderAudioSfx = (HSlider)GetNode("SliderAudioSFX");
+            _sliderAudioMusic = (HSlider)GetNode("SliderAudioMusic");
+            _sliderAudioUI = (HSlider)GetNode("SliderAudioUI");
+            _sliderMouseSensitivity = (HSlider)GetNode("SliderMouseSense");
+            _checkBtnBorderless = (CheckButton)GetNode("BorderlessCheckButton");
+            _checkBtnVsync = (CheckButton)GetNode("VSyncCheckButton");
+            _checkBtnFxaa = (CheckButton)GetNode("FXAACheckButton");
+            _optionBtnMsaa = (OptionButton)GetNode("MSAAOptionButton");
         }
 
         private void InitalizeSettingUIValues()
@@ -107,9 +107,9 @@ namespace UI
 
             _sliderMouseSensitivity.Value = _userPreferences.MouseSensitivity;
 
-            _checkBtnBorderless.Pressed = _userPreferences.BorderlessWindow;
-            _checkBtnFxaa.Pressed = _userPreferences.Fxaa;
-            _checkBtnVsync.Pressed = _userPreferences.Vsync;
+            _checkBtnBorderless.Pressed += _userPreferences.BorderlessWindow;
+            _checkBtnFxaa.Pressed += _userPreferences.ScreenSpaceAa;
+            _checkBtnVsync.Pressed += _userPreferences.Vsync;
             _optionBtnMsaa.Selected = (int)_userPreferences.Msaa;
         }
     }

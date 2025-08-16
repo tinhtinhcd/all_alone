@@ -71,7 +71,7 @@ namespace ZombieHoardGame.PlayerCharacter.States
 
         private void SetBreathingAudioVolume(float volLinear)
         {
-            _audioBreathing.VolumeDb = GD.LinearToDb(volLinear);
+            _audioBreathing.VolumeDb = AudioServer.LinearToDb(volLinear);
             if (volLinear == 0)
             {
                 _audioBreathing.Stop();

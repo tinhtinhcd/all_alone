@@ -39,13 +39,13 @@ namespace ZombieHoardGame.ZombieCharacter.States
         protected void MoveTowardsNavTarget(float delta)
         {
             Vector3 targetPosition = _blackboard.NavAgent.GetNextPathPosition();
-            Vector3 direction = _blackboard.Character.GlobalTranslation.DirectionTo(targetPosition);
+            Vector3 direction = _blackboard.Character.GlobalPosition.DirectionTo(targetPosition);
             Vector3 velocity = direction * _speed;
-            _blackboard.Character.MoveAndSlide(velocity, Vector3.Up);
+            _blackboard.Character.MoveAndSlide();
             
             float rotationAcceleration = 4;
             float characterRotationY = Mathf.LerpAngle(
-			    _blackboard.Character.Rotation.y, Mathf.Atan2(-direction.x, -direction.z), 
+			    _blackboard.Character.Rotation.Y, Mathf.Atan2(-direction.X, -direction.Z), 
 			    rotationAcceleration * delta
 	        );
             _blackboard.Character.Rotation =  new Vector3(

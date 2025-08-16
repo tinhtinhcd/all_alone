@@ -9,9 +9,9 @@ namespace GameGeneral
         {
             foreach (Node effect in GetChildren())
             {
-                if (effect is Particles)
+                if (effect is GpuParticles3D)
                 {
-                    ((Particles)effect).Emitting = true;
+                    ((GpuParticles3D)effect).Emitting = true;
                 }
                 else if (effect is AudioStreamPlayer3D)
                 {

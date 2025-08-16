@@ -19,7 +19,7 @@ namespace ZombieHoardGame.ZombieCharacter.States
 
         public override void PhysicsUpdate(float delta)
         {
-            _blackboard.Character.Translate(-_blackboard.AnimTree.GetRootMotionTransform().origin);
+            _blackboard.Character.Translate(-_blackboard.AnimTree.GetRootMotionPosition().Origin);
         }
 
         public override void Enter()

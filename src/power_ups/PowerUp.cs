@@ -49,16 +49,16 @@ namespace PowerUps
             _timerDespawnWarning.Connect("timeout", new Callable(this, nameof(OnTimerDespawnWarningTimeout)));
             _timerDespawn.Connect("timeout", new Callable(this, nameof(OnTimerDespawnTimeout)));
 
-            _restY = _meshInst.Position.y;
+            _restY = _meshInst.Position.Y;
         }
 
         public override void _PhysicsProcess(double delta)
         {
-            _sinTime += delta;
+            _sinTime += (float)delta;
             Vector3 newTranslation = _meshInst.Position;
-            newTranslation.y = _restY + (_sinBobAmplitude * Mathf.Sin(_sinTime * 0.6f));
+            newTranslation.Y = _restY + (_sinBobAmplitude * Mathf.Sin(_sinTime * 0.6f));
             _meshInst.Position = newTranslation;
-            _meshInst.RotateY(Mathf.DegToRad(16 * delta));
+            _meshInst.RotateY(Mathf.DegToRad(16 * (float)delta));
         }
 
         public async void Despawn()

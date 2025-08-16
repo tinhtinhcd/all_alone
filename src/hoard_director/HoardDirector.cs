@@ -103,7 +103,7 @@ namespace ZombieHoardGame
 
         private void OnZombiePlayerPositionUpdateRequested(Zombie zombie)
         {
-            zombie.UpdatePlayerPosition(_player.GlobalTranslation);
+            zombie.UpdatePlayerPosition(_player.GlobalPosition);
         }
 
         private void OnZombiedDied(Zombie zombie, Node killer, Vector3 position, bool isCriticalKill)
@@ -118,7 +118,7 @@ namespace ZombieHoardGame
 
             if (killer is Player)
             {
-                LevelServices.Instance.PointsAwarder.PlayerKilledZombie(
+                LevelServices.Instantiate.PointsAwarder.PlayerKilledZombie(
                     (Player)killer, isCriticalKill, zombie.IsInPlayerArea
                 );
             }
@@ -188,7 +188,7 @@ namespace ZombieHoardGame
 
         private void SpawnZombie()
         {
-            Zombie newZombie = _zombiePackedScene.Instance<Zombie>();
+            Zombie newZombie = _zombiePackedScene.Instantiate<Zombie>();
             newZombie.HealthMultiplier = _zombieHealthMultiplier;
 
             BoardedWindow destinationWindow = RandomAvailableWindow();
@@ -209,7 +209,7 @@ namespace ZombieHoardGame
             double roll = r.NextDouble();
             if (roll <= _powerUpDropChance)
             {
-                LevelServices.Instance.PowerUpSpawner.SpawnRandom(position);
+                LevelServices.Instantiate.PowerUpSpawner.SpawnRandom(position);
             }
         }
     }

@@ -51,7 +51,7 @@ namespace GameGeneral
             get { return _fxaa; }
             set {
                 _fxaa = value;
-                GetViewport().Fxaa = value;
+                GetViewport().ScreenSpaceAa = value;
             }
         }
         public Viewport.Msaa Msaa{
@@ -103,11 +103,11 @@ namespace GameGeneral
 
         public void Save()
         {
-            File fileChecker = new File();
+            FileAccess fileChecker = new FileAccess();
             if (!fileChecker.FileExists(_saveFilePath))
             {
                 // Create new file
-                fileChecker.Open(_saveFilePath, File.ModeFlags.Write);
+                fileChecker.Open(_saveFilePath, FileAccess.ModeFlags.Write);
             }
             fileChecker.Close();
 
@@ -155,19 +155,19 @@ namespace GameGeneral
                 BorderlessWindow = (bool)preferencesFile.GetValue("user_prefs", "borderless_window");
                 Vsync = (bool)preferencesFile.GetValue("user_prefs", "vsync");
                 Fxaa = (bool)preferencesFile.GetValue("user_prefs", "fxaa");
-                Msaa = (SubViewport.MSAA)preferencesFile.GetValue("user_prefs", "msaa");
+                Msaa = (Viewport.Msaa)preferencesFile.GetValue("user_prefs", "msaa");
             } 
 
         }
 
         private float VolumeDBToLinear(float value)
         {
-            return GD.DbToLinear(value - 6);
+            return AudioServer.DbToLinear(value - 6);
         }
 
         private float VolumeLinearToDB(float value)
         {
-            return GD.LinearToDb(value) + 6;
+            return AudioServer.LinearToDb(value) + 6;
         }
     }
 }

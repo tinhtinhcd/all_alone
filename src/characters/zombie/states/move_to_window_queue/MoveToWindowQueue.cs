@@ -23,7 +23,7 @@ namespace ZombieHoardGame.ZombieCharacter.States
             _blackboard.Character.SetCollisionMaskValue(2, false); // Turn off collision with other zombies
 
             _blackboard.TargetBoardedWindow.Connect(nameof(BoardedWindow.NextZombieCalled), new Callable(this, nameof(OnTargetWindowNextZombieCalled)));
-            NavTarget = queuePoint.GlobalTranslation;
+            NavTarget = queuePoint.GlobalPosition;
             _blackboard.AnimStateMachine.Travel("walk");
         }
 

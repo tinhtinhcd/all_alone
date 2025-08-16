@@ -7,7 +7,7 @@ namespace ZombieHoardGame.PlayerCharacter
 
         public Basis CameraBasis
         {
-            get { return _camera.GlobalTransform.basis; }
+            get { return _camera.GlobalTransform.Basis; }
         }
 
         public float CameraFOV { get { return _camera.Fov; }}

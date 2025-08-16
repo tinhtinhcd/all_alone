@@ -85,11 +85,11 @@ namespace ZombieHoardGame
 
         private void UpdateGunInfo()
         {
-            Gun gun = GunPackedScene.Instance<Gun>();
+            Gun gun = GunPackedScene.Instantiate<Gun>();
             _buyGunCost = gun.BuyCost;
             _buyAmmoCost = Mathf.RoundToInt(_buyGunCost * 0.5f);
             String iconFilePath = $"{GunPackedScene.ResourcePath.GetBaseDir()}/icon.png";
-            _iconSprite.Texture2D = ResourceLoader.Load<Texture2D>(iconFilePath);
+            _iconSprite.Texture = ResourceLoader.Load<Texture2D>(iconFilePath);
             gun.Dispose();
         }
     }

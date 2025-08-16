@@ -23,6 +23,7 @@ namespace GameGeneral
         private ColorRect _fadeRect;
         private TextureProgressBar _progressBar;
         private Timer _loaderPollTimer;
+        private string _currentLoadingPath;
 
 
         private Main() {}
@@ -73,24 +74,27 @@ namespace GameGeneral
 
         private void OnLoaderPollTimerTimeout()
         {
-            Godot.Error err = _loader.Poll();
+            var status = ResourceLoader.LoadThreadedGetStatus(_currentLoadingPath);
 
-            switch (err)
+            switch (status)
             {
-                case Godot.Error.FileEof:
-                    PackedScene res = (PackedScene)_loader.GetResource();
-                    _loader.Dispose(); // https://github.com/godotengine/godot/issues/33809
-                    SetCurrentScene(res.Instance());
+                case ResourceLoader.ThreadLoadStatus.Loaded:
+                    PackedScene res = (PackedScene)ResourceLoader.LoadThreadedGet(_currentLoadingPath);
+                    SetCurrentScene(res.Instantiate());
                     break;
                 
-                case Godot.Error.Ok:
-                    float loadProgress = (float)_loader.GetStage() / (float)_loader.GetStageCount();
-                    _progressBar.Value = loadProgress;
+                case ResourceLoader.ThreadLoadStatus.InProgress:
+                    var progress = new Godot.Collections.Array();
+                    ResourceLoader.LoadThreadedGetStatus(_currentLoadingPath, progress);
+                    if (progress.Count > 0)
+                    {
+                        _progressBar.Value = (float)progress[0];
+                    }
                     _loaderPollTimer.Start();
                     break;
 
                 default:
-                    Debug.Assert(false, $"ResourceLoader Error: {err.ToString()}");
+                    Debug.Assert(false, $"ResourceLoader Error: {status.ToString()}");
                     break;
             }
         }
@@ -139,7 +143,7 @@ namespace GameGeneral
 
             // Make sure root node is ready to take new child
             await ToSignal(GetTree().Root, "ready");
-            SetCurrentScene(_initialScene.Instance());
+            SetCurrentScene(_initialScene.Instantiate());
         }
 
         private async void ChangeSceneBackground(String newScenePath)
@@ -156,8 +160,8 @@ namespace GameGeneral
                 GetTree().CurrentScene = null;
             }
             
-            _loader = ResourceLoader.LoadInteractive(newScenePath, "PackedScene");
-            Debug.Assert(_loader != null, $"ResourceLoaderInteractive failed. Attemped load target path: {newScenePath}");
+            _currentLoadingPath = newScenePath;
+            ResourceLoader.LoadThreadedRequest(newScenePath, "PackedScene");
             _loaderPollTimer.Start();
         }
     }
