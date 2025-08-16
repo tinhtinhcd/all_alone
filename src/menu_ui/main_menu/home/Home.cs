@@ -4,10 +4,10 @@ using System;
 
 namespace UI.MainMenu
 {
-    public class Home : MultiPage.Page
+    public partial class Home : MultiPage.Page
     {
         [Signal]
-        public delegate void PlayLevelRequested(String levelName);
+        public delegate void PlayLevelRequestedEventHandler(String levelName);
 
         private void OnBtnPlayPressed()
         {

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://src/health_systems/hitbox/HitBox.cs" type="Script" id=1]
 
-[node name="HitBox" type="Area"]
+[node name="HitBox" type="Area3D"]
 collision_layer = 16
 collision_mask = 8
 monitorable = false

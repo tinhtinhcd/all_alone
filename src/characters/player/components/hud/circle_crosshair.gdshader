@@ -3,7 +3,7 @@ shader_type canvas_item;
 uniform int edgeLength = 600;
 uniform int widthPixles = 5;
 uniform int innerDiamiter = 300;
-uniform vec4 color : hint_color;
+uniform vec4 color : source_color;
 
 void fragment()
 {

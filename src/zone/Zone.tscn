@@ -3,13 +3,13 @@
 [ext_resource path="res://src/debug/materials/tool_highlight.tres" type="Material" id=1]
 [ext_resource path="res://src/zone/Zone.cs" type="Script" id=2]
 
-[sub_resource type="CubeMesh" id=1]
+[sub_resource type="BoxMesh" id=1]
 size = Vector3( 1, 1, 1 )
 
-[node name="Zone" type="Spatial"]
+[node name="Zone" type="Node3D"]
 script = ExtResource( 2 )
 
-[node name="EditorMarker" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+[node name="EditorMarker" type="MeshInstance3D" parent="."]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 mesh = SubResource( 1 )
 material/0 = ExtResource( 1 )

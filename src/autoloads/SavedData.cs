@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace ZombieHoardGame
 {
-    public class SavedData : Node
+    public partial class SavedData : Node
     {
         
         private const String LevelBestsFilePath = "user://level_bests.cfg";

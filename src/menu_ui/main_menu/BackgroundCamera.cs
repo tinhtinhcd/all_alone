@@ -3,10 +3,10 @@ using Godot;
 
 namespace UI.MainMenu
 {
-    public class BackgroundCamera : Camera
+    public partial class BackgroundCamera : Camera3D
     {
         [Export]
-        private OpenSimplexNoise _noise = null;
+        private FastNoiseLite _noise = null;
         [Export]
         private Vector3 _maxRotationDeg = new Vector3(10, 10, 2);
         [Export]
@@ -21,7 +21,7 @@ namespace UI.MainMenu
             _initialRotationDeg = RotationDegrees;
         }
 
-        public override void _PhysicsProcess(float delta)
+        public override void _PhysicsProcess(double delta)
         {
             Vector3 newRotationDeg = _initialRotationDeg;
             newRotationDeg.x += _maxRotationDeg.x * RandNoiseValue(1);

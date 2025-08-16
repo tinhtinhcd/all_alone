@@ -4,7 +4,7 @@ using System;
 
 namespace Weapons
 {
-    public class Gun : Spatial
+    public partial class Gun : Node3D
     {
 
         /// Exported Fields ///
@@ -64,7 +64,7 @@ namespace Weapons
         private AudioStreamPlayer3D _audioFire;
         private AudioStreamPlayer3D _audioEmpty;
         private AnimatedSprite3D _muzzleFlashSprite;
-        private OmniLight _muzzleFlashLight;
+        private OmniLight3D _muzzleFlashLight;
 
 
         //////////////////////////////
@@ -80,7 +80,7 @@ namespace Weapons
             _audioEmpty = GetNode<AudioStreamPlayer3D>("AudioEmpty");
             _audioFire = GetNode<AudioStreamPlayer3D>("AudioFire");
             _muzzleFlashSprite = GetNode<AnimatedSprite3D>("MuzzleFlash");
-            _muzzleFlashLight = GetNode<OmniLight>("MuzzleFlash/OmniLight");
+            _muzzleFlashLight = GetNode<OmniLight3D>("MuzzleFlash/OmniLight3D");
 
             _muzzleFlashSprite.Modulate = new Color(1,1,1,0);
             _muzzleFlashLight.Hide();
@@ -88,7 +88,7 @@ namespace Weapons
             _muzzleFlashFrameCount = _muzzleFlashSprite.Frames.GetFrameCount("default");
         }
 
-        public override void _PhysicsProcess(float delta)
+        public override void _PhysicsProcess(double delta)
         {
             if (_fireSpreadGain > 0)
             {
@@ -161,7 +161,7 @@ namespace Weapons
             _muzzleFlashSprite.RotateZ(Mathf.Pi * (float)_rng.NextDouble());
             _muzzleFlashSprite.Frame = _rng.Next(0, _muzzleFlashFrameCount);
 
-            SceneTreeTween flashTween = CreateTween();
+            Tween flashTween = CreateTween();
             flashTween.TweenCallback(_muzzleFlashLight, "show");
             flashTween.SetParallel(true);
             flashTween.TweenProperty(_muzzleFlashLight, "light_energy", 0.0f, flashDuration).From(0.5f);

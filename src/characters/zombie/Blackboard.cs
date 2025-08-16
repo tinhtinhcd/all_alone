@@ -4,10 +4,10 @@ using HealthSystem;
 
 namespace ZombieHoardGame.ZombieCharacter
 {
-    public class Blackboard : Reference
+    public partial class Blackboard : RefCounted
     {
         public Zombie Character;
-        public NavigationAgent NavAgent;
+        public NavigationAgent3D NavAgent;
         public AttackTrigger AttackTrigger;
         public Vector3 PlayerPosition; // Not updated every frame
         public Health Health;
@@ -17,7 +17,7 @@ namespace ZombieHoardGame.ZombieCharacter
         public bool IsInPlayerArea;
         public AnimationTree AnimTree;
         public AnimationNodeStateMachinePlayback AnimStateMachine;
-        public VisibilityNotifier VisibilityNotifier;
+        public VisibleOnScreenNotifier3D VisibleOnScreenNotifier3D;
         public GameGeneral.LOD.Switcher LODSwitcher;
     }
 }

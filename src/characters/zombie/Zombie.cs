@@ -8,21 +8,21 @@ using GameGeneral;
 
 namespace ZombieHoardGame.ZombieCharacter
 {
-    public class Zombie : KinematicBody
+    public partial class Zombie : CharacterBody3D
     {
         /// Signals ///
         [Signal]
-        public delegate void Died(Zombie zombie, Node inflictor, Vector3 position, bool isCriticalKill);
+        public delegate void DiedEventHandler(Zombie zombie, Node inflictor, Vector3 position, bool isCriticalKill);
         [Signal]
-        public delegate void EnteredPlayerArea(Zombie zombie);
+        public delegate void EnteredPlayerAreaEventHandler(Zombie zombie);
         [Signal]
-        public delegate void PlayerPositionUpdateRequest(Zombie zombie);
+        public delegate void PlayerPositionUpdateRequestEventHandler(Zombie zombie);
 
         /// Exported Fields ///
         [Export]
-        private List<AudioStream> _audioStreamsGroan = new List<AudioStream>();
+        private Godot.Collections.Array<AudioStream> _audioStreamsGroan = new Godot.Collections.Array<AudioStream>();
         [Export]
-        private List<AudioStream> _audioStreamsAttack = new List<AudioStream>();
+        private Godot.Collections.Array<AudioStream> _audioStreamsAttack = new Godot.Collections.Array<AudioStream>();
 
         /// Properties - public, protected, private ///
         public bool IsInPlayerArea{ get { return _blackboard.IsInPlayerArea; }}
@@ -43,21 +43,21 @@ namespace ZombieHoardGame.ZombieCharacter
             CacheNodeReferences();
             _controller.Blackboard = _blackboard;
 
-            _blackboard.Health.Connect(nameof(Health.Hurt), this, nameof(OnHealthHurt));
-            _blackboard.VisibilityNotifier.Connect("screen_entered", this, nameof(OnVisibilityNotifierScreenEntered));
-            _blackboard.VisibilityNotifier.Connect("screen_exited", this, nameof(OnVisibilityNotifierScreenExited));
+            _blackboard.Health.Connect(nameof(Health.Hurt), new Callable(this, nameof(OnHealthHurt)));
+            _blackboard.VisibleOnScreenNotifier3D.Connect("screen_entered", new Callable(this, nameof(OnVisibilityNotifierScreenEntered)));
+            _blackboard.VisibleOnScreenNotifier3D.Connect("screen_exited", new Callable(this, nameof(OnVisibilityNotifierScreenExited)));
 
             ApplyHealthMultiplier();
         }
 
-        public override void _Process(float delta)
+        public override void _Process(double delta)
         {
-            _controller.Update(delta);
+            _stateMachine.Update((float)delta);
         }
 
-        public override void _PhysicsProcess(float delta)
+        public override void _PhysicsProcess(double delta)
         {
-            _controller.PhysicsUpdate(delta);
+            _stateMachine.PhysicsUpdate((float)delta);
         }
         
         //////////////////////////////
@@ -122,14 +122,14 @@ namespace ZombieHoardGame.ZombieCharacter
             _lodSwitcher = GetNode<GameGeneral.LOD.Switcher>("LODSwitcher");
 
             _blackboard.Character = this;
-            _blackboard.NavAgent = GetNode<NavigationAgent>("NavigationAgent");
+            _blackboard.NavAgent = GetNode<NavigationAgent3D>("NavigationAgent3D");
             _blackboard.AttackTrigger = GetNode<AttackTrigger>("AttackTrigger");
             _blackboard.Health = GetNode<Health>("Health");
             _blackboard.AttackHitBox = GetNode<HitBox>("HitBox");
             _blackboard.AudioStreamPlayer = GetNode<AudioStreamPlayer3D>("AudioStreamPlayer3D");
             _blackboard.AnimTree = GetNode<AnimationTree>("AnimationTree");
             _blackboard.AnimStateMachine = (AnimationNodeStateMachinePlayback)_blackboard.AnimTree.Get("parameters/playback");
-            _blackboard.VisibilityNotifier = GetNode<VisibilityNotifier>("VisibilityNotifier");
+            _blackboard.VisibleOnScreenNotifier3D = GetNode<VisibleOnScreenNotifier3D>("VisibleOnScreenNotifier3D");
             _blackboard.LODSwitcher = _lodSwitcher;
         }
 
@@ -148,15 +148,15 @@ namespace ZombieHoardGame.ZombieCharacter
         private void Die(Node killer, bool wasKilledByCriticalHit)
         {
             _isDead = true;
-            EmitSignal(nameof(Died), this, killer, GlobalTranslation, wasKilledByCriticalHit);
-            GetNode<CollisionShape>("CollisionShape").Disabled = true;
+            EmitSignal(nameof(Died), this, killer, GlobalPosition, wasKilledByCriticalHit);
+            GetNode<CollisionShape3D>("CollisionShape3D").Disabled = true;
 
             if (wasKilledByCriticalHit)
             {
                 // Could spawn with a higher level script similar to the BulletSpawner?
-                GetNode<CompositeEffect>("Body/Armature/Skeleton/BoneAttachHead/HeadshotDeathEffect").Play();
-                GetNode<MeshInstance>("Body/Armature/Skeleton/NeckStump").Show();
-                GetNode<MeshInstance>("Body/Armature/Skeleton/Head").Hide();
+                GetNode<CompositeEffect>("Body/Armature/Skeleton3D/BoneAttachHead/HeadshotDeathEffect").Play();
+                GetNode<MeshInstance3D>("Body/Armature/Skeleton3D/NeckStump").Show();
+                GetNode<MeshInstance3D>("Body/Armature/Skeleton3D/Head").Hide();
             }
 
             _controller.Die();

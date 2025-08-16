@@ -4,10 +4,10 @@ using System;
 
 namespace UI.MultiPage
 {
-    public class Page : Control
+    public partial class Page : Control
     {
         [Signal]
-        public delegate void ChangePageRequested(String pageName);
+        public delegate void ChangePageRequestedEventHandler(String pageName);
 
         [Export]
         public Vector2 Coordinates;

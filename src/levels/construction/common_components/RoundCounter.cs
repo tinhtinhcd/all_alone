@@ -3,10 +3,10 @@ using Godot;
 
 namespace ZombieHoardGame
 {
-    public class RoundCounter : Node
+    public partial class RoundCounter : Node
     {
         [Signal]
-        public delegate void Incremented(int newValue);
+        public delegate void IncrementedEventHandler(int newValue);
         
         public int RoundsStarted{
             private set;

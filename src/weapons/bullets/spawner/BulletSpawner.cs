@@ -3,7 +3,7 @@ using Godot;
 
 namespace Weapons
 {
-    public class BulletSpawner : Node
+    public partial class BulletSpawner : Node
     {
         public bool DoubleProjectileSpawn { set; get; } = false;
 
@@ -14,7 +14,7 @@ namespace Weapons
             _bulletPackedScene = GD.Load<PackedScene>("res://src/weapons/bullets/Bullet.tscn");
         }
         
-        public void SpawnGunShot(Vector3 spawnPoint, Vector3 directionForward, Vector3 directionRight, float spread, Gun originGun, Spatial origin)
+        public void SpawnGunShot(Vector3 spawnPoint, Vector3 directionForward, Vector3 directionRight, float spread, Gun originGun, Node3D origin)
         {
             
             int projectileCount = originGun.ShotProjectileCount;
@@ -28,13 +28,13 @@ namespace Weapons
             }
         }
 
-        private void SpawnBulletProjectile(Vector3 spawnPoint, Vector3 directionForward, Vector3 directionRight, float spread, Gun originGun, Spatial origin)
+        private void SpawnBulletProjectile(Vector3 spawnPoint, Vector3 directionForward, Vector3 directionRight, float spread, Gun originGun, Node3D origin)
         {
             Bullet _newBullet = _bulletPackedScene.Instance<Bullet>();
 
-            float deflection = (float)(Mathf.Deg2Rad(spread * 0.5f) * GD.RandRange(-1, 1));
+            float deflection = (float)(Mathf.DegToRad(spread * 0.5f) * GD.RandfRange(-1, 1));
             Vector3 bulletDirection = directionForward.Rotated(directionRight, deflection);
-            bulletDirection = bulletDirection.Rotated(directionForward, (float)GD.RandRange(0, Mathf.Tau));
+            bulletDirection = bulletDirection.Rotated(directionForward, (float)GD.RandfRange(0, Mathf.Tau));
 
             _newBullet.Velocity = bulletDirection * originGun.ProjectileSpeed;
             _newBullet.Damage = originGun.ProjectileDamage;

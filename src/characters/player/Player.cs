@@ -9,11 +9,11 @@ using HealthSystem;
 
 namespace ZombieHoardGame.PlayerCharacter
 {
-    public class Player : KinematicBody
+    public partial class Player : CharacterBody3D
     {
         /// Signals ///
         [Signal]
-        public delegate void Died(Player player);
+        public delegate void DiedEventHandler(Player player);
 
         /// Enums ///
         public enum GunAnimationState
@@ -30,7 +30,7 @@ namespace ZombieHoardGame.PlayerCharacter
         /// Properties - public, protected, private ///
         public Vector3 Velocity{ set; get; }
         public float MaxFallSpeed {get;} = -30;
-        public float MaxFloorAngle {get;} = Mathf.Deg2Rad(30);
+        public float MaxFloorAngle {get;} = Mathf.DegToRad(30);
         public bool CanShootInCurrentState { set; get; } = true;
 
 
@@ -40,7 +40,7 @@ namespace ZombieHoardGame.PlayerCharacter
         private Head _head;
         private Gun _currentGun;
         private int _currentGunIndex;
-        private Position3D _gunsAnchor;
+        private Marker3D _gunsAnchor;
         private Timer _timerFireRate;
         private Timer _timerReload;
         private Timer _timerSwitchGun;
@@ -48,8 +48,8 @@ namespace ZombieHoardGame.PlayerCharacter
         private List<Gun> _guns = new List<Gun>();
         private int _points;
         private Health _health;
-        private RayCast _interactRay;
-        private Camera _gunCamera;
+        private RayCast3D _interactRay;
+        private Camera3D _gunCamera;
         private AnimationTree _gunAnimTree;
         private AnimationNodeStateMachinePlayback _gunAnimStateMachine;
 
@@ -69,7 +69,7 @@ namespace ZombieHoardGame.PlayerCharacter
         //////////////////////////////
         public override void _Ready()
         {
-            GetNode<Viewport>("CanvasLayer/ViewportContainer/GunViewport").Size = OS.WindowSize;
+            GetNode<SubViewport>("CanvasLayer/SubViewportContainer/GunViewport").Size = DisplayServer.WindowGetSize();
             
             CacheNodeReferences();
             ConnectComponentSignals();
@@ -79,23 +79,23 @@ namespace ZombieHoardGame.PlayerCharacter
 
             _hud.SetHealthComponent(_health);
 
-            _recoilRestZTranslation = _gunsAnchor.Translation.z;
+            _recoilRestZTranslation = _gunsAnchor.Position.Z;
 
             _motionSpreadEffectCeilingSpeedSquared = _motionSpreadEffectCeilingSpeed * _motionSpreadEffectCeilingSpeed;
 
             _gunAnimStateMachine = (AnimationNodeStateMachinePlayback)_gunAnimTree.Get("parameters/playback");
         }
 
-        public override void _Process(float delta)
+        public override void _Process(double delta)
         {
-            _stateMachine.Update(delta);
+            _stateMachine.Update((float)delta);
         }
 
-        public override void _PhysicsProcess(float delta)
+        public override void _PhysicsProcess(double delta)
         {
-            _stateMachine.PhysicsUpdate(delta);
+            _stateMachine.PhysicsUpdate((float)delta);
             CheckInteractRay();
-            ProcessRecoil(delta);
+            ProcessRecoil((float)delta);
             _gunCamera.GlobalTransform = _head.GlobalTransform;
 
             float baseGunSpeadWeight = 1 - ((_motionSpreadEffectCeilingSpeedSquared - Velocity.LengthSquared()) / _motionSpreadEffectCeilingSpeedSquared);
@@ -120,8 +120,8 @@ namespace ZombieHoardGame.PlayerCharacter
 
         public void RotateView(Vector2 rotationValues)
         {
-            RotateY(-rotationValues.x);
-            RotateHeadX(-rotationValues.y);
+            RotateY(-rotationValues.X);
+            RotateHeadX(-rotationValues.Y);
             //_head.AddWeaponSway(rotationValues);
         }
 
@@ -252,9 +252,9 @@ namespace ZombieHoardGame.PlayerCharacter
             _timerSwitchGun = GetNode<Timer>("TimerSwitchGun");
             _hud = GetNode<PlayerHUD>("CanvasLayer/PlayerHUD");
             _health = GetNode<Health>("Health");
-            _interactRay = _head.GetNode<RayCast>("InteractRay");
-            _gunsAnchor = _head.GetNode<Position3D>("Guns");
-            _gunCamera = GetNode<Camera>("CanvasLayer/ViewportContainer/GunViewport/GunCamera");
+            _interactRay = _head.GetNode<RayCast3D>("InteractRay");
+            _gunsAnchor = _head.GetNode<Marker3D>("Guns");
+            _gunCamera = GetNode<Camera3D>("CanvasLayer/SubViewportContainer/GunViewport/GunCamera");
             _gunAnimTree = GetNode<AnimationTree>("Head/GunsAnimationTree");
         }
 
@@ -269,13 +269,13 @@ namespace ZombieHoardGame.PlayerCharacter
 
         private void ConnectComponentSignals()
         {
-            _timerFireRate.Connect("timeout", this, nameof(OnTimerFireRateTimeout));
-            _health.Connect(nameof(Health.Hurt), this, nameof(OnHealthHurt));
+            _timerFireRate.Connect("timeout", new Callable(this, nameof(OnTimerFireRateTimeout)));
+            _health.Connect(nameof(Health.Hurt), new Callable(this, nameof(OnHealthHurt)));
 
-            _userInputComponent.Connect(nameof(UserInput.Reload), this, nameof(OnUserInputReload));
-            _userInputComponent.Connect(nameof(UserInput.Shoot), this, nameof(OnUserInputShoot));
-            _userInputComponent.Connect(nameof(UserInput.SwitchGun), this, nameof(OnUserInputSwitchGun));
-            _userInputComponent.Connect(nameof(UserInput.Interact), this, nameof(OnUserInputInteract));
+            _userInputComponent.Connect(nameof(UserInput.Reload), new Callable(this, nameof(OnUserInputReload)));
+            _userInputComponent.Connect(nameof(UserInput.Shoot), new Callable(this, nameof(OnUserInputShoot)));
+            _userInputComponent.Connect(nameof(UserInput.SwitchGun), new Callable(this, nameof(OnUserInputSwitchGun)));
+            _userInputComponent.Connect(nameof(UserInput.Interact), new Callable(this, nameof(OnUserInputInteract)));
         }
 
         private void SetCurrentGun(int slotIndex)
@@ -303,7 +303,7 @@ namespace ZombieHoardGame.PlayerCharacter
             {
                 _hud.UpdateAmmoLabel(_currentGun.AmmoLoaded, _currentGun.AmmoRemainder);
                 LevelServices.Instance.BulletSpawner.SpawnGunShot(
-                    _head.GlobalTranslation, -GetCameraBasis().z, GetCameraBasis().x, 
+                    _head.GlobalPosition, -GetCameraBasis().Z, GetCameraBasis().X, 
                     spread, _currentGun, this
                 );
                 _timerFireRate.Start(_currentGun.SecondsBetweenShots);
@@ -408,7 +408,7 @@ namespace ZombieHoardGame.PlayerCharacter
             }
         }
 
-        private void Interact(Godot.Object interactiveObject)
+        private void Interact(GodotObject interactiveObject)
         {
             // TODO: Move interact code off the player and onto the interactive objects
             if (interactiveObject is GunWallBuy && _timerSwitchGun.IsStopped() && _timerReload.IsStopped())
@@ -438,13 +438,13 @@ namespace ZombieHoardGame.PlayerCharacter
         {
             if (_recoilTrauma > 0)
             {
-                Vector3 newTranslation = _gunsAnchor.Translation;
-                newTranslation.z = Mathf.Lerp(
+                Vector3 newTranslation = _gunsAnchor.Position;
+                newTranslation.Z = Mathf.Lerp(
                     _recoilRestZTranslation,
                     _recoilRestZTranslation + _recoilZDisplacementMax,
                     _recoilTrauma
                 );
-                _gunsAnchor.Translation = newTranslation;
+                _gunsAnchor.Position = newTranslation;
 
                 IncrementRecoilTrauma(-_recoilRecoveryRate * delta);
             }

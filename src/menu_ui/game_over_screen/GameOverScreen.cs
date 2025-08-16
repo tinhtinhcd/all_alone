@@ -4,12 +4,12 @@ using ZombieHoardGame;
 
 namespace UI
 {
-    public class GameOverScreen : Control
+    public partial class GameOverScreen : Control
     {
         [Signal]
-        public delegate void QuitRequested();
+        public delegate void QuitRequestedEventHandler();
         [Signal]
-        public delegate void RestartRequested();
+        public delegate void RestartRequestedEventHandler();
 
 
         private AnimationPlayer _animPlayer;
@@ -33,7 +33,7 @@ namespace UI
             _labelHeadshot = (Label)FindNode("ValueHeadshot");
             _labelPowerups = (Label)FindNode("ValuePowerup");
             _labelHighRound = (Label)FindNode("LabelHighRound");
-            _labelHighRound.RectPivotOffset = _labelHighRound.RectSize * 0.5f;
+            _labelHighRound.PivotOffset = _labelHighRound.Size * 0.5f;
         }
         
 

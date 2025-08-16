@@ -27,7 +27,7 @@ tracks/0/keys = {
 "start_offset": 0.0,
 "stream": ExtResource( 3 )
 } ],
-"times": PoolRealArray( 0, 539 )
+"times": PackedFloat32Array( 0, 539 )
 }
 tracks/1/type = "audio"
 tracks/1/path = NodePath("AudioStreamPlayer")
@@ -45,11 +45,11 @@ tracks/1/keys = {
 "start_offset": 0.0,
 "stream": ExtResource( 2 )
 } ],
-"times": PoolRealArray( 276, 833 )
+"times": PackedFloat32Array( 276, 833 )
 }
 
 [node name="MusicSystem" type="Node"]
-pause_mode = 2
+process_mode = 3
 script = ExtResource( 5 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

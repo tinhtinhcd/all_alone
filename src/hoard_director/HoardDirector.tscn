@@ -4,7 +4,7 @@
 [ext_resource path="res://src/characters/zombie/Zombie.tscn" type="PackedScene" id=2]
 
 [node name="HoardDirector" type="Node"]
-pause_mode = 1
+process_mode = 1
 script = ExtResource( 1 )
 _zombiePackedScene = ExtResource( 2 )
 

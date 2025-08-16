@@ -4,10 +4,10 @@ using System.Collections.Generic;
 
 namespace GameGeneral.LOD
 {
-    public class Switcher : Spatial
+    public partial class Switcher : Node3D
     {
         [Export]
-        private List<NodePath> _targetNodePaths = new List<NodePath>();
+        private Godot.Collections.Array<NodePath> _targetNodePaths = new Godot.Collections.Array<NodePath>();
         [Export]
         private float _lodDistance2 = 5;
         [Export]
@@ -28,7 +28,7 @@ namespace GameGeneral.LOD
         {
             _pollTimer = GetNode<Timer>("PollTimer");
             _pollTimer.WaitTime = _pollWaitTime;
-            _pollTimer.Connect("timeout", this, nameof(OnPollTimerTimeout));
+            _pollTimer.Connect("timeout", new Callable(this, nameof(OnPollTimerTimeout)));
 
             _lodDistanceSquare2 = Mathf.Pow(_lodDistance2, 2);
             _lodDistanceSquare3 = Mathf.Pow(_lodDistance3, 2);
@@ -57,8 +57,8 @@ namespace GameGeneral.LOD
 
         private void OnPollTimerTimeout()
         {
-            Camera camera = GetViewport().GetCamera();
-            float viewDistanceSquare = GlobalTranslation.DistanceSquaredTo(camera.GlobalTranslation);
+            Camera3D camera = GetViewport().GetCamera3D();
+            float viewDistanceSquare = GlobalPosition.DistanceSquaredTo(camera.GlobalPosition);
             
             int lodLevelTarget = 1;
             if (viewDistanceSquare >= _lodDistanceSquare3)

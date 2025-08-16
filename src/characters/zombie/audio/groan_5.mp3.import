@@ -2,14 +2,18 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-path="res://.import/groan_5.mp3-f41c9cbf548bf6a8598477d656f67e4a.mp3str"
+uid="uid://cj7dh1q5sadb4"
+path="res://.godot/imported/groan_5.mp3-f41c9cbf548bf6a8598477d656f67e4a.mp3str"
 
 [deps]
 
 source_file="res://src/characters/zombie/audio/groan_5.mp3"
-dest_files=[ "res://.import/groan_5.mp3-f41c9cbf548bf6a8598477d656f67e4a.mp3str" ]
+dest_files=["res://.godot/imported/groan_5.mp3-f41c9cbf548bf6a8598477d656f67e4a.mp3str"]
 
 [params]
 
 loop=false
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

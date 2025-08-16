@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/characters/common_components/gib/gib.mesh" type="ArrayMesh" id=1]
-[ext_resource path="res://particle_textures/kenney/scorch_02.png" type="Texture" id=2]
+[ext_resource path="res://particle_textures/kenney/scorch_02.png" type="Texture2D" id=2]
 [ext_resource path="res://src/characters/common_components/headshot_death_effect/CompositeEffect.cs" type="Script" id=3]
 
-[sub_resource type="ParticlesMaterial" id=26]
+[sub_resource type="ParticleProcessMaterial" id=26]
 direction = Vector3( 0, 1, 0 )
 gravity = Vector3( 0, -6, 0 )
 initial_velocity = 2.0
@@ -15,7 +15,7 @@ angle_random = 1.0
 scale = 0.4
 scale_random = 0.8
 
-[sub_resource type="SpatialMaterial" id=27]
+[sub_resource type="StandardMaterial3D" id=27]
 flags_transparent = true
 flags_unshaded = true
 params_billboard_mode = 3
@@ -29,8 +29,8 @@ albedo_texture = ExtResource( 2 )
 material = SubResource( 27 )
 size = Vector2( 0.4, 0.4 )
 
-[node name="HeadshotDeathEffect" type="Spatial"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0 )
+[node name="HeadshotDeathEffect" type="Node3D"]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0 )
 script = ExtResource( 3 )
 
 [node name="Gibs" type="Particles" parent="."]

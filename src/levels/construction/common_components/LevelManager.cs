@@ -9,7 +9,7 @@ using GameGeneral;
 
 namespace ZombieHoardGame
 {
-    public class LevelManager : Node
+    public partial class LevelManager : Node
     {
         /// Exported Fields ///
         [Export]
@@ -120,7 +120,7 @@ namespace ZombieHoardGame
         {
             _player = (Player)_playerPackedScene.Instance();
             AddChild(_player);
-            _player.GlobalTransform = GetNode<Position3D>("PlayerSpawnPoint").GlobalTransform;
+            _player.GlobalTransform = GetNode<Marker3D>("PlayerSpawnPoint").GlobalTransform;
             _player.IncrementPoints(_playerInitialPoints);
         }
 
@@ -137,12 +137,12 @@ namespace ZombieHoardGame
 
         private void ConnectComponentSignals()
         {
-            _player.Connect(nameof(Player.Died), this, nameof(OnPlayerDied));
-            _hoardDirector.Connect(nameof(HoardDirector.AllZombiesKilled), this, nameof(OnHoardDirectorAllZombiesKilled));
-            _pauseMenu.Connect(nameof(UI.PauseMenu.PauseMenu.QuitRequested), this, nameof(OnMenuQuitRequested));
-            _pauseMenu.Connect(nameof(UI.PauseMenu.PauseMenu.RestartRequested), this, nameof(OnMenuRestartRequested));
-            _gameOverScreen.Connect(nameof(UI.GameOverScreen.QuitRequested), this, nameof(OnMenuQuitRequested));
-            _gameOverScreen.Connect(nameof(UI.GameOverScreen.RestartRequested), this, nameof(OnMenuRestartRequested));
+            _player.Connect(nameof(Player.Died), new Callable(this, nameof(OnPlayerDied)));
+            _hoardDirector.Connect(nameof(HoardDirector.AllZombiesKilled), new Callable(this, nameof(OnHoardDirectorAllZombiesKilled)));
+            _pauseMenu.Connect(nameof(UI.PauseMenu.PauseMenu.QuitRequested), new Callable(this, nameof(OnMenuQuitRequested)));
+            _pauseMenu.Connect(nameof(UI.PauseMenu.PauseMenu.RestartRequested), new Callable(this, nameof(OnMenuRestartRequested)));
+            _gameOverScreen.Connect(nameof(UI.GameOverScreen.QuitRequested), new Callable(this, nameof(OnMenuQuitRequested)));
+            _gameOverScreen.Connect(nameof(UI.GameOverScreen.RestartRequested), new Callable(this, nameof(OnMenuRestartRequested)));
         }
 
         private void StartsNewRound()

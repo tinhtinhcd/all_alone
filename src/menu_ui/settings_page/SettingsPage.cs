@@ -4,7 +4,7 @@ using GameGeneral;
 
 namespace UI
 {
-    public class SettingsPage : UI.MultiPage.Page
+    public partial class SettingsPage : UI.MultiPage.Page
     {
         private UserPreferences _userPreferences;
         
@@ -78,7 +78,7 @@ namespace UI
         {
             if (IsActive)
             {
-                _userPreferences.Msaa = (Viewport.MSAA)index;
+                _userPreferences.Msaa = (SubViewport.MSAA)index;
             }
         }
 

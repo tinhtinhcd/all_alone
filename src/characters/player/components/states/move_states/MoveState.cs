@@ -2,7 +2,7 @@ using Godot;
 
 namespace ZombieHoardGame.PlayerCharacter.States
 {
-    public class MoveState : PlayerState
+    public partial class MoveState : PlayerState
     {
         [Export]
         private float _targetSpeedXZ = 5;

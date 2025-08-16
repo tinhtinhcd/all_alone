@@ -4,7 +4,7 @@ using System;
 
 namespace ZombieHoardGame.PlayerCharacter
 {
-    public class PlayerHUD : Control
+    public partial class PlayerHUD : Control
     {
         private Label _labelGunAmmo;
         private Label _labelPoints;
@@ -23,7 +23,7 @@ namespace ZombieHoardGame.PlayerCharacter
         {
             CacheNodeReferences();
             _crosshairShader = (ShaderMaterial)_crosshair.Material;
-            _crosshairShader.SetShaderParam("edgeLength", GetViewportRect().Size.y);
+            _crosshairShader.SetShaderParameter("edgeLength", GetViewportRect().Size.y);
             _progressBarReload.Hide();
         }
 
@@ -32,7 +32,7 @@ namespace ZombieHoardGame.PlayerCharacter
             //_progressBarHealth.MaxValue = playerHealth.PointsMax;
             //_progressBarHealth.Value = playerHealth.Points;
             _trackedHealth = playerHealth;
-            playerHealth.Connect(nameof(HealthSystem.Health.PointsChanged), this, nameof(OnHealthValueChanged));
+            playerHealth.Connect(nameof(HealthSystem.Health.PointsChanged), new Callable(this, nameof(OnHealthValueChanged)));
         }
 
         public void UpdateAmmoLabel(int loaded, int remaining)
@@ -42,7 +42,7 @@ namespace ZombieHoardGame.PlayerCharacter
 
         public void ShowReloadBar(float time)
         {
-            SceneTreeTween tween = GetTree().CreateTween();
+            Tween tween = GetTree().CreateTween();
             tween.TweenCallback(_progressBarReload, "show");
             tween.TweenProperty(_progressBarReload, "value", 100f, time).From(0f);
             tween.TweenCallback(_progressBarReload, "hide");
@@ -57,7 +57,7 @@ namespace ZombieHoardGame.PlayerCharacter
         public void UpdateRoundNumber(int number)
         {
             float tweenHalfTime = 1.2f;
-            SceneTreeTween tween = GetTree().CreateTween();
+            Tween tween = GetTree().CreateTween();
             tween.TweenProperty(_labelRoundNumber, "modulate", Colors.White, tweenHalfTime).From(Colors.Firebrick);
             tween.Parallel().TweenProperty(_labelRoundNumber, "rect_scale", new Vector2(2, 2), tweenHalfTime);
 
@@ -88,7 +88,7 @@ namespace ZombieHoardGame.PlayerCharacter
 		    float pixlesPerDegree = viewportSizeY / camFOV;
             int crosshairDiamiter = (int)Mathf.Floor(pixlesPerDegree * spread); // in pixles
 
-            _crosshairShader.SetShaderParam("innerDiamiter", crosshairDiamiter);
+            _crosshairShader.SetShaderParameter("innerDiamiter", crosshairDiamiter);
         }
 
 
@@ -100,7 +100,7 @@ namespace ZombieHoardGame.PlayerCharacter
             if (effectStrength > 0)
             {
                 _hurtAudio.Play();
-                _hurtAudio.VolumeDb = GD.Linear2Db(effectStrength);
+                _hurtAudio.VolumeDb = GD.LinearToDb(effectStrength);
             }
             else
             {

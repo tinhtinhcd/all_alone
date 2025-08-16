@@ -4,7 +4,7 @@ using GameGeneral.FSM;
 
 namespace ZombieHoardGame.ZombieCharacter.States
 {
-    public class ZombieState : State
+    public partial class ZombieState : State
     {
         public Blackboard Blackboard{
             set { _blackboard = value; }
@@ -21,7 +21,7 @@ namespace ZombieHoardGame.ZombieCharacter.States
             _timerGroanInterval = GetNodeOrNull<Timer>("TimerGroanInterval");
             if (_timerGroanInterval != null)
             {
-                _timerGroanInterval.Connect("timeout", this, nameof(OnTimerGroanIntervalTimeout));
+                _timerGroanInterval.Connect("timeout", new Callable(this, nameof(OnTimerGroanIntervalTimeout)));
             }
         }
 

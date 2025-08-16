@@ -3,7 +3,7 @@ using Godot;
 
 namespace ZombieHoardGame.PlayerCharacter.States
 {
-    public class Sprinting : MoveState
+    public partial class Sprinting : MoveState
     {
         private AudioStreamPlayer _audioBreathing;
         private Timer _maxDurationTimer;
@@ -20,7 +20,7 @@ namespace ZombieHoardGame.PlayerCharacter.States
             _cooldownTimeMax = _cooldownTimer.WaitTime;
         }
 
-        public override void _Process(float delta)
+        public override void _Process(double delta)
         {
             base._Process(delta);
             if (!_cooldownTimer.IsStopped())
@@ -44,7 +44,7 @@ namespace ZombieHoardGame.PlayerCharacter.States
             if (_cooldownTimer.IsStopped())  // TODO: Work cooldown feature into base state machine
             {
                 _maxDurationTimer.Start();
-                _maxDurationTimer.Connect("timeout", this, nameof(OnMaxDurationTimerTimeout));
+                _maxDurationTimer.Connect("timeout", new Callable(this, nameof(OnMaxDurationTimerTimeout)));
             }
             else
             {
@@ -55,12 +55,12 @@ namespace ZombieHoardGame.PlayerCharacter.States
         public override void Exit()
         {
             base.Exit();
-            if (_maxDurationTimer.IsConnected("timeout", this, nameof(OnMaxDurationTimerTimeout)))
+            if (_maxDurationTimer.IsConnected("timeout", new Callable(this, nameof(OnMaxDurationTimerTimeout))))
             {
                 float cooldownProportion = (_maxDurationTimer.WaitTime - _maxDurationTimer.TimeLeft) / _maxDurationTimer.WaitTime;
                 _cooldownTimer.Start(_cooldownTimeMax * cooldownProportion);
                 _maxDurationTimer.Stop();
-                _maxDurationTimer.Disconnect("timeout", this, nameof(OnMaxDurationTimerTimeout));
+                _maxDurationTimer.Disconnect("timeout", new Callable(this, nameof(OnMaxDurationTimerTimeout)));
             }
         }
 
@@ -71,7 +71,7 @@ namespace ZombieHoardGame.PlayerCharacter.States
 
         private void SetBreathingAudioVolume(float volLinear)
         {
-            _audioBreathing.VolumeDb = GD.Linear2Db(volLinear);
+            _audioBreathing.VolumeDb = GD.LinearToDb(volLinear);
             if (volLinear == 0)
             {
                 _audioBreathing.Stop();

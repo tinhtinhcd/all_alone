@@ -4,7 +4,7 @@ using ZombieHoardGame.ZombieCharacter.States;
 
 namespace ZombieHoardGame.ZombieCharacter.FSMController
 {
-    public class Controller : StateMachine
+    public partial class Controller : StateMachine
     {
 
        public Blackboard Blackboard{

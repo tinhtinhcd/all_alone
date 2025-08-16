@@ -2,7 +2,7 @@
 
 [ext_resource path="res://src/power_ups/meshes/max_ammo.mesh" type="ArrayMesh" id=1]
 [ext_resource path="res://src/power_ups/PowerUpData.cs" type="Script" id=2]
-[ext_resource path="res://src/power_ups/icons/max_ammo.png" type="Texture" id=3]
+[ext_resource path="res://src/power_ups/icons/max_ammo.png" type="Texture2D" id=3]
 
 [resource]
 script = ExtResource( 2 )

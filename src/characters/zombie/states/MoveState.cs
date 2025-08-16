@@ -3,7 +3,7 @@ using Godot;
 
 namespace ZombieHoardGame.ZombieCharacter.States
 {
-    public class MoveState : ZombieState
+    public partial class MoveState : ZombieState
     {
         [Export]
         private float _speed = 3;
@@ -13,7 +13,7 @@ namespace ZombieHoardGame.ZombieCharacter.States
                 if (!value.IsEqualApprox(_navTarget))
                 {
                     _navTarget = value;
-                    _blackboard.NavAgent.SetTargetLocation(_navTarget);
+                    _blackboard.NavAgent.SetTargetPosition(_navTarget);
                     _isNavigating = true;
                 }
             }
@@ -26,19 +26,19 @@ namespace ZombieHoardGame.ZombieCharacter.States
         public override void Enter()
         {
             base.Enter();
-            _blackboard.NavAgent.Connect("navigation_finished", this, nameof(OnNavAgentNavigationFinished));
+            _blackboard.NavAgent.Connect("navigation_finished", new Callable(this, nameof(OnNavAgentNavigationFinished)));
         }
 
         public override void Exit()
         {
             base.Exit();
-            _blackboard.NavAgent.Disconnect("navigation_finished", this, nameof(OnNavAgentNavigationFinished));
+            _blackboard.NavAgent.Disconnect("navigation_finished", new Callable(this, nameof(OnNavAgentNavigationFinished)));
         }
 
 
         protected void MoveTowardsNavTarget(float delta)
         {
-            Vector3 targetPosition = _blackboard.NavAgent.GetNextLocation();
+            Vector3 targetPosition = _blackboard.NavAgent.GetNextPathPosition();
             Vector3 direction = _blackboard.Character.GlobalTranslation.DirectionTo(targetPosition);
             Vector3 velocity = direction * _speed;
             _blackboard.Character.MoveAndSlide(velocity, Vector3.Up);

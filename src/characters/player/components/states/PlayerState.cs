@@ -4,7 +4,7 @@ using GameGeneral.FSM;
 
 namespace ZombieHoardGame.PlayerCharacter.States
 {
-    public class PlayerState : State
+    public partial class PlayerState : State
     {
         [Export]
         private bool _canShoot = true;
@@ -13,7 +13,7 @@ namespace ZombieHoardGame.PlayerCharacter.States
         {
             set { 
                 _userInput = value;
-                _userInput.Connect(nameof(UserInput.MouseMotionInputEvent), this, nameof(OnUserInputMouseMotionInputEvent));
+                _userInput.Connect(nameof(UserInput.MouseMotionInputEvent), new Callable(this, nameof(OnUserInputMouseMotionInputEvent)));
             }
         }
 

@@ -4,7 +4,7 @@ using Godot;
 namespace Weapons
 {
     [Tool]
-    public class GunStats : Resource
+    public partial class GunStats : Resource
     {
         [Export]
         public int ProjectileDamage;

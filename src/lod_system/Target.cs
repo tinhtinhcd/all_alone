@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace GameGeneral.LOD
 {
-    public class Target : MeshInstance
+    public partial class Target : MeshInstance3D
     {
         [Export]
         private Mesh _lodMesh2 = null;

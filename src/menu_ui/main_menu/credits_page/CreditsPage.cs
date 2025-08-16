@@ -3,7 +3,7 @@ using Godot;
 
 namespace UI.MainMenu
 {
-    public class CreditsPage : MultiPage.Page
+    public partial class CreditsPage : MultiPage.Page
     {
         private void OnBackButtonPressed()
         {

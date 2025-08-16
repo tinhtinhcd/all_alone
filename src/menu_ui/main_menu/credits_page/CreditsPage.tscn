@@ -14,37 +14,37 @@ anchor_left = 0.020202
 anchor_top = 0.037037
 anchor_right = 0.613131
 anchor_bottom = 0.962963
-custom_constants/separation = 10
+theme_override_constants/separation = 10
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-margin_right = 1138.0
-margin_bottom = 49.0
+offset_right = 1138.0
+offset_bottom = 49.0
 size_flags_vertical = 0
 
 [node name="BtnBack" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_right = 115.0
-margin_bottom = 49.0
+offset_right = 115.0
+offset_bottom = 49.0
 text = "Back"
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="Title" type="Label" parent="VBoxContainer/HBoxContainer"]
-margin_left = 119.0
-margin_right = 1138.0
-margin_bottom = 49.0
+offset_left = 119.0
+offset_right = 1138.0
+offset_bottom = 49.0
 size_flags_horizontal = 3
 theme_type_variation = "Header3"
 text = "Credits"
 align = 2
 
 [node name="PanelContainer" type="Panel" parent="VBoxContainer"]
-margin_top = 59.0
-margin_right = 1138.0
-margin_bottom = 1000.0
+offset_top = 59.0
+offset_right = 1138.0
+offset_bottom = 1000.0
 size_flags_vertical = 3
 __meta__ = {
 "_editor_description_": ""
@@ -56,27 +56,27 @@ anchor_top = 0.0175055
 anchor_right = 0.979408
 anchor_bottom = 0.982495
 size_flags_horizontal = 5
-custom_constants/separation = 20
+theme_override_constants/separation = 20
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/PanelContainer/VBoxContainer"]
-margin_right = 1091.0
-margin_bottom = 733.0
+offset_right = 1091.0
+offset_bottom = 733.0
 size_flags_vertical = 3
 scroll_horizontal_enabled = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer"]
-margin_right = 1079.0
-margin_bottom = 1258.0
+offset_right = 1079.0
+offset_bottom = 1258.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_constants/separation = 25
+theme_override_constants/separation = 25
 
 [node name="LabelCredit9" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
-margin_right = 1079.0
-margin_bottom = 90.0
+offset_right = 1079.0
+offset_bottom = 90.0
 theme_type_variation = "CreditLabel"
 text = "Most 3D model textures
 https://polyhaven.com
@@ -86,9 +86,9 @@ valign = 1
 autowrap = true
 
 [node name="LabelCredit12" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
-margin_top = 115.0
-margin_right = 1079.0
-margin_bottom = 205.0
+offset_top = 115.0
+offset_right = 1079.0
+offset_bottom = 205.0
 theme_type_variation = "CreditLabel"
 text = "Additional 3D model textures 
 Created using images from: https://www.pexels.com
@@ -98,9 +98,9 @@ valign = 1
 autowrap = true
 
 [node name="LabelCredit4" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
-margin_top = 230.0
-margin_right = 1079.0
-margin_bottom = 320.0
+offset_top = 230.0
+offset_right = 1079.0
+offset_bottom = 320.0
 theme_type_variation = "CreditLabel"
 text = "Sound effects
 From: https://www.zapsplat.com
@@ -110,9 +110,9 @@ valign = 1
 autowrap = true
 
 [node name="LabelCredit3" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
-margin_top = 345.0
-margin_right = 1079.0
-margin_bottom = 559.0
+offset_top = 345.0
+offset_right = 1079.0
+offset_bottom = 559.0
 theme_type_variation = "CreditLabel"
 text = "Sound effects
 https://opengameart.org/content/100-cc0-sfx
@@ -126,9 +126,9 @@ valign = 1
 autowrap = true
 
 [node name="LabelCredit8" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
-margin_top = 584.0
-margin_right = 1079.0
-margin_bottom = 705.0
+offset_top = 584.0
+offset_right = 1079.0
+offset_bottom = 705.0
 theme_type_variation = "CreditLabel"
 text = "Zombie sounds
 By: LittleRobotSoundFactory (https://opengameart.org/users/little-robot-sound-factory)
@@ -139,9 +139,9 @@ valign = 1
 autowrap = true
 
 [node name="LabelCredit5" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
-margin_top = 730.0
-margin_right = 1079.0
-margin_bottom = 820.0
+offset_top = 730.0
+offset_right = 1079.0
+offset_bottom = 820.0
 theme_type_variation = "CreditLabel"
 text = "Music
 By: Kevin MacLeod (https://incompetech.com)
@@ -151,9 +151,9 @@ valign = 1
 autowrap = true
 
 [node name="LabelCredit10" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
-margin_top = 845.0
-margin_right = 1079.0
-margin_bottom = 966.0
+offset_top = 845.0
+offset_right = 1079.0
+offset_bottom = 966.0
 theme_type_variation = "CreditLabel"
 text = "Particle textures
 By: Kenney (https://kenney.nl/)
@@ -164,9 +164,9 @@ valign = 1
 autowrap = true
 
 [node name="LabelCredit11" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
-margin_top = 991.0
-margin_right = 1079.0
-margin_bottom = 1112.0
+offset_top = 991.0
+offset_right = 1079.0
+offset_bottom = 1112.0
 theme_type_variation = "CreditLabel"
 text = "Gun 3D models
 By: Quaternius (https://quaternius.com/)
@@ -177,9 +177,9 @@ valign = 1
 autowrap = true
 
 [node name="LabelCredit1" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
-margin_top = 1137.0
-margin_right = 1079.0
-margin_bottom = 1258.0
+offset_top = 1137.0
+offset_right = 1079.0
+offset_bottom = 1258.0
 theme_type_variation = "CreditLabel"
 text = "Main font: Frijole
 By: Sideshow
@@ -190,14 +190,14 @@ valign = 1
 autowrap = true
 
 [node name="HSeparator2" type="HSeparator" parent="VBoxContainer/PanelContainer/VBoxContainer"]
-margin_top = 753.0
-margin_right = 1091.0
-margin_bottom = 757.0
+offset_top = 753.0
+offset_right = 1091.0
+offset_bottom = 757.0
 
 [node name="MadeWithLabel" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer"]
-margin_top = 777.0
-margin_right = 1091.0
-margin_bottom = 836.0
+offset_top = 777.0
+offset_right = 1091.0
+offset_bottom = 836.0
 theme_type_variation = "CreditLabel"
 text = "Made using:
 Godot, Blender, Inkscape, Krita and Audacity"
@@ -205,14 +205,14 @@ align = 1
 autowrap = true
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer/PanelContainer/VBoxContainer"]
-margin_top = 856.0
-margin_right = 1091.0
-margin_bottom = 860.0
+offset_top = 856.0
+offset_right = 1091.0
+offset_bottom = 860.0
 
 [node name="MadeByLabel" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer"]
-margin_top = 880.0
-margin_right = 1091.0
-margin_bottom = 908.0
+offset_top = 880.0
+offset_right = 1091.0
+offset_bottom = 908.0
 theme_type_variation = "CreditLabel"
 text = "Made by: thelastflapjack"
 align = 1

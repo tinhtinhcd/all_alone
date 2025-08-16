@@ -5,10 +5,10 @@ using ZombieHoardGame.PlayerCharacter;
 
 namespace ZombieHoardGame.ZombieCharacter
 {
-    public class AttackTrigger : Area
+    public partial class AttackTrigger : Area3D
     {
         [Signal]
-        public delegate void PlayerEntered(Player player);
+        public delegate void PlayerEnteredEventHandler(Player player);
 
         public bool IsPlayerInside{
             private set;
@@ -17,18 +17,18 @@ namespace ZombieHoardGame.ZombieCharacter
 
         public override void _Ready()
         {
-            Connect("body_entered", this, nameof(OnBodyEntered));
-            Connect("body_exited", this, nameof(OnBodyExited));
+            Connect("body_entered", new Callable(this, nameof(OnBodyEntered)));
+            Connect("body_exited", new Callable(this, nameof(OnBodyExited)));
         }
         
-        private void OnBodyEntered(PhysicsBody body)
+        private void OnBodyEntered(PhysicsBody3D body)
         {
             Debug.Assert(body is Player, "AttackTrigger must only detect Player characters");
             IsPlayerInside = true;
             EmitSignal(nameof(PlayerEntered), (Player)body);
         }
 
-        private void OnBodyExited(PhysicsBody body)
+        private void OnBodyExited(PhysicsBody3D body)
         {
             Debug.Assert(body is Player, "AttackTrigger must only detect Player characters");
             IsPlayerInside = false;

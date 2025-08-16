@@ -5,10 +5,10 @@ using System.Diagnostics;
 
 namespace GameGeneral.FSM
 {
-    public class State : Node
+    public partial class State : Node
     {
         [Signal]
-        public delegate void ChangeStateRequest(String newState);
+        public delegate void ChangeStateRequestEventHandler(String newState);
 
         public virtual void Enter(){}
 
@@ -19,7 +19,7 @@ namespace GameGeneral.FSM
         public virtual void PhysicsUpdate(float delta){}
     }
 
-    public class StateMachine : Node
+    public partial class StateMachine : Node
     {
         [Export]
         private NodePath _initialStateNodePath = null;
@@ -52,12 +52,12 @@ namespace GameGeneral.FSM
         {
             if (_currentState != null)
             {
-                _currentState.Disconnect(nameof(State.ChangeStateRequest), this, nameof(OnChangeStateRequest));
+                _currentState.Disconnect(nameof(State.ChangeStateRequest), new Callable(this, nameof(OnChangeStateRequest)));
                 _currentState.Exit();
             }
 
             _currentState = targetState;
-            _currentState.Connect(nameof(State.ChangeStateRequest), this, nameof(OnChangeStateRequest));
+            _currentState.Connect(nameof(State.ChangeStateRequest), new Callable(this, nameof(OnChangeStateRequest)));
             _currentState.Enter();
         }
 

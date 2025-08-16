@@ -3,7 +3,7 @@ using System;
 
 namespace ZombieHoardGame.PlayerCharacter.States
 {
-    public class Jumping : PlayerState
+    public partial class Jumping : PlayerState
     {
         [Export]
         private float _heightTarget = 1;

@@ -3,7 +3,7 @@ using Godot;
 
 namespace ZombieHoardGame.ZombieCharacter.States
 {
-    public class ClimbThroughWindow : ZombieState
+    public partial class ClimbThroughWindow : ZombieState
     {
         [Export]
         private float climbAnimationLength = 1.25f; // Only reliable way to sync transitions with the animation tree
@@ -35,12 +35,12 @@ namespace ZombieHoardGame.ZombieCharacter.States
             _blackboard.IsInPlayerArea = true;
             _blackboard.Character.EmitSignal(nameof(Zombie.EnteredPlayerArea), _blackboard.Character);
 
-            _blackboard.Character.SetCollisionMaskBit(2, true); // Turn on collision with other zombies
+            _blackboard.Character.SetCollisionMaskValue(2, true); // Turn on collision with other zombies
         }
 
         private async void Climb()
         {
-            _blackboard.Character.SetCollisionMaskBit(1, false); // turn off environment collision
+            _blackboard.Character.SetCollisionMaskValue(1, false); // turn off environment collision
 
             _blackboard.AnimStateMachine.Travel("window_climb");
 
@@ -48,7 +48,7 @@ namespace ZombieHoardGame.ZombieCharacter.States
             await ToSignal(_climbTimer, "timeout");
 
             _blackboard.NavAgent.NavigationLayers = 2; // set to inside
-            _blackboard.Character.SetCollisionMaskBit(1, true); // turn on environment collision
+            _blackboard.Character.SetCollisionMaskValue(1, true); // turn on environment collision
             EmitSignal(nameof(ChangeStateRequest), "Chase");
             
         }

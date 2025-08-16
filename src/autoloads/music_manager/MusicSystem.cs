@@ -4,7 +4,7 @@ using System.Collections.Generic;
 // Basic vesion which just plays a looped animation. Add more advanced features later
 namespace GameGeneral
 {
-    public class MusicSystem : Node
+    public partial class MusicSystem : Node
     {
         // public enum TrackName{
         //     MainMenu, Atmospheric

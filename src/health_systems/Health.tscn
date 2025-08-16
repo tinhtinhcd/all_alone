@@ -2,10 +2,10 @@
 
 [ext_resource path="res://src/health_systems/Health.cs" type="Script" id=1]
 
-[node name="Health" type="Spatial"]
+[node name="Health" type="Node3D"]
 script = ExtResource( 1 )
 
 [node name="RegenDelayTimer" type="Timer" parent="."]
-pause_mode = 1
+process_mode = 1
 process_mode = 0
 one_shot = true

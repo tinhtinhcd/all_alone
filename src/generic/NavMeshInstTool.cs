@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace GameGeneral
 {
     [Tool]
-    public class NavMeshInstTool : NavigationMeshInstance
+    public partial class NavMeshInstTool : NavigationRegion3D
     {
         [Export]
         private bool UpdateSwitch
@@ -22,7 +22,7 @@ namespace GameGeneral
         {
             if (!Engine.EditorHint)
             {
-                GetNode<MeshInstance>("NavArea").QueueFree();
+                GetNode<MeshInstance3D>("NavArea").QueueFree();
             }
         }
 
@@ -30,13 +30,13 @@ namespace GameGeneral
         {
             if (Engine.EditorHint)
             {
-                MeshInstance boundingBox = GetNode<MeshInstance>("NavArea");
+                MeshInstance3D boundingBox = GetNode<MeshInstance3D>("NavArea");
                 AABB filterAabb = new AABB();
                 filterAabb = boundingBox.GetAabb();
                 // Vector3 overflow = new Vector3(Navmesh.AgentRadius, 0, Navmesh.AgentRadius) * 2;
                 // filterAabb.Position -= overflow;
                 // filterAabb.End += overflow;
-                Navmesh.FilterBakingAabb = filterAabb;
+                NavigationMesh.FilterBakingAabb = filterAabb;
                 GD.Print("Baking");
                 BakeNavigationMesh();
             }

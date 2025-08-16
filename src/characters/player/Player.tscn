@@ -11,7 +11,7 @@
 [ext_resource path="res://src/weapons/guns/pistol/Pistol.tscn" type="PackedScene" id=9]
 [ext_resource path="res://world_env_default.tres" type="Environment" id=10]
 [ext_resource path="res://src/characters/player/components/hud/PlayerHUD.tscn" type="PackedScene" id=11]
-[ext_resource path="res://particle_textures/kenney/smoke_08.png" type="Texture" id=12]
+[ext_resource path="res://particle_textures/kenney/smoke_08.png" type="Texture2D" id=12]
 [ext_resource path="res://src/health_systems/hurtbox/HurtBox.tscn" type="PackedScene" id=13]
 [ext_resource path="res://src/health_systems/Health.tscn" type="PackedScene" id=14]
 [ext_resource path="res://src/characters/player/audio/footstep_rand_pitch.tres" type="AudioStream" id=15]
@@ -19,14 +19,14 @@
 [sub_resource type="Animation" id=10]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("Guns:translation")
+tracks/0/path = NodePath("Guns:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Vector3( 0.16, -0.202, -0.363 ) ]
 }
@@ -37,8 +37,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Vector3( 0, 0, 0 ) ]
 }
@@ -48,14 +48,14 @@ resource_name = "idle_loop"
 length = 4.8
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Guns:translation")
+tracks/0/path = NodePath("Guns:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.8, 1.6, 2.4, 3.2, 4, 4.8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.8, 1.6, 2.4, 3.2, 4, 4.8 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector3( 0.16, -0.202, -0.363 ), Vector3( 0.158, -0.2, -0.363 ), Vector3( 0.16, -0.202, -0.363 ), Vector3( 0.162, -0.202, -0.363 ), Vector3( 0.16, -0.202, -0.363 ), Vector3( 0.158, -0.204, -0.363 ), Vector3( 0.16, -0.202, -0.363 ) ]
 }
@@ -66,8 +66,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 4.8 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 4.8 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ) ]
 }
@@ -77,14 +77,14 @@ resource_name = "run_loop"
 length = 0.8
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Guns:translation")
+tracks/0/path = NodePath("Guns:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.2, 0.4, 0.6, 0.8 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector3( 0.16, -0.202, -0.363 ), Vector3( 0.14, -0.217, -0.363 ), Vector3( 0.16, -0.202, -0.363 ), Vector3( 0.18, -0.217, -0.363 ), Vector3( 0.16, -0.202, -0.363 ) ]
 }
@@ -95,8 +95,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.2, 0.4, 0.6, 0.8 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector3( -20, 60, 0 ), Vector3( -23, 60, 5 ), Vector3( -20, 60, 0 ), Vector3( -18, 60, 5 ), Vector3( -20, 60, 0 ) ]
 }
@@ -116,7 +116,7 @@ tracks/2/keys = {
 "start_offset": 0.0,
 "stream": ExtResource( 15 )
 } ],
-"times": PoolRealArray( 0.2, 0.6 )
+"times": PackedFloat32Array( 0.2, 0.6 )
 }
 
 [sub_resource type="Animation" id=12]
@@ -124,14 +124,14 @@ resource_name = "walk_loop"
 length = 1.2
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Guns:translation")
+tracks/0/path = NodePath("Guns:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3, 0.6, 0.9, 1.2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.3, 0.6, 0.9, 1.2 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector3( 0.16, -0.202, -0.363 ), Vector3( 0.145, -0.212, -0.363 ), Vector3( 0.16, -0.202, -0.363 ), Vector3( 0.175, -0.212, -0.363 ), Vector3( 0.16, -0.202, -0.363 ) ]
 }
@@ -142,8 +142,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.3, 0.6, 0.9, 1.2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.3, 0.6, 0.9, 1.2 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector3( 0, 0, 0 ), Vector3( -2, 0, -2 ), Vector3( 0, 0, 0 ), Vector3( -2, 0, 2 ), Vector3( 0, 0, 0 ) ]
 }
@@ -163,7 +163,7 @@ tracks/2/keys = {
 "start_offset": 0.0,
 "stream": ExtResource( 15 )
 } ],
-"times": PoolRealArray( 0.3, 0.9 )
+"times": PackedFloat32Array( 0.3, 0.9 )
 }
 
 [sub_resource type="AnimationNodeAnimation" id=14]
@@ -206,22 +206,22 @@ graph_offset = Vector2( -157, -118 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=31]
 
-[sub_resource type="CapsuleShape" id=1]
+[sub_resource type="CapsuleShape3D" id=1]
 radius = 0.3
 height = 1.2
 
-[sub_resource type="CylinderShape" id=2]
+[sub_resource type="CylinderShape3D" id=2]
 height = 1.59696
 radius = 0.248136
 
 [sub_resource type="Gradient" id=7]
-offsets = PoolRealArray( 0, 0.268608, 0.7411, 1 )
-colors = PoolColorArray( 0.372549, 0.372549, 0.372549, 0, 0.317647, 0.317647, 0.317647, 0.670588, 0.317647, 0.317647, 0.317647, 0.670588, 0.372549, 0.372549, 0.372549, 0 )
+offsets = PackedFloat32Array( 0, 0.268608, 0.7411, 1 )
+colors = PackedColorArray( 0.372549, 0.372549, 0.372549, 0, 0.317647, 0.317647, 0.317647, 0.670588, 0.317647, 0.317647, 0.317647, 0.670588, 0.372549, 0.372549, 0.372549, 0 )
 
-[sub_resource type="GradientTexture" id=32]
+[sub_resource type="GradientTexture2D" id=32]
 gradient = SubResource( 7 )
 
-[sub_resource type="ParticlesMaterial" id=8]
+[sub_resource type="ParticleProcessMaterial" id=8]
 emission_shape = 2
 emission_box_extents = Vector3( 16, 1.5, 16 )
 spread = 180.0
@@ -236,7 +236,7 @@ scale = 8.0
 scale_random = 1.0
 color_ramp = SubResource( 32 )
 
-[sub_resource type="SpatialMaterial" id=33]
+[sub_resource type="StandardMaterial3D" id=33]
 flags_transparent = true
 flags_unshaded = true
 vertex_color_use_as_albedo = true
@@ -251,8 +251,8 @@ albedo_texture = ExtResource( 12 )
 material = SubResource( 33 )
 size = Vector2( 2, 2 )
 
-[node name="Player" type="KinematicBody"]
-pause_mode = 1
+[node name="Player" type="CharacterBody3D"]
+process_mode = 1
 collision_layer = 2
 collision_mask = 5
 script = ExtResource( 1 )
@@ -260,19 +260,19 @@ _starterGunPackedScene = ExtResource( 9 )
 
 [node name="AudioFootStep" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource( 15 )
-unit_db = 3.0
+volume_db = 3.0
 unit_size = 4.0
 bus = "SoundEffects"
 
 [node name="Head" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0 )
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0 )
 
-[node name="Guns" type="Position3D" parent="Head"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16, -0.202, -0.363 )
+[node name="Guns" type="Marker3D" parent="Head"]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16, -0.202, -0.363 )
 
-[node name="InteractRay" type="RayCast" parent="Head"]
+[node name="InteractRay" type="RayCast3D" parent="Head"]
 enabled = true
-cast_to = Vector3( 0, 0, -1.2 )
+target_position = Vector3( 0, 0, -1.2 )
 collision_mask = 32
 collide_with_areas = true
 
@@ -290,8 +290,8 @@ active = true
 process_mode = 0
 parameters/playback = SubResource( 31 )
 
-[node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.9, 0 )
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.9, 0 )
 shape = SubResource( 1 )
 
 [node name="Health" parent="." instance=ExtResource( 14 )]
@@ -300,14 +300,14 @@ _regenDelay = 5.0
 _hurtBoxNodePaths = [ NodePath("HurtBox") ]
 
 [node name="HurtBox" parent="Health" instance=ExtResource( 13 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
 _damageLayers = 1
 
-[node name="CollisionShape" type="CollisionShape" parent="Health/HurtBox"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Health/HurtBox"]
 shape = SubResource( 2 )
 
 [node name="SmokeParticles" type="Particles" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13552, -2.8324 )
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13552, -2.8324 )
 amount = 18
 lifetime = 16.0
 preprocess = 8.0
@@ -352,19 +352,19 @@ one_shot = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ViewportContainer" type="ViewportContainer" parent="CanvasLayer"]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="GunViewport" type="Viewport" parent="CanvasLayer/ViewportContainer"]
+[node name="GunViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer"]
 transparent_bg = true
 handle_input_locally = false
 render_target_update_mode = 3
 shadow_atlas_size = 4096
 
-[node name="GunCamera" type="Camera" parent="CanvasLayer/ViewportContainer/GunViewport"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6823, 0 )
+[node name="GunCamera" type="Camera3D" parent="CanvasLayer/SubViewportContainer/GunViewport"]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6823, 0 )
 cull_mask = 2
 environment = ExtResource( 10 )
 

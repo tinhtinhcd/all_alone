@@ -3,7 +3,7 @@ using Godot;
 
 namespace UI
 {
-    public class ControlsPage : UI.MultiPage.Page
+    public partial class ControlsPage : UI.MultiPage.Page
     {
         private void OnBackButtonPressed()
         {

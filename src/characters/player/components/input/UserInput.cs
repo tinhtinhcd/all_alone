@@ -3,18 +3,18 @@ using GameGeneral;
 
 namespace ZombieHoardGame.PlayerCharacter
 {
-    public class UserInput : Node
+    public partial class UserInput : Node
     {
         [Signal]
-        public delegate void MouseMotionInputEvent(Vector2 rotation);
+        public delegate void MouseMotionInputEventEventHandler(Vector2 rotation);
         [Signal]
-        public delegate void Reload();
+        public delegate void ReloadEventHandler();
         [Signal]
-        public delegate void Shoot();
+        public delegate void ShootEventHandler();
         [Signal]
-        public delegate void SwitchGun();
+        public delegate void SwitchGunEventHandler();
         [Signal]
-        public delegate void Interact();
+        public delegate void InteractEventHandler();
 
         public Vector3 MoveDirectionXZ{
             private set;
@@ -34,7 +34,7 @@ namespace ZombieHoardGame.PlayerCharacter
             _userPreferences = GetNode<UserPreferences>("/root/UserPreferences");
         }
 
-        public override void _PhysicsProcess(float delta)
+        public override void _PhysicsProcess(double delta)
         {
             ReadMoveInputDirection();
         }
@@ -94,8 +94,8 @@ namespace ZombieHoardGame.PlayerCharacter
         private void ReadMoveInputDirection()
         {
             Vector3 inputStrength = new Vector3();
-            inputStrength.z = Input.GetActionRawStrength("player_backward") - Input.GetActionRawStrength("player_forward");
-            inputStrength.x = Input.GetActionRawStrength("player_right") - Input.GetActionRawStrength("player_left");
+            inputStrength.Z = Input.GetActionRawStrength("player_backward") - Input.GetActionRawStrength("player_forward");
+            inputStrength.X = Input.GetActionRawStrength("player_right") - Input.GetActionRawStrength("player_left");
             MoveDirectionXZ = inputStrength.Normalized();
         }
     }

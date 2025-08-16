@@ -5,7 +5,7 @@ using PowerUps;
 
 namespace ZombieHoardGame
 {
-    public class LevelServices : Reference
+    public partial class LevelServices : RefCounted
     {
         public BulletSpawner BulletSpawner;
         public PowerUpSpawner PowerUpSpawner;

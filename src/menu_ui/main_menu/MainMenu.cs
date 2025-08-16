@@ -5,14 +5,14 @@ using GameGeneral;
 
 namespace UI.MainMenu
 {
-    public class MainMenu : MultiPage.Manager
+    public partial class MainMenu : MultiPage.Manager
     {
         public override void _Ready()
         {
             base._Ready();
 
             Home homePage = (Home)_pages["Home"];
-            homePage.Connect(nameof(Home.PlayLevelRequested), this, nameof(OnHomePlayLevelRequested));
+            homePage.Connect(nameof(Home.PlayLevelRequested), new Callable(this, nameof(OnHomePlayLevelRequested)));
         }
 
 

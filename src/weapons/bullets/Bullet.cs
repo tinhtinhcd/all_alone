@@ -1,10 +1,11 @@
 using Godot;
 using HealthSystem;
+using System.Collections.Generic;
 
 
 namespace Weapons
 {
-    public class Bullet : Spatial
+    public partial class Bullet : Node3D
     {
         public Vector3 Velocity { set; get; }
         public int Damage { set; get; }
@@ -17,9 +18,10 @@ namespace Weapons
         private Vector3 _frameMoveVector;
 
         private float _maxRangeSquared;
-        private RayCast _rayCast;
+        private RayCast3D _rayCast;
         private int _penetrationPointsInitial = 100;
         private int _penetrationPoints;
+        private HashSet<CollisionObject3D> _bulletsCanPierceSet = new HashSet<CollisionObject3D>();
 
 
         //////////////////////////////
@@ -30,37 +32,32 @@ namespace Weapons
             _maxRangeSquared = Mathf.Pow(MaxRange, 2);
             _penetrationPoints = _penetrationPointsInitial;
 
-            _rayCast = GetNode<RayCast>("RayCast");
+            _rayCast = GetNode<RayCast3D>("RayCast3D");
 
-            GlobalTranslation = SpawnVector;
+            GlobalPosition = SpawnVector;
         }
 
-        public override void _PhysicsProcess(float delta)
+        public override void _PhysicsProcess(double delta)
         {
-            _frameMoveVector = Velocity * delta;
+            _frameMoveVector = Velocity * (float)delta;
             _rayCast.ClearExceptions();
-            _rayCast.CastTo = _frameMoveVector;
+            _rayCast.TargetPosition = _frameMoveVector;
             _rayCast.ForceRaycastUpdate();
 
             while (_rayCast.IsColliding())
             {
-                Godot.Object collider = _rayCast.GetCollider();
-                if (collider is HurtBox)
-                {
-                    CollideWithHurtBox((HurtBox)collider, delta);
+                CollisionObject3D collider = _rayCast.GetCollider() as CollisionObject3D;
+                if (collider == null || !_bulletsCanPierceSet.Contains(collider))
+                    break;
+                else {
                     _rayCast.AddException(collider);
                     _rayCast.ForceRaycastUpdate();
-                }
-                else
-                {
-                    _penetrationPoints = 0;
-                    Destroy();
                 }
             }
             
             if (_penetrationPoints > 0)
             {
-                Move(delta);
+                Move((float)delta);
             }
         }
 
@@ -70,7 +67,7 @@ namespace Weapons
         //////////////////////////////
         private void Move(float delta)
         {
-            GlobalTranslation += _frameMoveVector;
+            GlobalPosition += _frameMoveVector;
             DistanceVector += _frameMoveVector;
             if (DistanceVector.LengthSquared() > _maxRangeSquared)
             {
@@ -92,7 +89,7 @@ namespace Weapons
 
         private void Destroy()
         {
-            GlobalTranslation = _rayCast.GetCollisionPoint();
+            GlobalPosition = _rayCast.GetCollisionPoint();
             _rayCast.Enabled = false;
             SetPhysicsProcess(false);
             QueueFree();

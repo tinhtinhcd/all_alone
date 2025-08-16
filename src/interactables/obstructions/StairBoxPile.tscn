@@ -3,9 +3,9 @@
 [ext_resource path="res://src/interactables/obstructions/sound_effects/obstruction_clear_1.ogg" type="AudioStream" id=1]
 [ext_resource path="res://src/interactables/obstructions/models/Box.material" type="Material" id=2]
 [ext_resource path="res://src/interactables/obstructions/Obstruction.cs" type="Script" id=3]
-[ext_resource path="res://particle_textures/kenney/smoke_08.png" type="Texture" id=4]
+[ext_resource path="res://particle_textures/kenney/smoke_08.png" type="Texture2D" id=4]
 
-[sub_resource type="BoxShape" id=2]
+[sub_resource type="BoxShape3D" id=2]
 extents = Vector3( 1.40276, 1.50677, 0.699386 )
 
 [sub_resource type="Curve" id=6]
@@ -14,7 +14,7 @@ _data = [ Vector2( 0, 0.0181818 ), 0.0, 0.0, 0, 0, Vector2( 0.204819, 0.981818 )
 [sub_resource type="CurveTexture" id=7]
 curve = SubResource( 6 )
 
-[sub_resource type="ParticlesMaterial" id=3]
+[sub_resource type="ParticleProcessMaterial" id=3]
 emission_shape = 1
 emission_sphere_radius = 0.5
 direction = Vector3( 0, 1, 0 )
@@ -28,7 +28,7 @@ angle = 360.0
 angle_random = 1.0
 scale_curve = SubResource( 7 )
 
-[sub_resource type="SpatialMaterial" id=4]
+[sub_resource type="StandardMaterial3D" id=4]
 flags_transparent = true
 vertex_color_use_as_albedo = true
 params_blend_mode = 1
@@ -60,21 +60,21 @@ surfaces/0 = {
 "vertex_count": 5696
 }
 
-[node name="StairBoxPile" type="StaticBody"]
-pause_mode = 1
+[node name="StairBoxPile" type="StaticBody3D"]
+process_mode = 1
 collision_layer = 33
 script = ExtResource( 3 )
 
-[node name="CollisionShapeBottom" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0469716, 3.19492 )
+[node name="CollisionShapeBottom" type="CollisionShape3D" parent="."]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0469716, 3.19492 )
 shape = SubResource( 2 )
 
-[node name="CollisionShapeTop" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.43333, -4.18901 )
+[node name="CollisionShapeTop" type="CollisionShape3D" parent="."]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.43333, -4.18901 )
 shape = SubResource( 2 )
 
 [node name="ClearEffect" type="Particles" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.14031, -0.476798 )
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.14031, -0.476798 )
 emitting = false
 amount = 48
 lifetime = 2.0
@@ -85,13 +85,13 @@ process_material = SubResource( 3 )
 draw_pass_1 = SubResource( 5 )
 
 [node name="AudioClear" type="AudioStreamPlayer3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13741, 0 )
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13741, 0 )
 stream = ExtResource( 1 )
-unit_db = -10.0
+volume_db = -10.0
 unit_size = 4.0
 bus = "SoundEffects"
 
-[node name="MeshInstance" type="MeshInstance" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource( 1 )
 skeleton = NodePath("")
 material/0 = ExtResource( 2 )

@@ -3,7 +3,7 @@ using Godot;
 
 namespace ZombieHoardGame.ZombieCharacter.States
 {
-    public class MoveToWindowAttack : MoveState
+    public partial class MoveToWindowAttack : MoveState
     {
 
         public override void PhysicsUpdate(float delta)

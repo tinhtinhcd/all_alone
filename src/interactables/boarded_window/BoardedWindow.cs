@@ -7,25 +7,25 @@ using ZombieHoardGame.ZombieCharacter;
 
 namespace ZombieHoardGame
 {
-    public class BoardedWindow : Area, IInteractable
+    public partial class BoardedWindow : Area3D, IInteractable
     {
         /// Signals ///
         [Signal]
-        public delegate void Activated(BoardedWindow window);
+        public delegate void ActivatedEventHandler(BoardedWindow window);
         [Signal]
-        public delegate void QueueFilled(BoardedWindow window);
+        public delegate void QueueFilledEventHandler(BoardedWindow window);
         [Signal]
-        public delegate void QueueAvailable(BoardedWindow window);
+        public delegate void QueueAvailableEventHandler(BoardedWindow window);
         [Signal]
-        public delegate void NextZombieCalled(Zombie zombie);
+        public delegate void NextZombieCalledEventHandler(Zombie zombie);
         [Signal]
-        public delegate void BoardAdded(BoardedWindow window);
+        public delegate void BoardAddedEventHandler(BoardedWindow window);
         [Signal]
-        public delegate void BoardRemoved(BoardedWindow window);
+        public delegate void BoardRemovedEventHandler(BoardedWindow window);
         [Signal]
-        public delegate void FullyBoarded(BoardedWindow window);
+        public delegate void FullyBoardedEventHandler(BoardedWindow window);
         [Signal]
-        public delegate void Cleared(BoardedWindow window);
+        public delegate void ClearedEventHandler(BoardedWindow window);
 
 
         /// Properties - public, protected, private ///
@@ -41,7 +41,7 @@ namespace ZombieHoardGame
             get { return _boardCountUp == _boardCountTotal; }
         }
 
-        public Transform ZombieAttackPointTransform { 
+        public Transform3D ZombieAttackPointTransform { 
             get { return _zombieAttackPoint.GlobalTransform; }
         }
 
@@ -58,14 +58,14 @@ namespace ZombieHoardGame
         private int _boardCountTotal;
         private int _boardCountUp;
         private AnimationPlayer _animPlayer;
-        private List<Transform> _spawnPoints = new List<Transform>();
+        private List<Transform3D> _spawnPoints = new List<Transform3D>();
         private AudioStreamPlayer3D _audioAddBoard;
         private AudioStreamPlayer3D _audioRemoveBoard;
-        private Area _zombieQueueArea;
-        private List<Position3D> _allQueuePoints = new List<Position3D>();
-        private Position3D _zombieAttackPoint;
-        private List<Position3D> _availableQueuePoints = new List<Position3D>();
-        private Dictionary<Zombie, Position3D> _queuePointReserver = new Dictionary<Zombie, Position3D>();
+        private Area3D _zombieQueueArea;
+        private List<Marker3D> _allQueuePoints = new List<Marker3D>();
+        private Marker3D _zombieAttackPoint;
+        private List<Marker3D> _availableQueuePoints = new List<Marker3D>();
+        private Dictionary<Zombie, Marker3D> _queuePointReserver = new Dictionary<Zombie, Marker3D>();
         private List<Zombie> _zombieQueue = new List<Zombie>();
         private Zombie _attackingZombie;
         private bool _isAttackPointOccupied;
@@ -76,11 +76,11 @@ namespace ZombieHoardGame
         //////////////////////////////
         public override void _Ready()
         {
-            GetNode<MeshInstance>("BuildGuide").QueueFree();
+            GetNode<MeshInstance3D>("BuildGuide").QueueFree();
 
             IsActive = false;
             CacheNodeReferences();
-            _zombieQueueArea.Connect("body_entered", this, nameof(OnQueueAreaBodyEntered));
+            _zombieQueueArea.Connect("body_entered", new Callable(this, nameof(OnQueueAreaBodyEntered)));
 
             _isAttackPointOccupied = false;
             IsAttackPointReserved = false;
@@ -90,7 +90,7 @@ namespace ZombieHoardGame
             {
                 if (child.IsInGroup("spawn_point"))
                 {
-                    Spatial newPoint = (Spatial)child;
+                    Node3D newPoint = (Node3D)child;
                     _spawnPoints.Add(newPoint.GlobalTransform);
                     newPoint.QueueFree();
                 }
@@ -155,10 +155,10 @@ namespace ZombieHoardGame
             }
         }
 
-        public void ZombieReserveQueuePoint(Zombie queueingZombie, Position3D queuePoint)
+        public void ZombieReserveQueuePoint(Zombie queueingZombie, Marker3D queuePoint)
         {
             ReserveQueuePoint(queueingZombie, queuePoint);
-            queueingZombie.Connect(nameof(Zombie.Died), this, nameof(OnQueueingZombieDied));
+            queueingZombie.Connect(nameof(Zombie.Died), new Callable(this, nameof(OnQueueingZombieDied)));
         }
 
         public void ZombieReserveAttackPoint(Zombie reserver)
@@ -168,21 +168,21 @@ namespace ZombieHoardGame
             _attackingZombie = reserver;
 
             IsAttackPointReserved = true;
-            _attackingZombie.Disconnect(nameof(Zombie.Died), this, nameof(OnQueueingZombieDied));
-            _attackingZombie.Connect(nameof(Zombie.Died), this, nameof(OnAttackingZombieDied));
-            _attackingZombie.Connect(nameof(Zombie.EnteredPlayerArea), this, nameof(OnAttackingZombieEnteredPlayerArea));
+            _attackingZombie.Disconnect(nameof(Zombie.Died), new Callable(this, nameof(OnQueueingZombieDied)));
+            _attackingZombie.Connect(nameof(Zombie.Died), new Callable(this, nameof(OnAttackingZombieDied)));
+            _attackingZombie.Connect(nameof(Zombie.EnteredPlayerArea), new Callable(this, nameof(OnAttackingZombieEnteredPlayerArea)));
         }
 
-        public Transform RandomSpawnTransform()
+        public Transform3D RandomSpawnTransform()
         {
             Random rng = new Random();
             return _spawnPoints[rng.Next(0, _spawnPoints.Count)];
         }
 
-        public Position3D RandomAvailableQueuePoint()
+        public Marker3D RandomAvailableQueuePoint()
         {
             Random rng = new Random();
-            Position3D randQueuePoint =  _allQueuePoints[rng.Next(0, _allQueuePoints.Count)];
+            Marker3D randQueuePoint =  _allQueuePoints[rng.Next(0, _allQueuePoints.Count)];
             return randQueuePoint;
         }
 
@@ -202,7 +202,7 @@ namespace ZombieHoardGame
         //////////////////////////////
         // Signal Connected Methods //
         //////////////////////////////
-        private void OnQueueAreaBodyEntered(PhysicsBody body)
+        private void OnQueueAreaBodyEntered(PhysicsBody3D body)
         {
             Debug.Assert(body is Zombie, "ZombieQueueArea should only detect zombies");
             if(!IsAttackPointReserved)
@@ -239,17 +239,17 @@ namespace ZombieHoardGame
         //////////////////////////////
         private void CacheNodeReferences()
         {
-            _boardCountTotal = GetNode<Spatial>("Boards").GetChildCount();
+            _boardCountTotal = GetNode<Node3D>("Boards").GetChildCount();
             _boardCountUp = _boardCountTotal;
             _animPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
-            _zombieAttackPoint = GetNode<Position3D>("ZombieAttackPoint");
+            _zombieAttackPoint = GetNode<Marker3D>("ZombieAttackPoint");
             _audioAddBoard = GetNode<AudioStreamPlayer3D>("AudioStreamAddBoard");
             _audioRemoveBoard = GetNode<AudioStreamPlayer3D>("AudioStreamRemoveBoard");
-            _zombieQueueArea = GetNode<Area>("ZombieQueueArea");
-            _allQueuePoints.Add(GetNode<Position3D>("ZombieQueuePoint1"));
-            _allQueuePoints.Add(GetNode<Position3D>("ZombieQueuePoint2"));
-            _allQueuePoints.Add(GetNode<Position3D>("ZombieQueuePoint3"));
-            _allQueuePoints.Add(GetNode<Position3D>("ZombieQueuePoint4"));
+            _zombieQueueArea = GetNode<Area3D>("ZombieQueueArea");
+            _allQueuePoints.Add(GetNode<Marker3D>("ZombieQueuePoint1"));
+            _allQueuePoints.Add(GetNode<Marker3D>("ZombieQueuePoint2"));
+            _allQueuePoints.Add(GetNode<Marker3D>("ZombieQueuePoint3"));
+            _allQueuePoints.Add(GetNode<Marker3D>("ZombieQueuePoint4"));
         }
 
         private void CallNextZombieInQueue()
@@ -262,7 +262,7 @@ namespace ZombieHoardGame
             }
         }
 
-        private void ReserveQueuePoint(Zombie reserver, Position3D queuePoint)
+        private void ReserveQueuePoint(Zombie reserver, Marker3D queuePoint)
         {
             Debug.Assert(_availableQueuePoints.Contains(queuePoint), "Zombie attempted to reserve an unavaliable queue point");
 
@@ -278,7 +278,7 @@ namespace ZombieHoardGame
 
         private void UnreserveQueuePoint(Zombie reserver)
         {
-            Position3D queuePoint = _queuePointReserver[reserver];
+            Marker3D queuePoint = _queuePointReserver[reserver];
             _availableQueuePoints.Add(queuePoint);
             _queuePointReserver.Remove(reserver);
             _zombieQueue.Remove(reserver);

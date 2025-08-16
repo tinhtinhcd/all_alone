@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace UI.MainMenu
 {
-    public class LevelSelect : MultiPage.Page
+    public partial class LevelSelect : MultiPage.Page
     {
         /// Signals ///
 
@@ -38,12 +38,12 @@ namespace UI.MainMenu
             return;
         }
 
-        public override void _Process(float delta)
+        public override void _Process(double delta)
         {
             return;
         }
 
-        public override void _PhysicsProcess(float delta)
+        public override void _PhysicsProcess(double delta)
         {
             return;
         }

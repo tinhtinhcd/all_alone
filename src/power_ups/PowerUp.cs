@@ -3,16 +3,16 @@ using Godot;
 
 namespace PowerUps
 {
-    public class PowerUp : Area
+    public partial class PowerUp : Area3D
     {
         public enum Type {
             MaxAmmo, DoublePoints, DoubleTap
         }
         
         [Signal]
-        public delegate void CollectedByPlayer(PowerUp powerUp);
+        public delegate void CollectedByPlayerEventHandler(PowerUp powerUp);
         [Signal]
-        public delegate void Timedout(PowerUp powerUp);
+        public delegate void TimedoutEventHandler(PowerUp powerUp);
         
         public PowerUpData ResourceData{
             set{
@@ -25,11 +25,11 @@ namespace PowerUps
             get { return _data.Type; }
         }
 
-        public Texture Icon{
+        public Texture2D Icon{
             get {return _data.Icon; }
         }
 
-        private MeshInstance _meshInst;
+        private MeshInstance3D _meshInst;
         private Timer _timerDespawnWarning;
         private Timer _timerDespawn;
         private AnimationPlayer _animPlayer;
@@ -40,25 +40,25 @@ namespace PowerUps
 
         public override void _Ready()
         {
-            _meshInst = GetNode<MeshInstance>("MeshInstance");
+            _meshInst = GetNode<MeshInstance3D>("MeshInstance3D");
             _timerDespawnWarning = GetNode<Timer>("TimerDespawnWarning");
             _timerDespawn = GetNode<Timer>("TimerDespawn");
             _animPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
 
-            Connect("body_entered", this, nameof(OnBodyEntered));
-            _timerDespawnWarning.Connect("timeout", this, nameof(OnTimerDespawnWarningTimeout));
-            _timerDespawn.Connect("timeout", this, nameof(OnTimerDespawnTimeout));
+            Connect("body_entered", new Callable(this, nameof(OnBodyEntered)));
+            _timerDespawnWarning.Connect("timeout", new Callable(this, nameof(OnTimerDespawnWarningTimeout)));
+            _timerDespawn.Connect("timeout", new Callable(this, nameof(OnTimerDespawnTimeout)));
 
-            _restY = _meshInst.Translation.y;
+            _restY = _meshInst.Position.y;
         }
 
-        public override void _PhysicsProcess(float delta)
+        public override void _PhysicsProcess(double delta)
         {
             _sinTime += delta;
-            Vector3 newTranslation = _meshInst.Translation;
+            Vector3 newTranslation = _meshInst.Position;
             newTranslation.y = _restY + (_sinBobAmplitude * Mathf.Sin(_sinTime * 0.6f));
-            _meshInst.Translation = newTranslation;
-            _meshInst.RotateY(Mathf.Deg2Rad(16 * delta));
+            _meshInst.Position = newTranslation;
+            _meshInst.RotateY(Mathf.DegToRad(16 * delta));
         }
 
         public async void Despawn()
@@ -68,7 +68,7 @@ namespace PowerUps
             QueueFree();
         }
 
-        private void OnBodyEntered(PhysicsBody body)
+        private void OnBodyEntered(PhysicsBody3D body)
         {
             // Collision mask should be set so only colliding wth the player
             _timerDespawn.Stop();

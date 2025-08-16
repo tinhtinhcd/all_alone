@@ -6,7 +6,7 @@ using System.Diagnostics;
 
 namespace UI.MultiPage
 {
-    public class Manager : Control
+    public partial class Manager : Control
     {
         /// Fields - protected or private ///
         protected Dictionary<String, Page> _pages = new Dictionary<String, Page>();
@@ -31,7 +31,7 @@ namespace UI.MultiPage
                     page.Coordinates.x * viewportSize.x,
                     page.Coordinates.y * viewportSize.y
                 );
-                page.RectPosition = pageViewportPosition;
+                page.Position = pageViewportPosition;
 
                 if (_curentPage == null)
                 {
@@ -49,7 +49,7 @@ namespace UI.MultiPage
                 }
             }
 
-            GetViewport().Connect("size_changed", this, nameof(OnViewportSizeChanged));
+            GetViewport().Connect("size_changed", new Callable(this, nameof(OnViewportSizeChanged)));
         }
         
         //////////////////////////////
@@ -60,7 +60,7 @@ namespace UI.MultiPage
             Vector2 viewportSize = GetViewport().Size;
             
             // Move page container
-            _pageContainer.RectPosition = new Vector2(
+            _pageContainer.Position = new Vector2(
                 _curentPage.Coordinates.x * - viewportSize.x,
                 _curentPage.Coordinates.y * - viewportSize.y
             );
@@ -72,7 +72,7 @@ namespace UI.MultiPage
                     page.Coordinates.x * viewportSize.x,
                     page.Coordinates.y * viewportSize.y
                 );
-                page.RectPosition = pageViewportPosition;
+                page.Position = pageViewportPosition;
             }
         }
 
@@ -105,7 +105,7 @@ namespace UI.MultiPage
             );
 
             newPage.Show();
-            SceneTreeTween pageMoveTween = CreateTween();
+            Tween pageMoveTween = CreateTween();
             pageMoveTween.TweenProperty(
                 _pageContainer, "rect_position", coordinateChangeViewport, 1
             ).AsRelative().SetEase(Tween.EaseType.InOut).SetTrans(Tween.TransitionType.Quad);

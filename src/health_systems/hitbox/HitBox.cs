@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace HealthSystem
 {
-    public class HitBox : Area
+    public partial class HitBox : Area3D
     {
         [Export]
         private int _damage = 20;
@@ -15,8 +15,8 @@ namespace HealthSystem
 
         public override void _Ready()
         {
-            Connect("area_entered", this, nameof(OnAreaEntered));
-            Connect("area_exited", this, nameof(OnAreaExited));
+            Connect("area_entered", new Callable(this, nameof(OnAreaEntered)));
+            Connect("area_exited", new Callable(this, nameof(OnAreaExited)));
         }
 
         public void Activate()
@@ -32,7 +32,7 @@ namespace HealthSystem
             return (_damageLayers & compaireBox.DamageLayers) > 0;
         }
 
-        private void OnAreaEntered(Area newArea)
+        private void OnAreaEntered(Area3D newArea)
         {
             if (HasMutualDamageLayer((HurtBox)newArea))
             {
@@ -41,7 +41,7 @@ namespace HealthSystem
         }
 
 
-        private void OnAreaExited(Area newArea)
+        private void OnAreaExited(Area3D newArea)
         {
             if (HasMutualDamageLayer((HurtBox)newArea))
             {

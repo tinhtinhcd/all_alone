@@ -7,7 +7,7 @@ using Weapons;
 namespace GunStatsEditor
 {
     [Tool]
-    public class EditorDock : VBoxContainer
+    public partial class EditorDock : VBoxContainer
     {
         private const String _gunDirectoryPath = "res://src/weapons/guns/";
 
@@ -26,7 +26,7 @@ namespace GunStatsEditor
         {
             List<String> allNames = new List<String>();
 
-            Directory dir = new Directory();
+            DirAccess dir = new DirAccess();
             dir.Open(_gunDirectoryPath);
             dir.ListDirBegin(true, true);
 
@@ -54,7 +54,7 @@ namespace GunStatsEditor
 
                 _statCells.Add(gunName, new Dictionary<String, SpinBox>());
 
-                AddRowTitle(gunName, Label.AlignEnum.Right);
+                AddRowTitle(gunName, HorizontalAlignment.Right);
 
                 AddStatCell(gunName, nameof(GunStats.ProjectileDamage), gunStats.ProjectileDamage);
                 AddStatCell(gunName, nameof(GunStats.FireRate), gunStats.FireRate);
@@ -70,15 +70,15 @@ namespace GunStatsEditor
                 AddStatCell(gunName, nameof(GunStats.IsAutomatic), gunStats.IsAutomatic ? 1 : 0);
                 AddStatCell(gunName, nameof(GunStats.BuyCost), gunStats.BuyCost);
                 
-                AddRowTitle(gunName, Label.AlignEnum.Left);
+                AddRowTitle(gunName, HorizontalAlignment.Left);
             }
         }
 
-        private void AddRowTitle(String gunName, Label.AlignEnum alignment)
+        private void AddRowTitle(String gunName, HorizontalAlignment alignment)
         {
             Label rowTitle = new Label();
             rowTitle.Text = gunName;
-            rowTitle.Align = alignment;
+            rowTitle.HorizontalAlignment = alignment;
             _statsGrid.AddChild(rowTitle);
         }
 

@@ -4,12 +4,12 @@
 [ext_resource path="res://src/power_ups/data/double_points.tres" type="Resource" id=2]
 [ext_resource path="res://src/power_ups/data/max_ammo.tres" type="Resource" id=3]
 [ext_resource path="res://src/power_ups/data/double_tap.tres" type="Resource" id=4]
-[ext_resource path="res://src/power_ups/icons/double_points.png" type="Texture" id=5]
-[ext_resource path="res://src/power_ups/icons/double_tap.png" type="Texture" id=6]
-[ext_resource path="res://src/power_ups/icons/max_ammo.png" type="Texture" id=7]
+[ext_resource path="res://src/power_ups/icons/double_points.png" type="Texture2D" id=5]
+[ext_resource path="res://src/power_ups/icons/double_tap.png" type="Texture2D" id=6]
+[ext_resource path="res://src/power_ups/icons/max_ammo.png" type="Texture2D" id=7]
 
 [node name="PowerUpSpawner" type="Node"]
-pause_mode = 1
+process_mode = 1
 script = ExtResource( 1 )
 _powerUpsData = [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 3 ) ]
 
@@ -36,35 +36,35 @@ anchor_top = 0.806667
 anchor_right = 1.0
 anchor_bottom = 0.898333
 mouse_filter = 2
-custom_constants/separation = 10
+theme_override_constants/separation = 10
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/PowerupIcons"]
-margin_left = 815.0
-margin_right = 905.0
-margin_bottom = 98.0
-rect_min_size = Vector2( 90, 0 )
+offset_left = 815.0
+offset_right = 905.0
+offset_bottom = 98.0
+custom_minimum_size = Vector2( 90, 0 )
 mouse_filter = 2
 texture = ExtResource( 5 )
 expand = true
 
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer/UI/PowerupIcons"]
-margin_left = 915.0
-margin_right = 1005.0
-margin_bottom = 98.0
-rect_min_size = Vector2( 90, 0 )
+offset_left = 915.0
+offset_right = 1005.0
+offset_bottom = 98.0
+custom_minimum_size = Vector2( 90, 0 )
 mouse_filter = 2
 texture = ExtResource( 6 )
 expand = true
 
 [node name="TextureRect3" type="TextureRect" parent="CanvasLayer/UI/PowerupIcons"]
-margin_left = 1015.0
-margin_right = 1105.0
-margin_bottom = 98.0
-rect_min_size = Vector2( 90, 0 )
+offset_left = 1015.0
+offset_right = 1105.0
+offset_bottom = 98.0
+custom_minimum_size = Vector2( 90, 0 )
 mouse_filter = 2
 texture = ExtResource( 7 )
 expand = true

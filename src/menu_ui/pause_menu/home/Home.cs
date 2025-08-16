@@ -3,14 +3,14 @@ using Godot;
 
 namespace UI.PauseMenu
 {
-    public class Home : MultiPage.Page
+    public partial class Home : MultiPage.Page
     {
         [Signal]
-        public delegate void ResumeRequested();
+        public delegate void ResumeRequestedEventHandler();
         [Signal]
-        public delegate void RestartRequested();
+        public delegate void RestartRequestedEventHandler();
         [Signal]
-        public delegate void QuitRequested();
+        public delegate void QuitRequestedEventHandler();
 
 
         public override void _UnhandledInput(InputEvent @event)

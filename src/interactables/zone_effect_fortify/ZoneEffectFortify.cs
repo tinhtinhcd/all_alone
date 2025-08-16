@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace ZombieHoardGame
 {
-    public class ZoneEffectFortify : Area, IInteractable
+    public partial class ZoneEffectFortify : Area3D, IInteractable
     {
         private const int CostPerWindow = 300;
 
@@ -40,8 +40,8 @@ namespace ZombieHoardGame
         {
             foreach (BoardedWindow window in windows)
             {
-                window.Connect(nameof(BoardedWindow.BoardRemoved), this, nameof(OnZoneWindowBoardRemoved));
-                window.Connect(nameof(BoardedWindow.FullyBoarded), this, nameof(OnZoneWindowFullyBoarded));
+                window.Connect(nameof(BoardedWindow.BoardRemoved), new Callable(this, nameof(OnZoneWindowBoardRemoved)));
+                window.Connect(nameof(BoardedWindow.FullyBoarded), new Callable(this, nameof(OnZoneWindowFullyBoarded)));
                 if (!window.IsFullyBoarded)
                 {
                     _validWindows.Add(window);

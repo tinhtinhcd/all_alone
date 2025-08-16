@@ -3,7 +3,7 @@ using Godot;
 
 namespace ZombieHoardGame.ZombieCharacter.States
 {
-    public class Dead : ZombieState
+    public partial class Dead : ZombieState
     {
         [Export]
         private int _despawnDelay = 5;
@@ -12,10 +12,10 @@ namespace ZombieHoardGame.ZombieCharacter.States
         {
             base.Enter();
             await ToSignal(GetTree().CreateTimer(_despawnDelay), "timeout");
-            VisibilityNotifier vn = _blackboard.VisibilityNotifier;
+            VisibleOnScreenNotifier3D vn = _blackboard.VisibleOnScreenNotifier3D;
             if (vn.IsOnScreen())
             {
-                _blackboard.VisibilityNotifier.Connect("screen_exited", this, nameof(OnVisibilityNotifierScreenExited));
+                _blackboard.VisibleOnScreenNotifier3D.Connect("screen_exited", new Callable(this, nameof(OnVisibilityNotifierScreenExited)));
             }
             else
             {

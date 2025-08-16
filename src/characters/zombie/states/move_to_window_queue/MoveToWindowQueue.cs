@@ -3,7 +3,7 @@ using Godot;
 
 namespace ZombieHoardGame.ZombieCharacter.States
 {
-    public class MoveToWindowQueue : MoveState
+    public partial class MoveToWindowQueue : MoveState
     {
 
         public override void PhysicsUpdate(float delta)
@@ -17,12 +17,12 @@ namespace ZombieHoardGame.ZombieCharacter.States
             base.Enter();
             _blackboard.IsInPlayerArea = false;
             _blackboard.NavAgent.NavigationLayers = 1; // set to outside
-            Position3D queuePoint = _blackboard.TargetBoardedWindow.RandomAvailableQueuePoint();
+            Marker3D queuePoint = _blackboard.TargetBoardedWindow.RandomAvailableQueuePoint();
             _blackboard.TargetBoardedWindow.ZombieReserveQueuePoint(_blackboard.Character, queuePoint);
 
-            _blackboard.Character.SetCollisionMaskBit(2, false); // Turn off collision with other zombies
+            _blackboard.Character.SetCollisionMaskValue(2, false); // Turn off collision with other zombies
 
-            _blackboard.TargetBoardedWindow.Connect(nameof(BoardedWindow.NextZombieCalled), this, nameof(OnTargetWindowNextZombieCalled));
+            _blackboard.TargetBoardedWindow.Connect(nameof(BoardedWindow.NextZombieCalled), new Callable(this, nameof(OnTargetWindowNextZombieCalled)));
             NavTarget = queuePoint.GlobalTranslation;
             _blackboard.AnimStateMachine.Travel("walk");
         }
@@ -30,7 +30,7 @@ namespace ZombieHoardGame.ZombieCharacter.States
         public override void Exit()
         {
             base.Exit();
-            _blackboard.TargetBoardedWindow.Disconnect(nameof(BoardedWindow.NextZombieCalled), this, nameof(OnTargetWindowNextZombieCalled));
+            _blackboard.TargetBoardedWindow.Disconnect(nameof(BoardedWindow.NextZombieCalled), new Callable(this, nameof(OnTargetWindowNextZombieCalled)));
         }
 
         protected override void OnNavAgentNavigationFinished()

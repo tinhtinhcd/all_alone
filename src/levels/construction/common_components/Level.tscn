@@ -11,8 +11,8 @@
 [ext_resource path="res://src/power_ups/spawner/PowerUpSpawner.tscn" type="PackedScene" id=16]
 [ext_resource path="res://src/points_awarder/PointsAwarder.tscn" type="PackedScene" id=17]
 
-[node name="Level" type="Spatial"]
-pause_mode = 2
+[node name="Level" type="Node3D"]
+process_mode = 3
 script = ExtResource( 6 )
 _playerPackedScene = ExtResource( 7 )
 
@@ -33,15 +33,15 @@ wait_time = 7.0
 one_shot = true
 
 [node name="Stopwatch" type="Node" parent="."]
-pause_mode = 1
+process_mode = 1
 script = ExtResource( 4 )
 
 [node name="RoundCounter" type="Node" parent="."]
-pause_mode = 1
+process_mode = 1
 script = ExtResource( 5 )
 
 [node name="PointsAwarder" parent="." instance=ExtResource( 17 )]
-pause_mode = 1
+process_mode = 1
 _pointsZombieKill = 30
 _pointsZombieKillOutsidePlayerArea = 10
 _pointsZombieKillByCritical = 50
@@ -59,6 +59,6 @@ _powerUpDropChance = 0.2
 [node name="Zones" type="Node" parent="."]
 
 [node name="WallBuys" type="Node" parent="."]
-pause_mode = 1
+process_mode = 1
 
 [node name="Obstructions" type="Node" parent="."]

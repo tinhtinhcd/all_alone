@@ -6,7 +6,7 @@
 radius = 0.04
 height = 0.08
 
-[sub_resource type="SpatialMaterial" id=16]
+[sub_resource type="StandardMaterial3D" id=16]
 params_cull_mode = 2
 albedo_color = Color( 0.819608, 0.537255, 0.470588, 1 )
 emission_enabled = true
@@ -15,18 +15,18 @@ emission_energy = 1.94
 emission_operator = 0
 emission_on_uv2 = false
 
-[node name="Bullet" type="Spatial"]
-pause_mode = 1
+[node name="Bullet" type="Node3D"]
+process_mode = 1
 script = ExtResource( 2 )
 
-[node name="RayCast" type="RayCast" parent="."]
+[node name="RayCast3D" type="RayCast3D" parent="."]
 visible = false
 enabled = true
-cast_to = Vector3( 0, 0, -1 )
+target_position = Vector3( 0, 0, -1 )
 collision_mask = 73
 collide_with_areas = true
 
-[node name="DebugMeshInstance" type="MeshInstance" parent="."]
+[node name="DebugMeshInstance" type="MeshInstance3D" parent="."]
 cast_shadow = 0
 mesh = SubResource( 14 )
 skeleton = NodePath("")

@@ -4,25 +4,25 @@ using System;
 
 namespace ZombieHoardGame
 {
-    public class Obstruction : StaticBody, IInteractable
+    public partial class Obstruction : StaticBody3D, IInteractable
     {
         [Signal]
-        public delegate void Cleared();
+        public delegate void ClearedEventHandler();
         
         [Export]
         private int _buyCost = 750;
 
         public int BuyCost { get{ return _buyCost; } }
 
-        private Particles _clearEffect;
+        private GpuParticles3D _clearEffect;
         private AudioStreamPlayer3D _audioClear;
-        private NavigationMeshInstance _navMeshInst;
+        private NavigationRegion3D _navMeshInst;
 
         public override void _Ready()
         {
-            _clearEffect = GetNode<Particles>("ClearEffect");
+            _clearEffect = GetNode<GpuParticles3D>("ClearEffect");
             _audioClear = GetNode<AudioStreamPlayer3D>("AudioClear");
-            _navMeshInst = GetNode<NavigationMeshInstance>("NavMeshInst");
+            _navMeshInst = GetNode<NavigationRegion3D>("NavMeshInst");
 
             _navMeshInst.Enabled = false;
         }
@@ -36,13 +36,13 @@ namespace ZombieHoardGame
         {
             _clearEffect.Emitting = true;
             _audioClear.Play();
-            foreach (Spatial child in GetChildren())
+            foreach (Node3D child in GetChildren())
             {
-                if (child is CollisionShape)
+                if (child is CollisionShape3D)
                 {
-                    ((CollisionShape)child).Disabled = true;
+                    ((CollisionShape3D)child).Disabled = true;
                 }
-                else if (child is MeshInstance)
+                else if (child is MeshInstance3D)
                 {
                     child.Hide();
                 }

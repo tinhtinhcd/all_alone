@@ -3,10 +3,10 @@ using Godot;
 
 namespace HealthSystem
 {
-    public class HurtBox : Area
+    public partial class HurtBox : Area3D
     {
         [Signal]
-        public delegate void Hurt(HurtBox box, Node inflictor, int value);
+        public delegate void HurtEventHandler(HurtBox box, Node inflictor, int value);
 
         [Export]
         private bool _isCritical = false;

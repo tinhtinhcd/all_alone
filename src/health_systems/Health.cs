@@ -4,15 +4,15 @@ using System.Collections.Generic;
 
 namespace HealthSystem
 {
-    public class Health : Spatial
+    public partial class Health : Node3D
     {
         // CONSIDER: Emit "HealthEvent" signal which has a reference parameter containing data about the event
         [Signal]
-        public delegate void Hurt(Node inflictor, int value, bool isCritical);
+        public delegate void HurtEventHandler(Node inflictor, int value, bool isCritical);
         [Signal]
-        public delegate void Increased();
+        public delegate void IncreasedEventHandler();
         [Signal]
-        public delegate void PointsChanged();
+        public delegate void PointsChangedEventHandler();
 
         [Export]
         private int _pointsMax = 100;
@@ -21,7 +21,7 @@ namespace HealthSystem
         [Export]
         private float _regenDelay = 3;
         [Export]
-        private List<NodePath> _hurtBoxNodePaths = new List<NodePath>();
+        private Godot.Collections.Array<NodePath> _hurtBoxNodePaths = new Godot.Collections.Array<NodePath>();
 
         public float Points {
             private set;
@@ -44,18 +44,18 @@ namespace HealthSystem
             foreach (NodePath hurtboxNodePath in _hurtBoxNodePaths)
             {
                 HurtBox hurtbox = GetNode<HurtBox>(hurtboxNodePath);
-                hurtbox.Connect(nameof(HurtBox.Hurt), this, nameof(OnHurtBoxHurt));
+                hurtbox.Connect(nameof(HurtBox.Hurt), new Callable(this, nameof(OnHurtBoxHurt)));
             }
 
             _regenDelayTimer = GetNode<Timer>("RegenDelayTimer");
             _regenDelayTimer.WaitTime = _regenDelay;
         }
 
-        public override void _Process(float delta)
+        public override void _Process(double delta)
         {
             if (_regenRate > 0 && Points < PointsMax && _regenDelayTimer.IsStopped())
             {
-                IncrementPoints(delta * _regenRate);
+                IncrementPoints((float)delta * _regenRate);
                 EmitSignal(nameof(Increased));
             }
         }

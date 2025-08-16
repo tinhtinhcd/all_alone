@@ -7,11 +7,11 @@ using ZombieHoardGame.PlayerCharacter;
 
 namespace ZombieHoardGame
 {
-    public class HoardDirector : Node
+    public partial class HoardDirector : Node
     {
         /// Signals ///
         [Signal]
-        public delegate void AllZombiesKilled();
+        public delegate void AllZombiesKilledEventHandler();
 
         /// Exported Fields ///
         [Export]
@@ -50,7 +50,7 @@ namespace ZombieHoardGame
         {
             _spawnTimer = GetNode<Timer>("SpawnTimer");
             _spawnTimer.WaitTime = _zombieSpawnTime;
-            _spawnTimer.Connect("timeout", this, nameof(OnSpawnTimerTimeout));
+            _spawnTimer.Connect("timeout", new Callable(this, nameof(OnSpawnTimerTimeout)));
         }
         
         //////////////////////////////
@@ -69,12 +69,12 @@ namespace ZombieHoardGame
                 {
                     _activeBoardedWindows.Add(window);
                     _availableBoardedWindows.Add(window);
-                    window.Connect(nameof(BoardedWindow.QueueFilled), this, nameof(OnBoardedWindowQueueFilled));
+                    window.Connect(nameof(BoardedWindow.QueueFilled), new Callable(this, nameof(OnBoardedWindowQueueFilled)));
 
                 }
                 else
                 {
-                    window.Connect(nameof(BoardedWindow.Activated), this, nameof(OnBoardedWindowActivated));
+                    window.Connect(nameof(BoardedWindow.Activated), new Callable(this, nameof(OnBoardedWindowActivated)));
                 }
             }
         }
@@ -160,21 +160,21 @@ namespace ZombieHoardGame
         {
             _activeBoardedWindows.Add(window);
             _availableBoardedWindows.Add(window);
-            window.Connect(nameof(BoardedWindow.QueueFilled), this, nameof(OnBoardedWindowQueueFilled));
+            window.Connect(nameof(BoardedWindow.QueueFilled), new Callable(this, nameof(OnBoardedWindowQueueFilled)));
         }
 
         private void OnBoardedWindowQueueFilled(BoardedWindow window)
         {
             _availableBoardedWindows.Remove(window);
-            window.Disconnect(nameof(BoardedWindow.QueueFilled), this, nameof(OnBoardedWindowQueueFilled));
-            window.Connect(nameof(BoardedWindow.QueueAvailable), this, nameof(OnBoardedWindowQueueAvailable));
+            window.Disconnect(nameof(BoardedWindow.QueueFilled), new Callable(this, nameof(OnBoardedWindowQueueFilled)));
+            window.Connect(nameof(BoardedWindow.QueueAvailable), new Callable(this, nameof(OnBoardedWindowQueueAvailable)));
         }
 
         private void OnBoardedWindowQueueAvailable(BoardedWindow window)
         {
             _availableBoardedWindows.Add(window);
-            window.Disconnect(nameof(BoardedWindow.QueueAvailable), this, nameof(OnBoardedWindowQueueAvailable));
-            window.Connect(nameof(BoardedWindow.QueueFilled), this, nameof(OnBoardedWindowQueueFilled));
+            window.Disconnect(nameof(BoardedWindow.QueueAvailable), new Callable(this, nameof(OnBoardedWindowQueueAvailable)));
+            window.Connect(nameof(BoardedWindow.QueueFilled), new Callable(this, nameof(OnBoardedWindowQueueFilled)));
         }
 
         //////////////////////////////
@@ -196,8 +196,8 @@ namespace ZombieHoardGame
             
             AddChild(newZombie);
             _zombies.Add(newZombie);
-            newZombie.Connect(nameof(Zombie.Died), this, nameof(OnZombiedDied));
-            newZombie.Connect(nameof(Zombie.PlayerPositionUpdateRequest), this, nameof(OnZombiePlayerPositionUpdateRequested));
+            newZombie.Connect(nameof(Zombie.Died), new Callable(this, nameof(OnZombiedDied)));
+            newZombie.Connect(nameof(Zombie.PlayerPositionUpdateRequest), new Callable(this, nameof(OnZombiePlayerPositionUpdateRequested)));
             newZombie.GlobalTransform = destinationWindow.RandomSpawnTransform();
 
             _zombieSpawnsAllowed--;

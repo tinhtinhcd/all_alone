@@ -3,7 +3,7 @@ using System;
 
 namespace ZombieHoardGame.PlayerCharacter.States
 {
-    public class Idling : PlayerState
+    public partial class Idling : PlayerState
     {
          
         [Export]

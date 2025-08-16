@@ -3,12 +3,12 @@ using Godot;
 
 namespace UI.PauseMenu
 {
-    public class PauseMenu : MultiPage.Manager
+    public partial class PauseMenu : MultiPage.Manager
     {
         [Signal]
-        public delegate void QuitRequested();
+        public delegate void QuitRequestedEventHandler();
         [Signal]
-        public delegate void RestartRequested();
+        public delegate void RestartRequestedEventHandler();
 
         private AnimationPlayer _animPlayer = null;
 
@@ -21,9 +21,9 @@ namespace UI.PauseMenu
             _animPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
 
             Home homePage = (Home)_pages["Home"];
-            homePage.Connect(nameof(Home.ResumeRequested), this, nameof(OnResumeRequested));
-            homePage.Connect(nameof(Home.RestartRequested), this, nameof(OnRestartRequested));
-            homePage.Connect(nameof(Home.QuitRequested), this, nameof(OnQuitRequested));
+            homePage.Connect(nameof(Home.ResumeRequested), new Callable(this, nameof(OnResumeRequested)));
+            homePage.Connect(nameof(Home.RestartRequested), new Callable(this, nameof(OnRestartRequested)));
+            homePage.Connect(nameof(Home.QuitRequested), new Callable(this, nameof(OnQuitRequested)));
         }
         
         //////////////////////////////

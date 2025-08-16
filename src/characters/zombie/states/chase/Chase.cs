@@ -4,7 +4,7 @@ using ZombieHoardGame.PlayerCharacter;
 
 namespace ZombieHoardGame.ZombieCharacter.States
 {
-    public class Chase : MoveState
+    public partial class Chase : MoveState
     {
         private Timer _navUpdateTimer;
 
@@ -12,7 +12,7 @@ namespace ZombieHoardGame.ZombieCharacter.States
         {
             base._Ready();
             _navUpdateTimer = GetNode<Timer>("TimerNavigationUpdate");
-            _navUpdateTimer.Connect("timeout", this, nameof(OnNavUpdateTimerTimeout));
+            _navUpdateTimer.Connect("timeout", new Callable(this, nameof(OnNavUpdateTimerTimeout)));
         }
 
         public override void Enter()
@@ -27,7 +27,7 @@ namespace ZombieHoardGame.ZombieCharacter.States
             }
             else
             {
-                _blackboard.AttackTrigger.Connect(nameof(AttackTrigger.PlayerEntered), this, nameof(OnAttackTriggerPlayerEntered));
+                _blackboard.AttackTrigger.Connect(nameof(AttackTrigger.PlayerEntered), new Callable(this, nameof(OnAttackTriggerPlayerEntered)));
                 _blackboard.AnimStateMachine.Travel("walk");
             }
         }
@@ -35,9 +35,9 @@ namespace ZombieHoardGame.ZombieCharacter.States
         public override void Exit()
         {
             base.Exit();
-            if (_blackboard.AttackTrigger.IsConnected(nameof(AttackTrigger.PlayerEntered), this, nameof(OnAttackTriggerPlayerEntered)))
+            if (_blackboard.AttackTrigger.IsConnected(nameof(AttackTrigger.PlayerEntered), new Callable(this, nameof(OnAttackTriggerPlayerEntered))))
             {
-                _blackboard.AttackTrigger.Disconnect(nameof(AttackTrigger.PlayerEntered), this, nameof(OnAttackTriggerPlayerEntered));
+                _blackboard.AttackTrigger.Disconnect(nameof(AttackTrigger.PlayerEntered), new Callable(this, nameof(OnAttackTriggerPlayerEntered)));
             }
             _navUpdateTimer.Stop();
         }

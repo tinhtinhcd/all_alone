@@ -5,7 +5,7 @@ using ZombieHoardGame.PlayerCharacter;
 
 namespace ZombieHoardGame
 {
-    public class PointsAwarder : Node
+    public partial class PointsAwarder : Node
     {
         [Export]
         private int _pointsZombieKill = 60;

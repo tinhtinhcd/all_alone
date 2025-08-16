@@ -4,7 +4,7 @@ using System;
 
 namespace ZombieHoardGame
 {
-    public class Stopwatch : Node
+    public partial class Stopwatch : Node
     {
         public float ElapsedTime{ get{ return _timeSeconds; } }
         
@@ -13,7 +13,7 @@ namespace ZombieHoardGame
         private float _timeSeconds = 0;
 
 
-        public override void _Process(float delta)
+        public override void _Process(double delta)
         {
             if (!_isStopped)
             {
@@ -34,7 +34,7 @@ namespace ZombieHoardGame
         public String ElapsedTimeFormattedString()
         {
             int timeMinutes = Mathf.FloorToInt(_timeSeconds / 60);
-            float timeRemainderSeconds = Mathf.Stepify(_timeSeconds - (timeMinutes * 60), 0.01f);
+            float timeRemainderSeconds = Mathf.Snapped(_timeSeconds - (timeMinutes * 60), 0.01f);
             return $"{timeMinutes}:{timeRemainderSeconds}";
         }
     }

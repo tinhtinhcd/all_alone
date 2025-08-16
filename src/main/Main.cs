@@ -6,7 +6,7 @@ using System.Diagnostics;
 // Manages loading of and transitions between major secnes
 namespace GameGeneral
 {
-    public class Main : Node
+    public partial class Main : Node
     {
         /// Exported Fields ///
         [Export]
@@ -18,10 +18,10 @@ namespace GameGeneral
 
 
         /// Fields - protected or private ///
-        private ResourceInteractiveLoader _loader;
+        private ResourceLoader.ThreadLoadStatus _loaderStatus;
         private AnimationPlayer _animPlayer;
         private ColorRect _fadeRect;
-        private TextureProgress _progressBar;
+        private TextureProgressBar _progressBar;
         private Timer _loaderPollTimer;
 
 
@@ -90,7 +90,7 @@ namespace GameGeneral
                     break;
 
                 default:
-                    Debug.Assert(false, $"ResourceInteractiveLoader Error: {err.ToString()}");
+                    Debug.Assert(false, $"ResourceLoader Error: {err.ToString()}");
                     break;
             }
         }
@@ -103,7 +103,7 @@ namespace GameGeneral
         {
             _animPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
             _fadeRect = GetNode<ColorRect>("CanvasLayer/ColorRect");
-            _progressBar = GetNode<TextureProgress>("CanvasLayer/TextureProgress");
+            _progressBar = GetNode<TextureProgressBar>("CanvasLayer/TextureProgressBar");
             _loaderPollTimer = GetNode<Timer>("LoaderPollTimer");
         }
 

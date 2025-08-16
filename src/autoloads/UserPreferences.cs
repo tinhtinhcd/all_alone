@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace GameGeneral
 {
-    public class UserPreferences : Node
+    public partial class UserPreferences : Node
     {
 
         /// Enums ///
@@ -37,14 +37,14 @@ namespace GameGeneral
             get { return _borderlessWindow; }
             set {
                 _borderlessWindow = value;
-                OS.WindowBorderless = value;
+                DisplayServer.WindowSetFlag(DisplayServer.WindowFlags.Borderless, value);
             }
         }
         public bool Vsync{
             get { return _vsync; }
             set {
                 _vsync = value;
-                OS.VsyncEnabled = value;
+                DisplayServer.WindowSetVsyncMode(value ? DisplayServer.VSyncMode.Enabled : DisplayServer.VSyncMode.Disabled);
             }
         }
         public bool Fxaa {
@@ -54,7 +54,7 @@ namespace GameGeneral
                 GetViewport().Fxaa = value;
             }
         }
-        public Viewport.MSAA Msaa{
+        public Viewport.Msaa Msaa{
             get { return _msaa; }
             set {
                 _msaa = value;
@@ -77,7 +77,7 @@ namespace GameGeneral
         private bool _borderlessWindow = false;
         private bool _vsync = true;
         private bool _fxaa = true;
-        private Viewport.MSAA _msaa = Viewport.MSAA.Msaa4x;
+        private Viewport.Msaa _msaa = Viewport.Msaa.Msaa4X;
 
         private String _saveFilePath = "user://user_prefs.cfg";
 
@@ -155,19 +155,19 @@ namespace GameGeneral
                 BorderlessWindow = (bool)preferencesFile.GetValue("user_prefs", "borderless_window");
                 Vsync = (bool)preferencesFile.GetValue("user_prefs", "vsync");
                 Fxaa = (bool)preferencesFile.GetValue("user_prefs", "fxaa");
-                Msaa = (Viewport.MSAA)preferencesFile.GetValue("user_prefs", "msaa");
+                Msaa = (SubViewport.MSAA)preferencesFile.GetValue("user_prefs", "msaa");
             } 
 
         }
 
         private float VolumeDBToLinear(float value)
         {
-            return GD.Db2Linear(value - 6);
+            return GD.DbToLinear(value - 6);
         }
 
         private float VolumeLinearToDB(float value)
         {
-            return GD.Linear2Db(value) + 6;
+            return GD.LinearToDb(value) + 6;
         }
     }
 }

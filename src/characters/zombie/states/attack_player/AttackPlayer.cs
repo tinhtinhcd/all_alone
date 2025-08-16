@@ -3,7 +3,7 @@ using Godot;
 
 namespace ZombieHoardGame.ZombieCharacter.States
 {
-    public class AttackPlayer : ZombieState
+    public partial class AttackPlayer : ZombieState
     {
         private Timer _timerAttack;
 
@@ -18,14 +18,14 @@ namespace ZombieHoardGame.ZombieCharacter.States
             base.Enter();
             Attack();
             _timerAttack.Start();
-            _timerAttack.Connect("timeout", this, nameof(OnAttackTimerTimeout));
+            _timerAttack.Connect("timeout", new Callable(this, nameof(OnAttackTimerTimeout)));
         }
 
         public override void Exit()
         {
             base.Exit();
             _timerAttack.Stop();
-            _timerAttack.Disconnect("timeout", this, nameof(OnAttackTimerTimeout));
+            _timerAttack.Disconnect("timeout", new Callable(this, nameof(OnAttackTimerTimeout)));
         }
 
         private void Attack()

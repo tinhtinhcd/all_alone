@@ -5,7 +5,7 @@ using Weapons;
 
 namespace ZombieHoardGame
 {
-    public class GunWallBuy : Area, IInteractable
+    public partial class GunWallBuy : Area3D, IInteractable
     {
 
         /// Properties - public, protected, private ///
@@ -89,7 +89,7 @@ namespace ZombieHoardGame
             _buyGunCost = gun.BuyCost;
             _buyAmmoCost = Mathf.RoundToInt(_buyGunCost * 0.5f);
             String iconFilePath = $"{GunPackedScene.ResourcePath.GetBaseDir()}/icon.png";
-            _iconSprite.Texture = ResourceLoader.Load<Texture>(iconFilePath);
+            _iconSprite.Texture2D = ResourceLoader.Load<Texture2D>(iconFilePath);
             gun.Dispose();
         }
     }

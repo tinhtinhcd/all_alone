@@ -1,15 +1,19 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/footstep.ogg-2c90dd687320c9bffc7883de99191aff.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://btafksdfpji0l"
+path="res://.godot/imported/footstep.ogg-2c90dd687320c9bffc7883de99191aff.oggvorbisstr"
 
 [deps]
 
 source_file="res://src/characters/player/audio/footstep.ogg"
-dest_files=[ "res://.import/footstep.ogg-2c90dd687320c9bffc7883de99191aff.oggstr" ]
+dest_files=["res://.godot/imported/footstep.ogg-2c90dd687320c9bffc7883de99191aff.oggvorbisstr"]
 
 [params]
 
 loop=false
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

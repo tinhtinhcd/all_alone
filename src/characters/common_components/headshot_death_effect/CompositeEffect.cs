@@ -3,7 +3,7 @@ using Godot;
 
 namespace GameGeneral
 {
-    public class CompositeEffect : Spatial
+    public partial class CompositeEffect : Node3D
     {
         public void Play()
         {

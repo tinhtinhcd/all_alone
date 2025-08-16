@@ -4,14 +4,14 @@ using System.Collections.Generic;
 
 namespace ZombieHoardGame
 {
-    public class Zone : Spatial
+    public partial class Zone : Node3D
     {
         [Signal]
-        public delegate void Activated();
+        public delegate void ActivatedEventHandler();
 
         /// Exported Fields ///
         [Export]
-        private List<NodePath> _accessObstructionNodePaths = new List<NodePath>();
+        private Godot.Collections.Array<NodePath> _accessObstructionNodePaths = new Godot.Collections.Array<NodePath>();
         [Export]
         private bool _activateOnReady = false;
 
@@ -27,7 +27,7 @@ namespace ZombieHoardGame
 
         public override void _Ready()
         {
-            GetNode<MeshInstance>("EditorMarker").QueueFree();
+            GetNode<MeshInstance3D>("EditorMarker").QueueFree();
 
             ZoneEffectFortify zoneEffectFortify = null;
             foreach (Node child in GetChildren())
@@ -56,7 +56,7 @@ namespace ZombieHoardGame
                 foreach(NodePath path in _accessObstructionNodePaths)
                 {
                     Obstruction obstruction = GetNode<Obstruction>(path);
-                    obstruction.Connect(nameof(Obstruction.Cleared), this, nameof(OnObstructionCleared));
+                    obstruction.Connect(nameof(Obstruction.Cleared), new Callable(this, nameof(OnObstructionCleared)));
                 }
             }
         }

@@ -6,13 +6,13 @@ using ZombieHoardGame;
 
 namespace PowerUps
 {
-    public class PowerUpSpawner : Node
+    public partial class PowerUpSpawner : Node
     {
         [Signal]
-        public delegate void MaxAmmoCollected();
+        public delegate void MaxAmmoCollectedEventHandler();
 
         [Export]
-        List<PowerUpData> _powerUpsData = new List<PowerUpData>();
+        Godot.Collections.Array<PowerUpData> _powerUpsData = new Godot.Collections.Array<PowerUpData>();
 
         public int TotalPowerupsCollected{ private set; get; } = 0;
 
@@ -21,7 +21,7 @@ namespace PowerUps
         private Timer _timerDoulePoints;
         private HBoxContainer _powerupIconsContainer;
         private Dictionary<PowerUp.Type, TextureRect> _activeIcons = new Dictionary<PowerUp.Type, TextureRect>();
-        private Dictionary<PowerUp.Type, SceneTreeTween> _activeIconTweens = new Dictionary<PowerUp.Type, SceneTreeTween>();
+        private Dictionary<PowerUp.Type, Tween> _activeIconTweens = new Dictionary<PowerUp.Type, Tween>();
 
 
         public override void _Ready()
@@ -46,8 +46,8 @@ namespace PowerUps
             newPowerUp.GlobalTranslation = location;
             newPowerUp.ResourceData = newPowerUpData;
 
-            newPowerUp.Connect(nameof(PowerUp.CollectedByPlayer), this, nameof(OnPowerUpCollectedByPlayer));
-            newPowerUp.Connect(nameof(PowerUp.Timedout), this, nameof(OnPowerUpTimedout));
+            newPowerUp.Connect(nameof(PowerUp.CollectedByPlayer), new Callable(this, nameof(OnPowerUpCollectedByPlayer)));
+            newPowerUp.Connect(nameof(PowerUp.Timedout), new Callable(this, nameof(OnPowerUpTimedout)));
         }
 
         private void OnPowerUpCollectedByPlayer(PowerUp powerUp)
@@ -76,13 +76,13 @@ namespace PowerUps
             powerUp.QueueFree();
         }
 
-        private void ActivateMaxAmmo(Texture icon)
+        private void ActivateMaxAmmo(Texture2D icon)
         {
             LevelServices.Instance.Player.PowerUpEffectEffectMaxAmmo();
             ShowPowerupIcon(PowerUp.Type.MaxAmmo, icon, 0);
         }
 
-        private async void ActivateDoubleTap(Texture icon)
+        private async void ActivateDoubleTap(Texture2D icon)
         {
             ShowPowerupIcon(PowerUp.Type.DoubleTap, icon, _timerDouleTap.WaitTime);
             LevelServices.Instance.BulletSpawner.DoubleProjectileSpawn = true;
@@ -92,7 +92,7 @@ namespace PowerUps
             LevelServices.Instance.BulletSpawner.DoubleProjectileSpawn = false;
         }
 
-        private async void ActivateDoublePoints(Texture icon)
+        private async void ActivateDoublePoints(Texture2D icon)
         {
             ShowPowerupIcon(PowerUp.Type.DoublePoints, icon, _timerDoulePoints.WaitTime);
             LevelServices.Instance.PointsAwarder.DoublePoints = true;
@@ -110,7 +110,7 @@ namespace PowerUps
             _activeIcons.Remove(powerupType);
         }
 
-        private void ShowPowerupIcon(PowerUp.Type powerupType, Texture icon, float duration)
+        private void ShowPowerupIcon(PowerUp.Type powerupType, Texture2D icon, float duration)
         {
             // CONSIDER: Emit a signal for player hud to listen to. Player hud shows icons not spawner
             // Set duration to 0 for powerups which have a one time instant effect like max ammo
@@ -122,12 +122,12 @@ namespace PowerUps
             
             TextureRect iconRect = new TextureRect();
             iconRect.Expand = true;
-            iconRect.RectMinSize = new Vector2(90, 0);
-            iconRect.Texture = icon;
+            iconRect.CustomMinimumSize = new Vector2(90, 0);
+            iconRect.Texture2D = icon;
             _powerupIconsContainer.AddChild(iconRect);
             _activeIcons[powerupType] = iconRect;
 
-            SceneTreeTween iconTween = GetTree().CreateTween();
+            Tween iconTween = GetTree().CreateTween();
             _activeIconTweens[powerupType] = iconTween;
             if (duration > 0)
             {

@@ -16,7 +16,7 @@ __meta__ = {
 anchor_top = 0.0466667
 anchor_right = 1.0
 anchor_bottom = 0.266667
-margin_bottom = -1.52588e-05
+offset_bottom = -1.52588e-05
 theme_type_variation = "Header1"
 text = "All Alone"
 align = 1
@@ -32,40 +32,40 @@ anchor_right = 0.229492
 anchor_bottom = 0.965
 grow_horizontal = 2
 grow_vertical = 2
-custom_constants/separation = 15
+theme_override_constants/separation = 15
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="BtnPlay" type="Button" parent="Buttons"]
-margin_top = 113.0
-margin_right = 371.0
-margin_bottom = 162.0
+offset_top = 113.0
+offset_right = 371.0
+offset_bottom = 162.0
 text = "Play"
 
 [node name="BtnControls" type="Button" parent="Buttons"]
-margin_top = 177.0
-margin_right = 371.0
-margin_bottom = 226.0
+offset_top = 177.0
+offset_right = 371.0
+offset_bottom = 226.0
 text = "Controls"
 
 [node name="BtnSettings" type="Button" parent="Buttons"]
-margin_top = 241.0
-margin_right = 371.0
-margin_bottom = 290.0
+offset_top = 241.0
+offset_right = 371.0
+offset_bottom = 290.0
 text = "Settings"
 
 [node name="BtnCredits" type="Button" parent="Buttons"]
-margin_top = 305.0
-margin_right = 371.0
-margin_bottom = 354.0
+offset_top = 305.0
+offset_right = 371.0
+offset_bottom = 354.0
 text = "Credits"
 
 [node name="BtnQuit" type="Button" parent="Buttons"]
-margin_top = 369.0
-margin_right = 371.0
-margin_bottom = 418.0
+offset_top = 369.0
+offset_right = 371.0
+offset_bottom = 418.0
 text = "Quit"
 
 [connection signal="pressed" from="Buttons/BtnPlay" to="." method="OnBtnPlayPressed"]

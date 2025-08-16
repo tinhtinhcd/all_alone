@@ -4,7 +4,7 @@ using Godot;
 namespace GunStatsEditor
 {
     [Tool]
-    public class Plugin : EditorPlugin
+    public partial class Plugin : EditorPlugin
     {
         
         private EditorDock _dock;
