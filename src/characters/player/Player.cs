@@ -28,7 +28,7 @@ namespace ZombieHoardGame.PlayerCharacter
         private PackedScene _starterGunPackedScene = null;
 
         /// Properties - public, protected, private ///
-        public Vector3 Velocity{ set; get; }
+        new public Vector3 Velocity{ set; get; }
         public float MaxFallSpeed {get;} = -30;
         public float MaxFloorAngle {get;} = Mathf.DegToRad(30);
         public bool CanShootInCurrentState { set; get; } = true;
@@ -69,7 +69,10 @@ namespace ZombieHoardGame.PlayerCharacter
         //////////////////////////////
         public override void _Ready()
         {
-            GetNode<SubViewport>("CanvasLayer/SubViewportContainer/GunViewport").GetViewport().GetVisibleRect().Size = DisplayServer.WindowGetSize();
+            var subViewport = GetNode<SubViewport>("CanvasLayer/SubViewportContainer/GunViewport");
+            var rect = subViewport.GetViewport().GetVisibleRect();
+            rect.Size = DisplayServer.WindowGetSize();
+            // Note: In Godot 4, viewport sizing is handled differently
             
             CacheNodeReferences();
             ConnectComponentSignals();
@@ -302,7 +305,7 @@ namespace ZombieHoardGame.PlayerCharacter
             if (_currentGun.Fire())
             {
                 _hud.UpdateAmmoLabel(_currentGun.AmmoLoaded, _currentGun.AmmoRemainder);
-                LevelServices.Instantiate.BulletSpawner.SpawnGunShot(
+                LevelServices.Instance.BulletSpawner.SpawnGunShot(
                     _head.GlobalPosition, -GetCameraBasis().Z, GetCameraBasis().X, 
                     spread, _currentGun, this
                 );
@@ -316,7 +319,7 @@ namespace ZombieHoardGame.PlayerCharacter
             _currentGun.ReloadStart();
             _timerReload.Start();
             _hud.UpdateAmmoLabel(_currentGun.AmmoLoaded, _currentGun.AmmoRemainder);
-            _hud.ShowReloadBar(_timerReload.WaitTime);
+            _hud.ShowReloadBar((float)(float)_timerReload.WaitTime);
             await ToSignal(_timerReload, "timeout");
             _currentGun.ReloadEnd();
             _hud.UpdateAmmoLabel(_currentGun.AmmoLoaded, _currentGun.AmmoRemainder);
@@ -366,7 +369,7 @@ namespace ZombieHoardGame.PlayerCharacter
 
                 foreach (Gun playerGun in _guns)
                 {
-                    if (playerGun.Filename == gunWallBuy.GunPackedScene.ResourcePath)
+                    if (playerGun.SceneFilePath == gunWallBuy.GunPackedScene.ResourcePath)
                     {
                         playerGun.MaxAmmo();
                         _hud.UpdateAmmoLabel(_currentGun.AmmoLoaded, _currentGun.AmmoRemainder);
@@ -446,7 +449,7 @@ namespace ZombieHoardGame.PlayerCharacter
                 );
                 _gunsAnchor.Position = newTranslation;
 
-                IncrementRecoilTrauma(-_recoilRecoveryRate * delta);
+                IncrementRecoilTrauma(-_recoilRecoveryRate * (float)delta);
             }
         }
     }

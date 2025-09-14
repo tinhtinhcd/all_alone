@@ -18,7 +18,7 @@ namespace UI.MainMenu
 
         private void OnHomePlayLevelRequested(String levelName)
         {
-            Main.Instantiate.TransitionToLevel(levelName);
+            Main.Instance.TransitionToLevel(levelName);
         }
     }
 }

@@ -1,6 +1,5 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=12 format=3]
 
-[ext_resource path="res://src/weapons/guns/Gun.cs" type="Script" id=1]
 [ext_resource path="res://src/weapons/raw_models/Main.material" type="Material" id=2]
 [ext_resource path="res://src/weapons/raw_models/MainDark.material" type="Material" id=3]
 [ext_resource path="res://src/weapons/muzzle_flash_textures/muzzle_flash_1.png" type="Texture2D" id=5]
@@ -12,7 +11,7 @@
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 5 ), ExtResource( 11 ), ExtResource( 10 ) ],
+"frames": [ ExtResource("5"), ExtResource("11"), ExtResource("10") ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -27,7 +26,7 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 2856,
-"material": ExtResource( 2 ),
+"material": ExtResource("2"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 1810
@@ -39,7 +38,7 @@ surfaces/1 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 2490,
-"material": ExtResource( 3 ),
+"material": ExtResource("3"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 1606
@@ -51,15 +50,14 @@ surfaces/2 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 444,
-"material": ExtResource( 6 ),
+"material": ExtResource("6"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 282
 }
 
 [node name="GunSemiAutoRifle" type="Node3D"]
-script = ExtResource( 1 )
-_statsRaw = ExtResource( 7 )
+_statsRaw = ExtResource("7")
 
 [node name="AudioFire" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0570464, -0.537436 )
@@ -69,7 +67,7 @@ bus = "SoundEffects"
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.055855, -0.530792 )
 pixel_size = 0.002
 double_sided = false
-frames = SubResource( 3 )
+frames = SubResource("3")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="MuzzleFlash"]
 light_color = Color( 0.894118, 0.647059, 0.258824, 1 )
@@ -78,9 +76,9 @@ light_energy = 5.731
 [node name="Body" type="MeshInstance3D" parent="."]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0478118, 0.0590616 )
 layers = 2
-mesh = SubResource( 1 )
+mesh = SubResource("1")
 skeleton = NodePath("")
 
 [node name="AudioEmpty" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource( 8 )
+stream = ExtResource("8")
 bus = "SoundEffects"

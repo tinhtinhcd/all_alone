@@ -1,4 +1,5 @@
 using Godot;
+using System;
 using ZombieHoardGame;
 
 
@@ -39,7 +40,7 @@ namespace UI
 
         public async void Popup(int zombiesKilled, int zombiesKilledHeadshot)
         {
-            LevelServices services = LevelServices.Instantiate;
+            LevelServices services = LevelServices.Instance;
             int roundsFinished = services.RoundCounter.RoundsStarted - 1;
             _labelRounds.Text = (roundsFinished).ToString();
             _labelTime.Text = services.Stopwatch.ElapsedTimeFormattedString();

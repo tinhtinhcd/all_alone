@@ -32,15 +32,14 @@ namespace Weapons
         {
             Bullet _newBullet = _bulletPackedScene.Instantiate<Bullet>();
 
-            float deflection = (float)(Mathf.DegToRad(spread * 0.5f) * GD.RandfRange(-1, 1));
+            float deflection = (float)(Mathf.DegToRad(spread * 0.5f) * GD.Randf() * (1 - -1) + -1);
             Vector3 bulletDirection = directionForward.Rotated(directionRight, deflection);
-            bulletDirection = bulletDirection.Rotated(directionForward, (float)GD.RandfRange(0, Mathf.Tau));
+            bulletDirection = bulletDirection.Rotated(directionForward, (float)GD.Randf() * (Mathf.Tau - 0) + 0);
 
             _newBullet.Velocity = bulletDirection * originGun.ProjectileSpeed;
             _newBullet.Damage = originGun.ProjectileDamage;
             _newBullet.SpawnVector = spawnPoint;
             _newBullet.MaxRange = originGun.MaxRange;
-            _newBullet.Origin = origin;
 
             AddChild(_newBullet);
         }

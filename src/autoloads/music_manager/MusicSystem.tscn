@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=3]
 
-[ext_resource path="res://src/autoloads/music_manager/music/Echoes_of_Time_v2.mp3" type="AudioStream" id=1]
-[ext_resource path="res://src/autoloads/music_manager/music/Thunder_Dreams.mp3" type="AudioStream" id=2]
-[ext_resource path="res://src/autoloads/music_manager/music/Penumbra.mp3" type="AudioStream" id=3]
-[ext_resource path="res://src/autoloads/music_manager/music/Ice_Demon.mp3" type="AudioStream" id=4]
-[ext_resource path="res://src/autoloads/music_manager/MusicSystem.cs" type="Script" id=5]
+[ext_resource type="AudioStream" path="res://src/autoloads/music_manager/music/Echoes_of_Time_v2.mp3" id="1"]
+[ext_resource type="AudioStream" path="res://src/autoloads/music_manager/music/Thunder_Dreams.mp3" id="2"]
+[ext_resource type="AudioStream" path="res://src/autoloads/music_manager/music/Penumbra.mp3" id="3"]
+[ext_resource type="AudioStream" path="res://src/autoloads/music_manager/music/Ice_Demon.mp3" id="4"]
 
 [sub_resource type="Animation" id=1]
 resource_name = "music_loop"
@@ -21,11 +20,11 @@ tracks/0/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 1 )
+"stream": ExtResource("1")
 }, {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 3 )
+"stream": ExtResource("3")
 } ],
 "times": PackedFloat32Array( 0, 539 )
 }
@@ -39,23 +38,22 @@ tracks/1/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 4 )
+"stream": ExtResource("4")
 }, {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 2 )
+"stream": ExtResource("2")
 } ],
 "times": PackedFloat32Array( 276, 833 )
 }
 
 [node name="MusicSystem" type="Node"]
 process_mode = 3
-script = ExtResource( 5 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 1 )
+stream = ExtResource("1")
 volume_db = -6.0
 bus = "Music"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/music_loop = SubResource( 1 )
+anims/music_loop = SubResource("1")

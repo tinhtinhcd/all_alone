@@ -60,13 +60,13 @@ namespace GameGeneral
         //     SceneTreeTween fadeTween = GetTree().CreateTween();
         //     if (fadeIn)
         //     {
-        //         fadeTween.TweenCallback(player);
+        //         fadeTween.TweenCallback(Callable.From(() => { Callable.From(player(); })));
         //         fadeTween.TweenProperty(player, "volume_db", 0.0f, fadeTime).From(-20.0f).SetEase(Tween.EaseType.In);
         //     }
         //     else
         //     {
         //         fadeTween.TweenProperty(player, "volume_db", -20.0f, fadeTime).From(0.0f).SetEase(Tween.EaseType.Out);
-        //         fadeTween.TweenCallback(player);
+        //         fadeTween.TweenCallback(Callable.From(() => { Callable.From(player(); })));
         //     }
         //     fadeTween.Play();
         // }

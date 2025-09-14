@@ -1,6 +1,5 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=6 format=3]
 
-[ext_resource path="res://src/menu_ui/game_over_screen/GameOverScreen.cs" type="Script" id=1]
 [ext_resource path="res://src/menu_ui/menu.theme" type="Theme" id=2]
 
 [sub_resource type="Animation" id=1]
@@ -126,9 +125,7 @@ visible = false
 modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( 2 )
-script = ExtResource( 1 )
-
+theme = ExtResource("2")
 [node name="Background" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -297,9 +294,9 @@ offset_bottom = 107.0
 text = "Quit"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/RESET = SubResource( 1 )
-anims/new_highest_round = SubResource( 3 )
-anims/popup = SubResource( 2 )
+anims/RESET = SubResource("1")
+anims/new_highest_round = SubResource("3")
+anims/popup = SubResource("2")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 

@@ -20,9 +20,9 @@ buses/default_bus_layout="res://audio_bus_layout_default.tres"
 
 [autoload]
 
-UserPreferences="*res://src/autoloads/UserPreferences.cs"
+UserPreferences="*res://src/autoloads/UserPreferences.tscn"
 MusicManager="*res://src/autoloads/music_manager/MusicSystem.tscn"
-SavedData="*res://src/autoloads/SavedData.cs"
+SavedData="*res://src/autoloads/SavedData.tscn"
 
 [display]
 
@@ -124,6 +124,5 @@ project/assembly_name="Project"
 [rendering]
 
 textures/canvas_textures/default_texture_filter=2
-renderer/rendering_method="forward_plus"
 anti_aliasing/quality/msaa_3d=2
 environment/defaults/default_environment="res://world_env_default.tres"

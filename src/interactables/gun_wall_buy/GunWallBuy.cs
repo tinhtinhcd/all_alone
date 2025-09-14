@@ -38,7 +38,7 @@ namespace ZombieHoardGame
 
             foreach (Gun playerGun in playerGuns)
             {
-                if (playerGun.Filename == _gunPackedScene.ResourcePath)
+                if (playerGun.SceneFilePath == _gunPackedScene.ResourcePath)
                 {
                     if (playerPoints >= _buyAmmoCost)
                     {

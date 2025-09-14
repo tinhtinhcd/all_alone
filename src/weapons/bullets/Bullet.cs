@@ -39,7 +39,7 @@ namespace Weapons
 
         public override void _PhysicsProcess(double delta)
         {
-            _frameMoveVector = Velocity * (float)delta;
+            _frameMoveVector = Velocity * (float)(float)delta;
             _rayCast.ClearExceptions();
             _rayCast.TargetPosition = _frameMoveVector;
             _rayCast.ForceRaycastUpdate();

@@ -84,7 +84,7 @@ namespace PowerUps
 
         private async void ActivateDoubleTap(Texture2D icon)
         {
-            ShowPowerupIcon(PowerUp.Type.DoubleTap, icon, (float)_timerDouleTap.WaitTime);
+            ShowPowerupIcon(PowerUp.Type.DoubleTap, icon, (float)(float)_timerDouleTap.WaitTime);
             LevelServices.Instance.BulletSpawner.DoubleProjectileSpawn = true;
             _timerDouleTap.Start();
             await ToSignal(_timerDouleTap, "timeout");
@@ -94,7 +94,7 @@ namespace PowerUps
 
         private async void ActivateDoublePoints(Texture2D icon)
         {
-            ShowPowerupIcon(PowerUp.Type.DoublePoints, icon, (float)_timerDoulePoints.WaitTime);
+            ShowPowerupIcon(PowerUp.Type.DoublePoints, icon, (float)(float)_timerDoulePoints.WaitTime);
             LevelServices.Instance.PointsAwarder.DoublePoints = true;
             _timerDoulePoints.Start();
             await ToSignal(_timerDoulePoints, "timeout");

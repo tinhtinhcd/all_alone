@@ -1,4 +1,5 @@
 using Godot;
+using System;
 
 
 namespace ZombieHoardGame.ZombieCharacter.States
@@ -19,7 +20,7 @@ namespace ZombieHoardGame.ZombieCharacter.States
 
         public override void PhysicsUpdate(float delta)
         {
-            _blackboard.Character.Translate(-_blackboard.AnimTree.GetRootMotionPosition().Origin);
+            _blackboard.Character.Translate(-_blackboard.AnimTree.GetRootMotionPosition());
         }
 
         public override void Enter()

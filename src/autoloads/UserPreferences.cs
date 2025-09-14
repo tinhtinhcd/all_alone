@@ -51,14 +51,14 @@ namespace GameGeneral
             get { return _fxaa; }
             set {
                 _fxaa = value;
-                GetViewport().ScreenSpaceAa = value;
+                GetViewport().ScreenSpaceAA = (value ? Viewport.ScreenSpaceAAEnum.Fxaa : Viewport.ScreenSpaceAAEnum.Disabled);
             }
         }
         public Viewport.Msaa Msaa{
             get { return _msaa; }
             set {
                 _msaa = value;
-                GetViewport().Msaa = value;
+                GetViewport().Msaa3D = value;
             }
         }
 
@@ -103,11 +103,11 @@ namespace GameGeneral
 
         public void Save()
         {
-            FileAccess fileChecker = new FileAccess();
-            if (!fileChecker.FileExists(_saveFilePath))
+            FileAccess fileChecker = null;
+            if (!FileAccess.FileExists(_saveFilePath))
             {
                 // Create new file
-                fileChecker.Open(_saveFilePath, FileAccess.ModeFlags.Write);
+                FileAccess.Open(_saveFilePath, FileAccess.ModeFlags.Write);
             }
             fileChecker.Close();
 
@@ -126,7 +126,7 @@ namespace GameGeneral
                 preferencesFile.SetValue("user_prefs", "borderless_window", BorderlessWindow);
                 preferencesFile.SetValue("user_prefs", "vsync", Vsync);
                 preferencesFile.SetValue("user_prefs", "fxaa", Fxaa);
-                preferencesFile.SetValue("user_prefs", "msaa", Msaa);
+                preferencesFile.SetValue("user_prefs", "msaa", (int)Msaa);
 
                 preferencesFile.Save(_saveFilePath);
             }
@@ -155,19 +155,19 @@ namespace GameGeneral
                 BorderlessWindow = (bool)preferencesFile.GetValue("user_prefs", "borderless_window");
                 Vsync = (bool)preferencesFile.GetValue("user_prefs", "vsync");
                 Fxaa = (bool)preferencesFile.GetValue("user_prefs", "fxaa");
-                Msaa = (Viewport.Msaa)preferencesFile.GetValue("user_prefs", "msaa");
+                Msaa = (Viewport.Msaa)(int)preferencesFile.GetValue("user_prefs", "msaa");
             } 
 
         }
 
         private float VolumeDBToLinear(float value)
         {
-            return AudioServer.DbToLinear(value - 6);
+            return Mathf.DbToLinear(value - 6);
         }
 
         private float VolumeLinearToDB(float value)
         {
-            return AudioServer.LinearToDb(value) + 6;
+            return Mathf.LinearToDb(value) + 6;
         }
     }
 }

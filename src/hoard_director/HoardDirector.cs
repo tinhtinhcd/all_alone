@@ -118,7 +118,7 @@ namespace ZombieHoardGame
 
             if (killer is Player)
             {
-                LevelServices.Instantiate.PointsAwarder.PlayerKilledZombie(
+                LevelServices.Instance.PointsAwarder.PlayerKilledZombie(
                     (Player)killer, isCriticalKill, zombie.IsInPlayerArea
                 );
             }
@@ -209,7 +209,7 @@ namespace ZombieHoardGame
             double roll = r.NextDouble();
             if (roll <= _powerUpDropChance)
             {
-                LevelServices.Instantiate.PowerUpSpawner.SpawnRandom(position);
+                LevelServices.Instance.PowerUpSpawner.SpawnRandom(position);
             }
         }
     }

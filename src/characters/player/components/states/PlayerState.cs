@@ -11,6 +11,7 @@ namespace ZombieHoardGame.PlayerCharacter.States
         
         public UserInput UserInput
         {
+            get { return _userInput; }
             set { 
                 _userInput = value;
                 _userInput.Connect(nameof(UserInput.MouseMotionInputEvent), new Callable(this, nameof(OnUserInputMouseMotionInputEvent)));
@@ -97,7 +98,7 @@ namespace ZombieHoardGame.PlayerCharacter.States
             {
                 Vector3 _updatedVelocity = _player.Velocity;
                 _updatedVelocity.Y = Mathf.Max(
-                    _player.Velocity.Y - (_gravityAcceleration * delta),
+                    _player.Velocity.Y - (_gravityAcceleration * (float)delta),
                     _player.MaxFallSpeed
                 );
                 _player.Velocity = _updatedVelocity;
@@ -106,7 +107,7 @@ namespace ZombieHoardGame.PlayerCharacter.States
 
         protected void PlayerMoveAndSlide()
         {
-            _player.Velocity = _player.MoveAndSlide();
+            _player.MoveAndSlide();
         }
 
         //////////////////////////////

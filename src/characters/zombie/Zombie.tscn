@@ -1,6 +1,5 @@
-[gd_scene load_steps=85 format=2]
+[gd_scene load_steps=85 format=3]
 
-[ext_resource path="res://src/characters/zombie/Zombie.cs" type="Script" id=1]
 [ext_resource path="res://src/health_systems/hurtbox/HurtBox.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/health_systems/Health.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/characters/zombie/controller/Controller.tscn" type="PackedScene" id=4]
@@ -38,7 +37,6 @@
 [ext_resource path="res://src/characters/zombie/model/zombie_neck_stump_lod_1.mesh" type="ArrayMesh" id=36]
 [ext_resource path="res://src/characters/zombie/model/zombie_head_lod_1.mesh" type="ArrayMesh" id=37]
 [ext_resource path="res://src/lod_system/Switcher.tscn" type="PackedScene" id=38]
-[ext_resource path="res://src/lod_system/Target.cs" type="Script" id=39]
 [ext_resource path="res://src/characters/zombie/model/zombie_neck_stump_lod_2.mesh" type="ArrayMesh" id=40]
 [ext_resource path="res://src/characters/zombie/model/zombie_neck_stump_lod_3.mesh" type="ArrayMesh" id=41]
 [ext_resource path="res://src/characters/zombie/model/zombie_body_lod_3.mesh" type="ArrayMesh" id=42]
@@ -273,23 +271,23 @@ auto_advance = true
 xfade_time = 0.2
 
 [sub_resource type="AnimationNodeStateMachine" id=42]
-states/attack_player/node = SubResource( 32 )
+states/attack_player/node = SubResource("32")
 states/attack_player/position = Vector2( 693, 108 )
-states/attack_window/node = SubResource( 47 )
+states/attack_window/node = SubResource("47")
 states/attack_window/position = Vector2( 5, -42 )
-states/dead/node = SubResource( 33 )
+states/dead/node = SubResource("33")
 states/dead/position = Vector2( 412, -36 )
-states/idle/node = SubResource( 34 )
+states/idle/node = SubResource("34")
 states/idle/position = Vector2( 229, 108 )
-states/walk/node = SubResource( 35 )
+states/walk/node = SubResource("35")
 states/walk/position = Vector2( 412, 248 )
-states/window_climb/node = SubResource( 48 )
+states/window_climb/node = SubResource("48")
 states/window_climb/position = Vector2( 56, 213 )
-states/window_death_in/node = SubResource( 49 )
+states/window_death_in/node = SubResource("49")
 states/window_death_in/position = Vector2( -207, 134 )
-states/window_death_out/node = SubResource( 50 )
+states/window_death_out/node = SubResource("50")
 states/window_death_out/position = Vector2( -207, 327 )
-transitions = [ "idle", "walk", SubResource( 36 ), "walk", "attack_player", SubResource( 37 ), "attack_player", "walk", SubResource( 38 ), "walk", "dead", SubResource( 39 ), "attack_player", "dead", SubResource( 40 ), "idle", "dead", SubResource( 41 ), "attack_player", "idle", SubResource( 44 ), "idle", "attack_player", SubResource( 45 ), "walk", "idle", SubResource( 46 ), "window_climb", "window_death_in", SubResource( 51 ), "window_climb", "window_death_out", SubResource( 52 ), "idle", "window_climb", SubResource( 53 ), "idle", "attack_window", SubResource( 54 ), "attack_window", "idle", SubResource( 55 ), "window_climb", "idle", SubResource( 56 ) ]
+transitions = [ "idle", "walk", SubResource("36"), "walk", "attack_player", SubResource("37"), "attack_player", "walk", SubResource("38"), "walk", "dead", SubResource("39"), "attack_player", "dead", SubResource("40"), "idle", "dead", SubResource("41"), "attack_player", "idle", SubResource("44"), "idle", "attack_player", SubResource("45"), "walk", "idle", SubResource("46"), "window_climb", "window_death_in", SubResource("51"), "window_climb", "window_death_out", SubResource("52"), "idle", "window_climb", SubResource("53"), "idle", "attack_window", SubResource("54"), "attack_window", "idle", SubResource("55"), "window_climb", "idle", SubResource("56") ]
 start_node = "idle"
 graph_offset = Vector2( -323, 52 )
 
@@ -299,31 +297,30 @@ graph_offset = Vector2( -323, 52 )
 process_mode = 1
 collision_layer = 4
 collision_mask = 7
-script = ExtResource( 1 )
-_audioStreamsGroan = [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 16 ), ExtResource( 23 ), ExtResource( 27 ), ExtResource( 22 ) ]
-_audioStreamsAttack = [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 21 ), ExtResource( 26 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 20 ) ]
+_audioStreamsGroan = [ ExtResource("17"), ExtResource("18"), ExtResource("19"), ExtResource("16"), ExtResource("23"), ExtResource("27"), ExtResource("22") ]
+_audioStreamsAttack = [ ExtResource("14"), ExtResource("15"), ExtResource("21"), ExtResource("26"), ExtResource("24"), ExtResource("25"), ExtResource("20") ]
 
-[node name="Controller" parent="." instance=ExtResource( 4 )]
+[node name="Controller" parent="." instance=ExtResource("4")]
 _initialStateNodePath = NodePath("MoveToWindowQueue")
 
-[node name="MoveToWindowQueue" parent="Controller" instance=ExtResource( 12 )]
+[node name="MoveToWindowQueue" parent="Controller" instance=ExtResource("12")]
 
-[node name="QueueAtWindow" parent="Controller" instance=ExtResource( 13 )]
+[node name="QueueAtWindow" parent="Controller" instance=ExtResource("13")]
 
-[node name="MoveToWindowAttack" parent="Controller" instance=ExtResource( 9 )]
+[node name="MoveToWindowAttack" parent="Controller" instance=ExtResource("9")]
 
-[node name="AttackWindow" parent="Controller" instance=ExtResource( 10 )]
+[node name="AttackWindow" parent="Controller" instance=ExtResource("10")]
 
-[node name="ClimbThroughWindow" parent="Controller" instance=ExtResource( 11 )]
+[node name="ClimbThroughWindow" parent="Controller" instance=ExtResource("11")]
 
-[node name="Chase" parent="Controller" instance=ExtResource( 6 )]
+[node name="Chase" parent="Controller" instance=ExtResource("6")]
 _speed = 2.75
 
-[node name="AttackPlayer" parent="Controller" instance=ExtResource( 7 )]
+[node name="AttackPlayer" parent="Controller" instance=ExtResource("7")]
 
-[node name="Dead" parent="Controller" instance=ExtResource( 46 )]
+[node name="Dead" parent="Controller" instance=ExtResource("46")]
 
-[node name="LODSwitcher" parent="." instance=ExtResource( 38 )]
+[node name="LODSwitcher" parent="." instance=ExtResource("38")]
 _targetNodePaths = [ NodePath("../Body/Armature/Skeleton3D/Body"), NodePath("../Body/Armature/Skeleton3D/Head"), NodePath("../Body/Armature/Skeleton3D/NeckStump") ]
 _lodDistance3 = 10.0
 _pollWaitTime = 0.5
@@ -544,157 +541,154 @@ bones/39/enabled = true
 bones/39/bound_children = [  ]
 
 [node name="Body" type="MeshInstance3D" parent="Body/Armature/Skeleton3D"]
-mesh = ExtResource( 35 )
-skin = SubResource( 1 )
-material/0 = ExtResource( 30 )
-script = ExtResource( 39 )
-_lodMesh2 = ExtResource( 43 )
-_lodMesh3 = ExtResource( 42 )
+mesh = ExtResource("35")
+skin = SubResource("1")
+material/0 = ExtResource("30")
+_lodMesh2 = ExtResource("43")
+_lodMesh3 = ExtResource("42")
 
 [node name="Head" type="MeshInstance3D" parent="Body/Armature/Skeleton3D"]
-mesh = ExtResource( 37 )
-skin = SubResource( 1 )
-material/0 = ExtResource( 30 )
-script = ExtResource( 39 )
-_lodMesh2 = ExtResource( 45 )
-_lodMesh3 = ExtResource( 44 )
+mesh = ExtResource("37")
+skin = SubResource("1")
+material/0 = ExtResource("30")
+_lodMesh2 = ExtResource("45")
+_lodMesh3 = ExtResource("44")
 
 [node name="NeckStump" type="MeshInstance3D" parent="Body/Armature/Skeleton3D"]
 visible = false
-mesh = ExtResource( 36 )
-skin = SubResource( 1 )
-material/0 = ExtResource( 30 )
-script = ExtResource( 39 )
-_lodMesh2 = ExtResource( 40 )
-_lodMesh3 = ExtResource( 41 )
+mesh = ExtResource("36")
+skin = SubResource("1")
+material/0 = ExtResource("30")
+_lodMesh2 = ExtResource("40")
+_lodMesh3 = ExtResource("41")
 
 [node name="BoneAttachWaist" type="BoneAttachment3D" parent="Body/Armature/Skeleton3D"]
 transform = Transform3D( 1, -1.42109e-13, 1.98952e-13, 0, 0.994109, -0.108379, 3.93407e-14, 0.108379, 0.994109, 0.0120512, 0.872943, 0.00175761 )
 bone_name = "waist"
 
-[node name="HurtBox" parent="Body/Armature/Skeleton3D/BoneAttachWaist" instance=ExtResource( 2 )]
+[node name="HurtBox" parent="Body/Armature/Skeleton3D/BoneAttachWaist" instance=ExtResource("2")]
 transform = Transform3D( -1, 2.75335e-14, 8.74228e-08, -8.95208e-09, 0.994743, -0.1024, -8.69632e-08, -0.1024, -0.994743, 0, 0.112, -0.006 )
 _damageLayers = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Body/Armature/Skeleton3D/BoneAttachWaist/HurtBox"]
-shape = SubResource( 23 )
+shape = SubResource("23")
 
 [node name="BoneAttachChest" type="BoneAttachment3D" parent="Body/Armature/Skeleton3D"]
 transform = Transform3D( 0.997836, -0.0461508, -0.046841, 0.049357, 0.99634, 0.0697746, 0.0434494, -0.0719347, 0.996462, 0.0120512, 1.09492, 0.025958 )
 bone_name = "chest"
 
-[node name="HurtBox" parent="Body/Armature/Skeleton3D/BoneAttachChest" instance=ExtResource( 2 )]
+[node name="HurtBox" parent="Body/Armature/Skeleton3D/BoneAttachChest" instance=ExtResource("2")]
 transform = Transform3D( -1, 2.75335e-14, 8.74228e-08, -8.95208e-09, 0.994743, -0.1024, -8.69632e-08, -0.1024, -0.994743, 0, 0.18, 0 )
 _damageLayers = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Body/Armature/Skeleton3D/BoneAttachChest/HurtBox"]
-shape = SubResource( 30 )
+shape = SubResource("30")
 
 [node name="BoneAttachHead" type="BoneAttachment3D" parent="Body/Armature/Skeleton3D"]
 transform = Transform3D( 0.966959, -0.150381, -0.205857, 0.133557, 0.986629, -0.0933954, 0.21715, 0.0628166, 0.974114, -0.00941455, 1.49048, 0.00215825 )
 bone_name = "head"
 
-[node name="HurtBox" parent="Body/Armature/Skeleton3D/BoneAttachHead" instance=ExtResource( 2 )]
+[node name="HurtBox" parent="Body/Armature/Skeleton3D/BoneAttachHead" instance=ExtResource("2")]
 transform = Transform3D( -1, 2.75335e-14, 8.74228e-08, -8.95208e-09, 0.994743, -0.1024, -8.69632e-08, -0.1024, -0.994743, 0, 0.098, 0 )
 _isCritical = true
 _damageLayers = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Body/Armature/Skeleton3D/BoneAttachHead/HurtBox"]
-shape = SubResource( 31 )
+shape = SubResource("31")
 
-[node name="HeadshotDeathEffect" parent="Body/Armature/Skeleton3D/BoneAttachHead" instance=ExtResource( 28 )]
+[node name="HeadshotDeathEffect" parent="Body/Armature/Skeleton3D/BoneAttachHead" instance=ExtResource("28")]
 
 [node name="BoneAttachArmUpperL" type="BoneAttachment3D" parent="Body/Armature/Skeleton3D"]
 transform = Transform3D( -0.805362, 0.266096, 0.529702, -0.419976, -0.886759, -0.19307, 0.418343, -0.377954, 0.825916, 0.170475, 1.35707, 0.0184037 )
 bone_name = "arm_upper_L"
 
-[node name="HurtBox" parent="Body/Armature/Skeleton3D/BoneAttachArmUpperL" instance=ExtResource( 2 )]
+[node name="HurtBox" parent="Body/Armature/Skeleton3D/BoneAttachArmUpperL" instance=ExtResource("2")]
 transform = Transform3D( -1, 2.75335e-14, 8.74228e-08, -8.95208e-09, 0.994743, -0.1024, -8.69632e-08, -0.1024, -0.994743, 0, 0.098, 0 )
 _isCritical = true
 _damageLayers = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Body/Armature/Skeleton3D/BoneAttachArmUpperL/HurtBox"]
 transform = Transform3D( 1, -5.96046e-08, 2.38419e-07, 1.49012e-07, 1, 1.78814e-07, 2.38419e-07, -5.96046e-08, 1, 1.19209e-07, -0.0506938, 1.49012e-07 )
-shape = SubResource( 57 )
+shape = SubResource("57")
 
 [node name="BoneAttachArmUpperR" type="BoneAttachment3D" parent="Body/Armature/Skeleton3D"]
 transform = Transform3D( -0.841554, -0.306444, -0.444835, 0.391042, -0.913736, -0.110318, -0.372656, -0.266789, 0.888792, -0.17017, 1.34022, 0.00357063 )
 bone_name = "arm_upper_R"
 
-[node name="HurtBox" parent="Body/Armature/Skeleton3D/BoneAttachArmUpperR" instance=ExtResource( 2 )]
+[node name="HurtBox" parent="Body/Armature/Skeleton3D/BoneAttachArmUpperR" instance=ExtResource("2")]
 transform = Transform3D( -1, 2.75335e-14, 8.74228e-08, -8.95208e-09, 0.994743, -0.1024, -8.69632e-08, -0.1024, -0.994743, 0, 0.098, 0 )
 _isCritical = true
 _damageLayers = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Body/Armature/Skeleton3D/BoneAttachArmUpperR/HurtBox"]
 transform = Transform3D( 1, -5.96046e-08, 2.38419e-07, 1.49012e-07, 1, 1.78814e-07, 2.38419e-07, -5.96046e-08, 1, 1.19209e-07, -0.0506938, 1.49012e-07 )
-shape = SubResource( 57 )
+shape = SubResource("57")
 
 [node name="BoneAttachLegUpperL" type="BoneAttachment3D" parent="Body/Armature/Skeleton3D"]
 transform = Transform3D( -0.988365, 0.112473, -0.102821, -0.128878, -0.976982, 0.169992, -0.0813382, 0.181257, 0.980073, 0.0940368, 0.83071, -0.00103801 )
 bone_name = "leg_upper_L"
 
-[node name="HurtBox" parent="Body/Armature/Skeleton3D/BoneAttachLegUpperL" instance=ExtResource( 2 )]
+[node name="HurtBox" parent="Body/Armature/Skeleton3D/BoneAttachLegUpperL" instance=ExtResource("2")]
 transform = Transform3D( -1, 2.75335e-14, 8.74228e-08, -8.95208e-09, 0.994743, -0.1024, -8.69632e-08, -0.1024, -0.994743, 0, 0.098, 0 )
 _isCritical = true
 _damageLayers = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Body/Armature/Skeleton3D/BoneAttachLegUpperL/HurtBox"]
 transform = Transform3D( 1, -6.0536e-08, 2.08616e-07, 1.74157e-07, 1, 1.78814e-07, 2.38419e-07, -5.96046e-08, 1, 4.61936e-07, 0.0694295, 1.15484e-07 )
-shape = SubResource( 58 )
+shape = SubResource("58")
 
 [node name="BoneAttachLegUpperR" type="BoneAttachment3D" parent="Body/Armature/Skeleton3D"]
 transform = Transform3D( -0.999954, -0.0120795, -0.00605174, 0.00963397, -0.951486, 0.307542, -0.0094713, 0.307456, 0.951522, -0.0699344, 0.83071, -0.00103801 )
 bone_name = "leg_upper_R"
 
-[node name="HurtBox" parent="Body/Armature/Skeleton3D/BoneAttachLegUpperR" instance=ExtResource( 2 )]
+[node name="HurtBox" parent="Body/Armature/Skeleton3D/BoneAttachLegUpperR" instance=ExtResource("2")]
 transform = Transform3D( -1, 2.75335e-14, 8.74228e-08, -8.95208e-09, 0.994743, -0.1024, -8.69632e-08, -0.1024, -0.994743, 0, 0.098, 0 )
 _isCritical = true
 _damageLayers = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Body/Armature/Skeleton3D/BoneAttachLegUpperR/HurtBox"]
 transform = Transform3D( 1, -6.0536e-08, 2.08616e-07, 1.74157e-07, 1, 1.78814e-07, 2.38419e-07, -5.96046e-08, 1, 4.61936e-07, 0.0694295, 1.15484e-07 )
-shape = SubResource( 58 )
+shape = SubResource("58")
 
 [node name="AudioFootstep" type="AudioStreamPlayer3D" parent="Body/Armature"]
-stream = ExtResource( 29 )
+stream = ExtResource("29")
 volume_db = -21.5836
 unit_size = 6.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Body"]
 playback_process_mode = 0
-anims/attack_player_1 = ExtResource( 32 )
-anims/attack_window = ExtResource( 49 )
-anims/death_1 = ExtResource( 31 )
-anims/idle_1_loop = ExtResource( 33 )
-anims/walk_1_loop = ExtResource( 34 )
-anims/window_climb = ExtResource( 50 )
-anims/window_death_in = ExtResource( 47 )
-anims/window_death_out = ExtResource( 48 )
+anims/attack_player_1 = ExtResource("32")
+anims/attack_window = ExtResource("49")
+anims/death_1 = ExtResource("31")
+anims/idle_1_loop = ExtResource("33")
+anims/walk_1_loop = ExtResource("34")
+anims/window_climb = ExtResource("50")
+anims/window_death_in = ExtResource("47")
+anims/window_death_out = ExtResource("48")
 
-[node name="AttackTrigger" parent="." instance=ExtResource( 8 )]
+[node name="AttackTrigger" parent="." instance=ExtResource("8")]
 visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AttackTrigger"]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.895783, 0 )
-shape = SubResource( 24 )
+shape = SubResource("24")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.9, 0 )
-shape = SubResource( 9 )
+shape = SubResource("9")
 
-[node name="Health" parent="." instance=ExtResource( 3 )]
+[node name="Health" parent="." instance=ExtResource("3")]
 _regenRate = 0.0
 _hurtBoxNodePaths = [ NodePath("../Body/Armature/Skeleton3D/BoneAttachWaist/HurtBox"), NodePath("../Body/Armature/Skeleton3D/BoneAttachChest/HurtBox"), NodePath("../Body/Armature/Skeleton3D/BoneAttachHead/HurtBox"), NodePath("../Body/Armature/Skeleton3D/BoneAttachArmUpperL/HurtBox"), NodePath("../Body/Armature/Skeleton3D/BoneAttachArmUpperR/HurtBox"), NodePath("../Body/Armature/Skeleton3D/BoneAttachLegUpperL/HurtBox"), NodePath("../Body/Armature/Skeleton3D/BoneAttachLegUpperR/HurtBox") ]
 
-[node name="HitBox" parent="." instance=ExtResource( 5 )]
+[node name="HitBox" parent="." instance=ExtResource("5")]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.17979, -0.342518 )
 visible = false
 _damage = 26
 _damageLayers = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
-shape = SubResource( 25 )
+shape = SubResource("25")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.34748, 0 )
@@ -703,9 +697,9 @@ unit_size = 4.0
 bus = "SoundEffects"
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 42 )
+tree_root = SubResource("42")
 anim_player = NodePath("../Body/AnimationPlayer")
 active = true
 process_mode = 0
 root_motion_track = NodePath("Armature/Skeleton3D:root")
-parameters/playback = SubResource( 43 )
+parameters/playback = SubResource("43")

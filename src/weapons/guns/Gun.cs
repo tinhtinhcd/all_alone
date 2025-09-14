@@ -162,12 +162,12 @@ namespace Weapons
             _muzzleFlashSprite.Frame = _rng.Next(0, _muzzleFlashFrameCount);
 
             Tween flashTween = CreateTween();
-            flashTween.TweenCallback(_muzzleFlashLight);
+            flashTween.TweenCallback(Callable.From(() => _muzzleFlashLight.Show()));
             flashTween.SetParallel(true);
             flashTween.TweenProperty(_muzzleFlashLight, "light_energy", 0.0f, flashDuration).From(0.5f);
             flashTween.TweenProperty(_muzzleFlashSprite, "modulate", new Color(1,1,1,0), flashDuration).From(Colors.White);
             flashTween.SetParallel(false);
-            flashTween.TweenCallback(_muzzleFlashLight);
+            flashTween.TweenCallback(Callable.From(() => _muzzleFlashLight.Hide()));
         }
     }
 }

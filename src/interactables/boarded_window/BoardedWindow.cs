@@ -131,7 +131,7 @@ namespace ZombieHoardGame
                 _animPlayer.Play($"add_board_{nextBoardIdx}");
                 _audioAddBoard.Play();
                 _boardCountUp ++;
-                LevelServices.Instantiate.PointsAwarder.PlayerBuiltBoard(player);
+                LevelServices.Instance.PointsAwarder.PlayerBuiltBoard(player);
                 await ToSignal(_animPlayer, "animation_finished");
                 EmitSignal(nameof(BoardAdded), this);
                 if (_boardCountUp == _boardCountTotal)

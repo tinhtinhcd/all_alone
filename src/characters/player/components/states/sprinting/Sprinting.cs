@@ -1,4 +1,5 @@
 using Godot;
+using System;
 
 
 namespace ZombieHoardGame.PlayerCharacter.States
@@ -17,7 +18,7 @@ namespace ZombieHoardGame.PlayerCharacter.States
             _audioBreathing = GetNode<AudioStreamPlayer>("AudioBreathing");
             _maxDurationTimer = GetNode<Timer>("MaxDurationTimer");
             _cooldownTimer = GetNode<Timer>("CooldownTimer");
-            _cooldownTimeMax = _cooldownTimer.WaitTime;
+            _cooldownTimeMax = (float)_cooldownTimer.WaitTime;
         }
 
         public override void _Process(double delta)
@@ -26,13 +27,13 @@ namespace ZombieHoardGame.PlayerCharacter.States
             if (!_cooldownTimer.IsStopped())
             {
                 // Reduce volume of breathing effect
-                float effectStrength = _cooldownTimer.TimeLeft / _cooldownTimeMax;
+                float effectStrength = (float)_cooldownTimer.TimeLeft / _cooldownTimeMax;
                 SetBreathingAudioVolume(effectStrength);
             }
             else if (!_maxDurationTimer.IsStopped())
             {
                 // Increase volume of breathing effect
-                float effectStrength = 1 - (_maxDurationTimer.TimeLeft / _maxDurationTimer.WaitTime);
+                float effectStrength = 1 - ((float)_maxDurationTimer.TimeLeft / (float)_maxDurationTimer.WaitTime);
                 SetBreathingAudioVolume(effectStrength);
             }
         }
@@ -57,7 +58,7 @@ namespace ZombieHoardGame.PlayerCharacter.States
             base.Exit();
             if (_maxDurationTimer.IsConnected("timeout", new Callable(this, nameof(OnMaxDurationTimerTimeout))))
             {
-                float cooldownProportion = (_maxDurationTimer.WaitTime - _maxDurationTimer.TimeLeft) / _maxDurationTimer.WaitTime;
+                float cooldownProportion = ((float)_maxDurationTimer.WaitTime - (float)_maxDurationTimer.TimeLeft) / (float)_maxDurationTimer.WaitTime;
                 _cooldownTimer.Start(_cooldownTimeMax * cooldownProportion);
                 _maxDurationTimer.Stop();
                 _maxDurationTimer.Disconnect("timeout", new Callable(this, nameof(OnMaxDurationTimerTimeout)));
@@ -71,7 +72,7 @@ namespace ZombieHoardGame.PlayerCharacter.States
 
         private void SetBreathingAudioVolume(float volLinear)
         {
-            _audioBreathing.VolumeDb = AudioServer.LinearToDb(volLinear);
+            _audioBreathing.VolumeDb = Mathf.LinearToDb(volLinear);
             if (volLinear == 0)
             {
                 _audioBreathing.Stop();

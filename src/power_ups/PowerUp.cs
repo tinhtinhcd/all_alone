@@ -1,4 +1,5 @@
 using Godot;
+using System;
 
 
 namespace PowerUps
@@ -54,7 +55,7 @@ namespace PowerUps
 
         public override void _PhysicsProcess(double delta)
         {
-            _sinTime += (float)delta;
+            _sinTime += (float)(float)delta;
             Vector3 newTranslation = _meshInst.Position;
             newTranslation.Y = _restY + (_sinBobAmplitude * Mathf.Sin(_sinTime * 0.6f));
             _meshInst.Position = newTranslation;

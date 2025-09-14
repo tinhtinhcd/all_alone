@@ -40,7 +40,7 @@ namespace UI.MultiPage
                     _curentPage.IsActive = true;
                     _curentPage.Connect(
                         nameof(Page.ChangePageRequested), 
-                        this, nameof(OnCurrentPageChangePageRequested)
+                        new Callable(this, nameof(OnCurrentPageChangePageRequested))
                     );
                 }
                 else
@@ -99,10 +99,7 @@ namespace UI.MultiPage
 
             // Deactivate old page
             oldPage.IsActive = false;
-            oldPage.Disconnect(
-                nameof(Page.ChangePageRequested), 
-                 this, nameof(OnCurrentPageChangePageRequested)
-            );
+            oldPage.Disconnect(nameof(Page.ChangePageRequested), new Callable(this, nameof(OnCurrentPageChangePageRequested)));
 
             newPage.Show();
             Tween pageMoveTween = CreateTween();
@@ -118,7 +115,7 @@ namespace UI.MultiPage
             _curentPage.IsActive = true;
             _curentPage.Connect(
                 nameof(Page.ChangePageRequested), 
-                 this, nameof(OnCurrentPageChangePageRequested)
+                new Callable(this, nameof(OnCurrentPageChangePageRequested))
             );
         }
     }

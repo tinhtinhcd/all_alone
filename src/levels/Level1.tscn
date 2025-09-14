@@ -1,6 +1,5 @@
-[gd_scene load_steps=101 format=2]
+[gd_scene load_steps=101 format=3]
 
-[ext_resource path="res://src/generic/NavMeshInstTool.cs" type="Script" id=1]
 [ext_resource path="res://src/zone/Zone.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/levels/construction/1/models/fountain.material" type="Material" id=3]
 [ext_resource path="res://src/interactables/obstructions/DoorwayBoards.tscn" type="PackedScene" id=4]
@@ -57,7 +56,7 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 18,
-"material": ExtResource( 27 ),
+"material": ExtResource("27"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 8
@@ -69,7 +68,7 @@ surfaces/1 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 426,
-"material": ExtResource( 28 ),
+"material": ExtResource("28"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 174
@@ -81,7 +80,7 @@ surfaces/2 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 18,
-"material": ExtResource( 29 ),
+"material": ExtResource("29"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 8
@@ -93,7 +92,7 @@ surfaces/3 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 1770,
-"material": ExtResource( 26 ),
+"material": ExtResource("26"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 694
@@ -105,7 +104,7 @@ surfaces/4 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 234,
-"material": ExtResource( 30 ),
+"material": ExtResource("30"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 152
@@ -113,12 +112,12 @@ surfaces/4 = {
 
 [sub_resource type="StandardMaterial3D" id=62]
 albedo_color = Color( 0.57, 0.57, 0.57, 1 )
-albedo_texture = ExtResource( 13 )
+albedo_texture = ExtResource("13")
 uv1_scale = Vector3( 0.5, 0.5, 0.5 )
 uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id=63]
-albedo_texture = ExtResource( 13 )
+albedo_texture = ExtResource("13")
 uv1_scale = Vector3( 0.5, 0.5, 0.5 )
 uv1_triplanar = true
 
@@ -143,7 +142,7 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 12,
-"material": ExtResource( 27 ),
+"material": ExtResource("27"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 6
@@ -155,7 +154,7 @@ surfaces/1 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 276,
-"material": ExtResource( 28 ),
+"material": ExtResource("28"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 145
@@ -167,7 +166,7 @@ surfaces/2 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 42,
-"material": ExtResource( 29 ),
+"material": ExtResource("29"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 22
@@ -179,7 +178,7 @@ surfaces/3 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 984,
-"material": ExtResource( 26 ),
+"material": ExtResource("26"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 418
@@ -191,7 +190,7 @@ surfaces/4 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 192,
-"material": ExtResource( 30 ),
+"material": ExtResource("30"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 132
@@ -203,7 +202,7 @@ surfaces/5 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 9624,
-"material": ExtResource( 31 ),
+"material": ExtResource("31"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 3904
@@ -215,7 +214,7 @@ surfaces/6 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 468,
-"material": ExtResource( 35 ),
+"material": ExtResource("35"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 312
@@ -223,13 +222,13 @@ surfaces/6 = {
 
 [sub_resource type="StandardMaterial3D" id=107]
 albedo_color = Color( 0.58, 0.3654, 0.3654, 1 )
-albedo_texture = ExtResource( 13 )
+albedo_texture = ExtResource("13")
 uv1_scale = Vector3( 0.5, 0.5, 0.5 )
 uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id=64]
 albedo_color = Color( 1, 0.63, 0.63, 1 )
-albedo_texture = ExtResource( 13 )
+albedo_texture = ExtResource("13")
 uv1_scale = Vector3( 0.5, 0.5, 0.5 )
 uv1_triplanar = true
 
@@ -254,7 +253,7 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 12,
-"material": ExtResource( 27 ),
+"material": ExtResource("27"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 6
@@ -266,7 +265,7 @@ surfaces/1 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 276,
-"material": ExtResource( 28 ),
+"material": ExtResource("28"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 142
@@ -278,7 +277,7 @@ surfaces/2 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 60,
-"material": ExtResource( 29 ),
+"material": ExtResource("29"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 33
@@ -290,7 +289,7 @@ surfaces/3 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 936,
-"material": ExtResource( 26 ),
+"material": ExtResource("26"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 402
@@ -302,7 +301,7 @@ surfaces/4 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 192,
-"material": ExtResource( 30 ),
+"material": ExtResource("30"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 132
@@ -314,7 +313,7 @@ surfaces/5 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 9624,
-"material": ExtResource( 31 ),
+"material": ExtResource("31"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 3904
@@ -326,7 +325,7 @@ surfaces/6 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 468,
-"material": ExtResource( 35 ),
+"material": ExtResource("35"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 312
@@ -334,13 +333,13 @@ surfaces/6 = {
 
 [sub_resource type="StandardMaterial3D" id=65]
 albedo_color = Color( 0.462, 0.63, 0, 1 )
-albedo_texture = ExtResource( 13 )
+albedo_texture = ExtResource("13")
 uv1_scale = Vector3( 0.5, 0.5, 0.5 )
 uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id=3]
 albedo_color = Color( 0.733333, 1, 0, 1 )
-albedo_texture = ExtResource( 13 )
+albedo_texture = ExtResource("13")
 uv1_scale = Vector3( 0.5, 0.5, 0.5 )
 uv1_triplanar = true
 
@@ -365,7 +364,7 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 18,
-"material": ExtResource( 34 ),
+"material": ExtResource("34"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 8
@@ -377,7 +376,7 @@ surfaces/1 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 306,
-"material": ExtResource( 28 ),
+"material": ExtResource("28"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 146
@@ -389,7 +388,7 @@ surfaces/2 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 12,
-"material": ExtResource( 29 ),
+"material": ExtResource("29"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 6
@@ -401,7 +400,7 @@ surfaces/3 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 1386,
-"material": ExtResource( 26 ),
+"material": ExtResource("26"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 580
@@ -413,7 +412,7 @@ surfaces/4 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 192,
-"material": ExtResource( 30 ),
+"material": ExtResource("30"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 132
@@ -421,13 +420,13 @@ surfaces/4 = {
 
 [sub_resource type="StandardMaterial3D" id=66]
 albedo_color = Color( 0.231373, 0.6, 0, 1 )
-albedo_texture = ExtResource( 13 )
+albedo_texture = ExtResource("13")
 uv1_scale = Vector3( 0.5, 0.5, 0.5 )
 uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id=108]
 albedo_color = Color( 0.384314, 1, 0, 1 )
-albedo_texture = ExtResource( 13 )
+albedo_texture = ExtResource("13")
 uv1_scale = Vector3( 0.5, 0.5, 0.5 )
 uv1_triplanar = true
 
@@ -454,7 +453,7 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 12,
-"material": ExtResource( 34 ),
+"material": ExtResource("34"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 6
@@ -466,7 +465,7 @@ surfaces/1 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 324,
-"material": ExtResource( 28 ),
+"material": ExtResource("28"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 143
@@ -478,7 +477,7 @@ surfaces/2 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 12,
-"material": ExtResource( 29 ),
+"material": ExtResource("29"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 6
@@ -490,7 +489,7 @@ surfaces/3 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 1212,
-"material": ExtResource( 26 ),
+"material": ExtResource("26"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 484
@@ -502,7 +501,7 @@ surfaces/4 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 384,
-"material": ExtResource( 30 ),
+"material": ExtResource("30"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 264
@@ -510,13 +509,13 @@ surfaces/4 = {
 
 [sub_resource type="StandardMaterial3D" id=67]
 albedo_color = Color( 0.39, 0.39, 0.39, 1 )
-albedo_texture = ExtResource( 13 )
+albedo_texture = ExtResource("13")
 uv1_scale = Vector3( 0.5, 0.5, 0.5 )
 uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id=109]
 albedo_color = Color( 0.556863, 0.556863, 0.556863, 1 )
-albedo_texture = ExtResource( 13 )
+albedo_texture = ExtResource("13")
 uv1_scale = Vector3( 0.5, 0.5, 0.5 )
 uv1_triplanar = true
 
@@ -541,7 +540,7 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 12,
-"material": ExtResource( 34 ),
+"material": ExtResource("34"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 6
@@ -553,7 +552,7 @@ surfaces/1 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 234,
-"material": ExtResource( 28 ),
+"material": ExtResource("28"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 128
@@ -565,7 +564,7 @@ surfaces/2 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 6,
-"material": ExtResource( 29 ),
+"material": ExtResource("29"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 4
@@ -577,7 +576,7 @@ surfaces/3 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 906,
-"material": ExtResource( 26 ),
+"material": ExtResource("26"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 396
@@ -589,7 +588,7 @@ surfaces/4 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 426,
-"material": ExtResource( 30 ),
+"material": ExtResource("30"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 288
@@ -597,13 +596,13 @@ surfaces/4 = {
 
 [sub_resource type="StandardMaterial3D" id=68]
 albedo_color = Color( 0, 0.476667, 0.55, 1 )
-albedo_texture = ExtResource( 13 )
+albedo_texture = ExtResource("13")
 uv1_scale = Vector3( 0.5, 0.5, 0.5 )
 uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id=110]
 albedo_color = Color( 0, 0.858824, 1, 1 )
-albedo_texture = ExtResource( 13 )
+albedo_texture = ExtResource("13")
 uv1_scale = Vector3( 0.5, 0.5, 0.5 )
 uv1_triplanar = true
 
@@ -715,7 +714,7 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 6,
-"material": ExtResource( 34 ),
+"material": ExtResource("34"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 4
@@ -727,7 +726,7 @@ surfaces/1 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 210,
-"material": ExtResource( 28 ),
+"material": ExtResource("28"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 116
@@ -739,7 +738,7 @@ surfaces/2 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 6,
-"material": ExtResource( 29 ),
+"material": ExtResource("29"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 4
@@ -751,7 +750,7 @@ surfaces/3 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 540,
-"material": ExtResource( 26 ),
+"material": ExtResource("26"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 220
@@ -759,13 +758,13 @@ surfaces/3 = {
 
 [sub_resource type="StandardMaterial3D" id=56]
 albedo_color = Color( 0.97, 0.3686, 0.629207, 1 )
-albedo_texture = ExtResource( 15 )
+albedo_texture = ExtResource("15")
 uv1_scale = Vector3( 0.5, 0.5, 0.5 )
 uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id=57]
 albedo_color = Color( 0.71, 0.2698, 0.658643, 1 )
-albedo_texture = ExtResource( 15 )
+albedo_texture = ExtResource("15")
 uv1_scale = Vector3( 0.5, 0.5, 0.5 )
 uv1_triplanar = true
 
@@ -778,7 +777,7 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 6,
-"material": ExtResource( 34 ),
+"material": ExtResource("34"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 4
@@ -790,7 +789,7 @@ surfaces/1 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 198,
-"material": ExtResource( 28 ),
+"material": ExtResource("28"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 112
@@ -802,7 +801,7 @@ surfaces/2 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 6,
-"material": ExtResource( 29 ),
+"material": ExtResource("29"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 4
@@ -814,7 +813,7 @@ surfaces/3 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 552,
-"material": ExtResource( 26 ),
+"material": ExtResource("26"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 244
@@ -822,7 +821,7 @@ surfaces/3 = {
 
 [sub_resource type="StandardMaterial3D" id=58]
 albedo_color = Color( 0.99, 0.5247, 0.842655, 1 )
-albedo_texture = ExtResource( 15 )
+albedo_texture = ExtResource("15")
 uv1_scale = Vector3( 0.5, 0.5, 0.5 )
 uv1_triplanar = true
 
@@ -835,7 +834,7 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 6,
-"material": ExtResource( 34 ),
+"material": ExtResource("34"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 4
@@ -847,7 +846,7 @@ surfaces/1 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 30,
-"material": ExtResource( 28 ),
+"material": ExtResource("28"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 20
@@ -859,7 +858,7 @@ surfaces/2 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 6,
-"material": ExtResource( 29 ),
+"material": ExtResource("29"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 4
@@ -874,7 +873,7 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 12,
-"material": ExtResource( 27 ),
+"material": ExtResource("27"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 8
@@ -886,7 +885,7 @@ surfaces/1 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 78,
-"material": ExtResource( 28 ),
+"material": ExtResource("28"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 47
@@ -898,7 +897,7 @@ surfaces/2 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 12,
-"material": ExtResource( 29 ),
+"material": ExtResource("29"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 8
@@ -910,7 +909,7 @@ surfaces/3 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 288,
-"material": ExtResource( 26 ),
+"material": ExtResource("26"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 132
@@ -918,7 +917,7 @@ surfaces/3 = {
 
 [sub_resource type="StandardMaterial3D" id=111]
 albedo_color = Color( 0.992157, 0.372549, 0.792157, 1 )
-albedo_texture = ExtResource( 15 )
+albedo_texture = ExtResource("15")
 uv1_scale = Vector3( 0.5, 0.5, 0.5 )
 uv1_triplanar = true
 
@@ -931,7 +930,7 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 6,
-"material": ExtResource( 27 ),
+"material": ExtResource("27"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 4
@@ -943,7 +942,7 @@ surfaces/1 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 6,
-"material": ExtResource( 29 ),
+"material": ExtResource("29"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 4
@@ -955,7 +954,7 @@ surfaces/2 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 78,
-"material": ExtResource( 28 ),
+"material": ExtResource("28"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 34
@@ -967,7 +966,7 @@ surfaces/3 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 288,
-"material": ExtResource( 26 ),
+"material": ExtResource("26"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 126
@@ -982,7 +981,7 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194691,
 "index_count": 372,
-"material": ExtResource( 32 ),
+"material": ExtResource("32"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 159
@@ -994,7 +993,7 @@ surfaces/1 = {
 "blend_shape_data": [  ],
 "format": 2194691,
 "index_count": 42,
-"material": ExtResource( 27 ),
+"material": ExtResource("27"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 28
@@ -1009,7 +1008,7 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 708,
-"material": ExtResource( 32 ),
+"material": ExtResource("32"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 318
@@ -1021,7 +1020,7 @@ surfaces/1 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 153,
-"material": ExtResource( 27 ),
+"material": ExtResource("27"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 66
@@ -1033,7 +1032,7 @@ surfaces/2 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 174,
-"material": ExtResource( 33 ),
+"material": ExtResource("33"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 74
@@ -1048,7 +1047,7 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 78,
-"material": ExtResource( 25 ),
+"material": ExtResource("25"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 52
@@ -1060,7 +1059,7 @@ surfaces/1 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 276,
-"material": ExtResource( 27 ),
+"material": ExtResource("27"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 180
@@ -1072,7 +1071,7 @@ surfaces/2 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 534,
-"material": ExtResource( 26 ),
+"material": ExtResource("26"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 334
@@ -1080,7 +1079,7 @@ surfaces/2 = {
 
 [sub_resource type="StandardMaterial3D" id=112]
 albedo_color = Color( 0.27451, 0.694118, 1, 1 )
-albedo_texture = ExtResource( 15 )
+albedo_texture = ExtResource("15")
 uv1_scale = Vector3( 0.5, 0.5, 0.5 )
 uv1_triplanar = true
 
@@ -1102,7 +1101,7 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 102,
-"material": ExtResource( 25 ),
+"material": ExtResource("25"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 64
@@ -1114,7 +1113,7 @@ surfaces/1 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 276,
-"material": ExtResource( 27 ),
+"material": ExtResource("27"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 175
@@ -1126,7 +1125,7 @@ surfaces/2 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 678,
-"material": ExtResource( 26 ),
+"material": ExtResource("26"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 407
@@ -1144,7 +1143,7 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 3144,
-"material": ExtResource( 3 ),
+"material": ExtResource("3"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 834
@@ -1159,7 +1158,7 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 18,
-"material": ExtResource( 24 ),
+"material": ExtResource("24"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 10
@@ -1174,14 +1173,14 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 66,
-"material": ExtResource( 11 ),
+"material": ExtResource("11"),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 26
 }
 
 [sub_resource type="StandardMaterial3D" id=113]
-albedo_texture = ExtResource( 14 )
+albedo_texture = ExtResource("14")
 uv1_scale = Vector3( 0.5, 0.5, 0.5 )
 uv1_triplanar = true
 
@@ -1197,7 +1196,7 @@ agent_radius = 0.26
 agent_max_climb = 0.2
 region_min_size = 20.0
 
-[node name="Level1" instance=ExtResource( 8 )]
+[node name="Level1" instance=ExtResource("8")]
 _buildingMode = false
 _playerInitialPoints = 100
 
@@ -1207,93 +1206,93 @@ _newZombiesPerRound = 0
 _zombieHealthGainPerRound = 0.01
 _powerUpDropChance = 0.15
 
-[node name="Ground0" parent="Zones" index="0" instance=ExtResource( 2 )]
+[node name="Ground0" parent="Zones" index="0" instance=ExtResource("2")]
 _activateOnReady = true
 
 [node name="NavMeshInst" type="NavigationRegion3D" parent="Zones/Ground0" index="1"]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -2 )
-navigation_mesh = SubResource( 26 )
+navigation_mesh = SubResource("26")
 navigation_layers = 2
 
-[node name="BoardedWindow1" parent="Zones/Ground0" index="2" instance=ExtResource( 16 )]
+[node name="BoardedWindow1" parent="Zones/Ground0" index="2" instance=ExtResource("16")]
 transform = Transform3D( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.9307, 0, -4.09218 )
 
-[node name="SpawnPoint1" parent="Zones/Ground0/BoardedWindow1" index="12" instance=ExtResource( 17 )]
+[node name="SpawnPoint1" parent="Zones/Ground0/BoardedWindow1" index="12" instance=ExtResource("17")]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.44938, 0, 24.7359 )
 
-[node name="SpawnPoint2" parent="Zones/Ground0/BoardedWindow1" index="13" instance=ExtResource( 17 )]
+[node name="SpawnPoint2" parent="Zones/Ground0/BoardedWindow1" index="13" instance=ExtResource("17")]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.08465, 0, 22.8032 )
 
-[node name="BoardedWindow2" parent="Zones/Ground0" index="3" instance=ExtResource( 16 )]
+[node name="BoardedWindow2" parent="Zones/Ground0" index="3" instance=ExtResource("16")]
 transform = Transform3D( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.93206, 0, -4.09827 )
 
-[node name="SpawnPoint1" parent="Zones/Ground0/BoardedWindow2" index="12" instance=ExtResource( 17 )]
+[node name="SpawnPoint1" parent="Zones/Ground0/BoardedWindow2" index="12" instance=ExtResource("17")]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.00505, 0, 22.3752 )
 
-[node name="SpawnPoint2" parent="Zones/Ground0/BoardedWindow2" index="13" instance=ExtResource( 17 )]
+[node name="SpawnPoint2" parent="Zones/Ground0/BoardedWindow2" index="13" instance=ExtResource("17")]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0897, 0, 22.137 )
 
-[node name="BoardedWindow3" parent="Zones/Ground0" index="4" instance=ExtResource( 16 )]
+[node name="BoardedWindow3" parent="Zones/Ground0" index="4" instance=ExtResource("16")]
 transform = Transform3D( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 14, 0, -6.10453 )
 
-[node name="SpawnPoint1" parent="Zones/Ground0/BoardedWindow3" index="12" instance=ExtResource( 17 )]
+[node name="SpawnPoint1" parent="Zones/Ground0/BoardedWindow3" index="12" instance=ExtResource("17")]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.06464, 0, 20.2202 )
 
-[node name="SpawnPoint2" parent="Zones/Ground0/BoardedWindow3" index="13" instance=ExtResource( 17 )]
+[node name="SpawnPoint2" parent="Zones/Ground0/BoardedWindow3" index="13" instance=ExtResource("17")]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.01999, 0, 19.9026 )
 
-[node name="BoardedWindow4" parent="Zones/Ground0" index="5" instance=ExtResource( 16 )]
+[node name="BoardedWindow4" parent="Zones/Ground0" index="5" instance=ExtResource("16")]
 transform = Transform3D( 1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 11.9386, 0, 4.10402 )
 
-[node name="SpawnPoint1" parent="Zones/Ground0/BoardedWindow4" index="12" instance=ExtResource( 17 )]
+[node name="SpawnPoint1" parent="Zones/Ground0/BoardedWindow4" index="12" instance=ExtResource("17")]
 transform = Transform3D( -0.793088, 0, 0.609108, 0, 1, 0, -0.609108, 0, -0.793088, 0.78235, 0, 34.6479 )
 
-[node name="SpawnPoint2" parent="Zones/Ground0/BoardedWindow4" index="13" instance=ExtResource( 17 )]
+[node name="SpawnPoint2" parent="Zones/Ground0/BoardedWindow4" index="13" instance=ExtResource("17")]
 transform = Transform3D( -0.998062, 0, -0.0622332, 0, 1, 0, 0.0622332, 0, -0.998062, -11.4519, 0, 21.9672 )
 
-[node name="BoardedWindow5" parent="Zones/Ground0" index="6" instance=ExtResource( 16 )]
+[node name="BoardedWindow5" parent="Zones/Ground0" index="6" instance=ExtResource("16")]
 transform = Transform3D( 1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 4.93403, 0, 4.10318 )
 
-[node name="SpawnPoint1" parent="Zones/Ground0/BoardedWindow5" index="12" instance=ExtResource( 17 )]
+[node name="SpawnPoint1" parent="Zones/Ground0/BoardedWindow5" index="12" instance=ExtResource("17")]
 transform = Transform3D( -0.489383, 0, -0.872069, 0, 1, 0, 0.872069, 0, -0.489383, -1.71163, -9.53674e-07, 34.9674 )
 
-[node name="SpawnPoint2" parent="Zones/Ground0/BoardedWindow5" index="13" instance=ExtResource( 17 )]
+[node name="SpawnPoint2" parent="Zones/Ground0/BoardedWindow5" index="13" instance=ExtResource("17")]
 transform = Transform3D( -0.77415, 0, 0.633003, 0, 1, 0, -0.633003, 0, -0.77415, 7.91048, 0, 34.69 )
 
-[node name="BoardedWindow6" parent="Zones/Ground0" index="7" instance=ExtResource( 16 )]
+[node name="BoardedWindow6" parent="Zones/Ground0" index="7" instance=ExtResource("16")]
 transform = Transform3D( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -10.1025, 0, -4.76837e-07 )
 
-[node name="SpawnPoint1" parent="Zones/Ground0/BoardedWindow6" index="12" instance=ExtResource( 17 )]
+[node name="SpawnPoint1" parent="Zones/Ground0/BoardedWindow6" index="12" instance=ExtResource("17")]
 transform = Transform3D( 0.900918, 0, -0.433989, 0, 1, 0, 0.433989, 0, 0.900918, -10.058, 0, 27.654 )
 
-[node name="SpawnPoint2" parent="Zones/Ground0/BoardedWindow6" index="13" instance=ExtResource( 17 )]
+[node name="SpawnPoint2" parent="Zones/Ground0/BoardedWindow6" index="13" instance=ExtResource("17")]
 transform = Transform3D( 0.947679, 0, 0.319224, 0, 1, 0, -0.319224, 0, 0.947679, 7.26188, 0, 30.1548 )
 
-[node name="BoardedWindow7" parent="Zones/Ground0" index="8" instance=ExtResource( 16 )]
+[node name="BoardedWindow7" parent="Zones/Ground0" index="8" instance=ExtResource("16")]
 transform = Transform3D( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -8.05964, 0, -8.10386 )
 
-[node name="SpawnPoint1" parent="Zones/Ground0/BoardedWindow7" index="12" instance=ExtResource( 17 )]
+[node name="SpawnPoint1" parent="Zones/Ground0/BoardedWindow7" index="12" instance=ExtResource("17")]
 transform = Transform3D( 0.940881, 0, 0.338738, 0, 1, 0, -0.338738, 0, 0.940881, -0.121187, 0, 20.0755 )
 
-[node name="SpawnPoint2" parent="Zones/Ground0/BoardedWindow7" index="13" instance=ExtResource( 17 )]
+[node name="SpawnPoint2" parent="Zones/Ground0/BoardedWindow7" index="13" instance=ExtResource("17")]
 transform = Transform3D( 0.83179, 0, 0.555091, 0, 1, 0, -0.555091, 0, 0.83179, 13.5866, 0, 20.8165 )
 
-[node name="BoardedWindow8" parent="Zones/Ground0" index="9" instance=ExtResource( 16 )]
+[node name="BoardedWindow8" parent="Zones/Ground0" index="9" instance=ExtResource("16")]
 transform = Transform3D( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.89778, 0, -6 )
 
-[node name="SpawnPoint1" parent="Zones/Ground0/BoardedWindow8" index="12" instance=ExtResource( 17 )]
+[node name="SpawnPoint1" parent="Zones/Ground0/BoardedWindow8" index="12" instance=ExtResource("17")]
 transform = Transform3D( 0.923619, 0, 0.383312, 0, 1, 0, -0.383312, 0, 0.923619, 15.1611, 0, 28.7818 )
 
-[node name="SpawnPoint2" parent="Zones/Ground0/BoardedWindow8" index="13" instance=ExtResource( 17 )]
+[node name="SpawnPoint2" parent="Zones/Ground0/BoardedWindow8" index="13" instance=ExtResource("17")]
 transform = Transform3D( 0.292388, 0, 0.9563, 0, 1, 0, -0.9563, 0, 0.292388, 20.2552, 0, 11.8323 )
 
 [node name="room_g0" type="MeshInstance3D" parent="Zones/Ground0" index="10"]
-mesh = SubResource( 74 )
+mesh = SubResource("74")
 skeleton = NodePath("../../../InaccesableSpaces")
 
 [node name="CollisionFloor" type="CSGCombiner3D" parent="Zones/Ground0" index="11" groups=["nav_g0", "nav_inside"]]
 visible = false
-material_override = SubResource( 62 )
+material_override = SubResource("62")
 use_collision = true
 
 [node name="Floor1" type="CSGBox3D" parent="Zones/Ground0/CollisionFloor" index="0"]
@@ -1316,7 +1315,7 @@ depth = 8.0
 
 [node name="CollisionWall" type="CSGCombiner3D" parent="Zones/Ground0" index="12" groups=["nav_g0", "nav_inside", "nav_outside"]]
 visible = false
-material_override = SubResource( 63 )
+material_override = SubResource("63")
 use_collision = true
 
 [node name="CSGBoxUnion1" type="CSGBox3D" parent="Zones/Ground0/CollisionWall" index="0"]
@@ -1434,69 +1433,69 @@ operation = 2
 width = 3.0
 height = 4.0
 
-[node name="ZoneEffectFortify" parent="Zones/Ground0" index="13" instance=ExtResource( 36 )]
+[node name="ZoneEffectFortify" parent="Zones/Ground0" index="13" instance=ExtResource("36")]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 3.89755 )
 
-[node name="Ground1" parent="Zones" index="1" instance=ExtResource( 2 )]
+[node name="Ground1" parent="Zones" index="1" instance=ExtResource("2")]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 6 )
 _accessObstructionNodePaths = [ NodePath("../../Obstructions/G0-G1"), NodePath("../../Obstructions/G1-F3") ]
 
 [node name="NavMeshInst" type="NavigationRegion3D" parent="Zones/Ground1" index="1"]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -0.25 )
-navigation_mesh = SubResource( 27 )
+navigation_mesh = SubResource("27")
 navigation_layers = 2
 
-[node name="BoardedWindow1" parent="Zones/Ground1" index="2" instance=ExtResource( 16 )]
+[node name="BoardedWindow1" parent="Zones/Ground1" index="2" instance=ExtResource("16")]
 transform = Transform3D( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0631332, 0, -12.0946 )
 
-[node name="SpawnPoint1" parent="Zones/Ground1/BoardedWindow1" index="12" instance=ExtResource( 17 )]
+[node name="SpawnPoint1" parent="Zones/Ground1/BoardedWindow1" index="12" instance=ExtResource("17")]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.99025, 0, 19.9829 )
 
-[node name="SpawnPoint2" parent="Zones/Ground1/BoardedWindow1" index="13" instance=ExtResource( 17 )]
+[node name="SpawnPoint2" parent="Zones/Ground1/BoardedWindow1" index="13" instance=ExtResource("17")]
 transform = Transform3D( 0.869107, 0, -0.494625, 0, 1, 0, 0.494625, 0, 0.869107, -5.86363, 0, 15.074 )
 
-[node name="BoardedWindow2" parent="Zones/Ground1" index="3" instance=ExtResource( 16 )]
+[node name="BoardedWindow2" parent="Zones/Ground1" index="3" instance=ExtResource("16")]
 transform = Transform3D( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.10039, 0, -8.04951 )
 
-[node name="SpawnPoint1" parent="Zones/Ground1/BoardedWindow2" index="12" instance=ExtResource( 17 )]
+[node name="SpawnPoint1" parent="Zones/Ground1/BoardedWindow2" index="12" instance=ExtResource("17")]
 transform = Transform3D( 0.932311, 0, 0.361657, 0, 1, 0, -0.361657, 0, 0.932311, 11.2711, 0, 18.1305 )
 
-[node name="SpawnPoint2" parent="Zones/Ground1/BoardedWindow2" index="13" instance=ExtResource( 17 )]
+[node name="SpawnPoint2" parent="Zones/Ground1/BoardedWindow2" index="13" instance=ExtResource("17")]
 transform = Transform3D( 0.972913, 0, -0.231171, 0, 1, 0, 0.231171, 0, 0.972913, -6.04886, 0, 19.1493 )
 
-[node name="BoardedWindow3" parent="Zones/Ground1" index="4" instance=ExtResource( 16 )]
+[node name="BoardedWindow3" parent="Zones/Ground1" index="4" instance=ExtResource("16")]
 transform = Transform3D( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.10202, 0, 4.95152 )
 
-[node name="SpawnPoint1" parent="Zones/Ground1/BoardedWindow3" index="12" instance=ExtResource( 17 )]
+[node name="SpawnPoint1" parent="Zones/Ground1/BoardedWindow3" index="12" instance=ExtResource("17")]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.82531, 0, 18.8714 )
 
-[node name="SpawnPoint2" parent="Zones/Ground1/BoardedWindow3" index="13" instance=ExtResource( 17 )]
+[node name="SpawnPoint2" parent="Zones/Ground1/BoardedWindow3" index="13" instance=ExtResource("17")]
 transform = Transform3D( 0.894747, 0, -0.446573, 0, 1, 0, 0.446573, 0, 0.894747, -13.088, 0, 18.6862 )
 
-[node name="BoardedWindow4" parent="Zones/Ground1" index="5" instance=ExtResource( 16 )]
+[node name="BoardedWindow4" parent="Zones/Ground1" index="5" instance=ExtResource("16")]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.48312, 0, 11.6041 )
 
-[node name="SpawnPoint1" parent="Zones/Ground1/BoardedWindow4" index="12" instance=ExtResource( 17 )]
+[node name="SpawnPoint1" parent="Zones/Ground1/BoardedWindow4" index="12" instance=ExtResource("17")]
 transform = Transform3D( 0.0802337, 0, -0.996776, 0, 1, 0, 0.996776, 0, 0.0802337, -3.33493, 0, 14.5823 )
 
-[node name="BoardedWindow5" parent="Zones/Ground1" index="6" instance=ExtResource( 16 )]
+[node name="BoardedWindow5" parent="Zones/Ground1" index="6" instance=ExtResource("16")]
 transform = Transform3D( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.10253, 0, 5.94083 )
 
-[node name="SpawnPoint1" parent="Zones/Ground1/BoardedWindow5" index="12" instance=ExtResource( 17 )]
+[node name="SpawnPoint1" parent="Zones/Ground1/BoardedWindow5" index="12" instance=ExtResource("17")]
 transform = Transform3D( -0.0809818, 0, -0.996716, 0, 1, 0, 0.996716, 0, -0.0809818, 14.1695, 0, 15.3145 )
 
-[node name="SpawnPoint2" parent="Zones/Ground1/BoardedWindow5" index="13" instance=ExtResource( 17 )]
+[node name="SpawnPoint2" parent="Zones/Ground1/BoardedWindow5" index="13" instance=ExtResource("17")]
 transform = Transform3D( -0.995423, 0, -0.0955677, 0, 1, 0, 0.0955677, 0, -0.995423, 26.7616, 0, 3.25495 )
 
 [node name="room_g1" type="MeshInstance3D" parent="Zones/Ground1" index="7"]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -6 )
-mesh = SubResource( 75 )
+mesh = SubResource("75")
 skeleton = NodePath("../../../InaccesableSpaces")
 
 [node name="CollisionFloor" type="CSGCombiner3D" parent="Zones/Ground1" index="8" groups=["nav_g1", "nav_inside"]]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -6 )
 visible = false
-material_override = SubResource( 107 )
+material_override = SubResource("107")
 use_collision = true
 
 [node name="Floor1" type="CSGBox3D" parent="Zones/Ground1/CollisionFloor" index="0"]
@@ -1521,7 +1520,7 @@ depth = 2.5
 [node name="CollisionWall" type="CSGCombiner3D" parent="Zones/Ground1" index="9" groups=["nav_g1", "nav_inside", "nav_outside"]]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -6 )
 visible = false
-material_override = SubResource( 64 )
+material_override = SubResource("64")
 use_collision = true
 
 [node name="CSGBoxUnion1" type="CSGBox3D" parent="Zones/Ground1/CollisionWall" index="0"]
@@ -1610,7 +1609,7 @@ height = 4.0
 [node name="CollisionStairs" type="CSGCombiner3D" parent="Zones/Ground1" index="10" groups=["nav_inside"]]
 transform = Transform3D( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.4, -0.5, 1 )
 visible = false
-material_override = ExtResource( 9 )
+material_override = ExtResource("9")
 use_collision = true
 
 [node name="BoxUnion" type="CSGBox3D" parent="Zones/Ground1/CollisionStairs" index="0"]
@@ -1653,69 +1652,69 @@ width = 4.0
 height = 14.0
 depth = 6.0
 
-[node name="ZoneEffectFortify" parent="Zones/Ground1" index="11" instance=ExtResource( 36 )]
+[node name="ZoneEffectFortify" parent="Zones/Ground1" index="11" instance=ExtResource("36")]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.14301, 1.5, 8.91245 )
 
-[node name="Ground2" parent="Zones" index="2" instance=ExtResource( 2 )]
+[node name="Ground2" parent="Zones" index="2" instance=ExtResource("2")]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 11 )
 _accessObstructionNodePaths = [ NodePath("../../Obstructions/G0-G2"), NodePath("../../Obstructions/G2-F1") ]
 
 [node name="NavMeshInst" type="NavigationRegion3D" parent="Zones/Ground2" index="0"]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3.5 )
-navigation_mesh = SubResource( 28 )
+navigation_mesh = SubResource("28")
 navigation_layers = 2
 
-[node name="BoardedWindow1" parent="Zones/Ground2" index="2" instance=ExtResource( 16 )]
+[node name="BoardedWindow1" parent="Zones/Ground2" index="2" instance=ExtResource("16")]
 transform = Transform3D( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -5.09597, 0, -4.0549 )
 
-[node name="SpawnPoint1" parent="Zones/Ground2/BoardedWindow1" index="12" instance=ExtResource( 17 )]
+[node name="SpawnPoint1" parent="Zones/Ground2/BoardedWindow1" index="12" instance=ExtResource("17")]
 transform = Transform3D( 0.958357, 0, 0.285571, 0, 1, 0, -0.285571, 0, 0.958357, 0.156662, 0, 29.8932 )
 
-[node name="SpawnPoint2" parent="Zones/Ground2/BoardedWindow1" index="13" instance=ExtResource( 17 )]
+[node name="SpawnPoint2" parent="Zones/Ground2/BoardedWindow1" index="13" instance=ExtResource("17")]
 transform = Transform3D( 0.997327, 0, -0.0730641, 0, 1, 0, 0.0730641, 0, 0.997327, -16.8044, 0, 27.6245 )
 
-[node name="BoardedWindow2" parent="Zones/Ground2" index="3" instance=ExtResource( 16 )]
+[node name="BoardedWindow2" parent="Zones/Ground2" index="3" instance=ExtResource("16")]
 transform = Transform3D( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -5.09739, 0, 11.4982 )
 
-[node name="SpawnPoint1" parent="Zones/Ground2/BoardedWindow2" index="12" instance=ExtResource( 17 )]
+[node name="SpawnPoint1" parent="Zones/Ground2/BoardedWindow2" index="12" instance=ExtResource("17")]
 transform = Transform3D( 0.989088, 0, -0.147326, 0, 1, 0, 0.147326, 0, 0.989088, -15.033, 0, 29.8932 )
 
-[node name="SpawnPoint2" parent="Zones/Ground2/BoardedWindow2" index="13" instance=ExtResource( 17 )]
+[node name="SpawnPoint2" parent="Zones/Ground2/BoardedWindow2" index="13" instance=ExtResource("17")]
 transform = Transform3D( 0.886325, 0, 0.463064, 0, 1, 0, -0.463064, 0, 0.886325, 6.73268, 0, 31.0973 )
 
-[node name="BoardedWindow3" parent="Zones/Ground2" index="4" instance=ExtResource( 16 )]
+[node name="BoardedWindow3" parent="Zones/Ground2" index="4" instance=ExtResource("16")]
 transform = Transform3D( -2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 6.84714, 0, 11.5043 )
 
-[node name="SpawnPoint1" parent="Zones/Ground2/BoardedWindow3" index="12" instance=ExtResource( 17 )]
+[node name="SpawnPoint1" parent="Zones/Ground2/BoardedWindow3" index="12" instance=ExtResource("17")]
 transform = Transform3D( 0.0385622, 0, 0.999256, 0, 1, 0, -0.999256, 0, 0.0385622, 6.03724, 0, 20.546 )
 
-[node name="SpawnPoint2" parent="Zones/Ground2/BoardedWindow3" index="13" instance=ExtResource( 17 )]
+[node name="SpawnPoint2" parent="Zones/Ground2/BoardedWindow3" index="13" instance=ExtResource("17")]
 transform = Transform3D( 0.971292, 0, -0.237889, 0, 1, 0, 0.237889, 0, 0.971292, -16.2593, 0, 10.8893 )
 
-[node name="BoardedWindow5" parent="Zones/Ground2" index="5" instance=ExtResource( 16 )]
+[node name="BoardedWindow5" parent="Zones/Ground2" index="5" instance=ExtResource("16")]
 transform = Transform3D( 1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -1.0639, 0, 14.1059 )
 
-[node name="SpawnPoint1" parent="Zones/Ground2/BoardedWindow5" index="12" instance=ExtResource( 17 )]
+[node name="SpawnPoint1" parent="Zones/Ground2/BoardedWindow5" index="12" instance=ExtResource("17")]
 transform = Transform3D( -0.0135434, 0, 0.999908, 0, 1, 0, -0.999908, 0, -0.0135434, 5.25997, 0, 7.47991 )
 
-[node name="BoardedWindow4" parent="Zones/Ground2" index="6" instance=ExtResource( 16 )]
+[node name="BoardedWindow4" parent="Zones/Ground2" index="6" instance=ExtResource("16")]
 transform = Transform3D( -2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 4.10394, 0, 1.94867 )
 
-[node name="SpawnPoint1" parent="Zones/Ground2/BoardedWindow4" index="12" instance=ExtResource( 17 )]
+[node name="SpawnPoint1" parent="Zones/Ground2/BoardedWindow4" index="12" instance=ExtResource("17")]
 transform = Transform3D( 0.00563733, 0, 0.999984, 0, 1, 0, -0.999984, 0, 0.00563733, -3.70993, 0, 23.2309 )
 
-[node name="SpawnPoint2" parent="Zones/Ground2/BoardedWindow4" index="13" instance=ExtResource( 17 )]
+[node name="SpawnPoint2" parent="Zones/Ground2/BoardedWindow4" index="13" instance=ExtResource("17")]
 transform = Transform3D( -0.899527, 0, -0.436864, 0, 1, 0, 0.436864, 0, -0.899527, -26.3268, 0, 4.80507 )
 
 [node name="room_g2" type="MeshInstance3D" parent="Zones/Ground2" index="7"]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
-mesh = SubResource( 76 )
+mesh = SubResource("76")
 skeleton = NodePath("../../../InaccesableSpaces")
 
 [node name="CollisionFloor" type="CSGCombiner3D" parent="Zones/Ground2" index="8" groups=["nav_g2", "nav_inside"]]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
 visible = false
-material_override = SubResource( 65 )
+material_override = SubResource("65")
 use_collision = true
 
 [node name="Floor1" type="CSGBox3D" parent="Zones/Ground2/CollisionFloor" index="0"]
@@ -1733,7 +1732,7 @@ depth = 5.0
 [node name="CollisionWall" type="CSGCombiner3D" parent="Zones/Ground2" index="9" groups=["nav_g2", "nav_inside", "nav_outside"]]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
 visible = false
-material_override = SubResource( 3 )
+material_override = SubResource("3")
 use_collision = true
 
 [node name="CSGBoxUnion1" type="CSGBox3D" parent="Zones/Ground2/CollisionWall" index="0"]
@@ -1816,7 +1815,7 @@ height = 4.0
 [node name="CollisionStairs" type="CSGCombiner3D" parent="Zones/Ground2" index="10" groups=["nav_inside"]]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4, -0.5, 1 )
 visible = false
-material_override = ExtResource( 9 )
+material_override = ExtResource("9")
 use_collision = true
 
 [node name="BoxUnion" type="CSGBox3D" parent="Zones/Ground2/CollisionStairs" index="0"]
@@ -1859,84 +1858,84 @@ width = 4.0
 height = 14.0
 depth = 6.0
 
-[node name="ZoneEffectFortify" parent="Zones/Ground2" index="11" instance=ExtResource( 36 )]
+[node name="ZoneEffectFortify" parent="Zones/Ground2" index="11" instance=ExtResource("36")]
 transform = Transform3D( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.91278, 1.5, 6.24437 )
 
-[node name="First1" parent="Zones" index="3" instance=ExtResource( 2 )]
+[node name="First1" parent="Zones" index="3" instance=ExtResource("2")]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 3.5, 12 )
 _accessObstructionNodePaths = [ NodePath("../../Obstructions/F1-F2"), NodePath("../../Obstructions/G2-F1") ]
 
 [node name="NavMeshInst" type="NavigationRegion3D" parent="Zones/First1" index="1"]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -4.25 )
-navigation_mesh = SubResource( 51 )
+navigation_mesh = SubResource("51")
 navigation_layers = 2
 
-[node name="BoardedWindow1" parent="Zones/First1" index="2" instance=ExtResource( 16 )]
+[node name="BoardedWindow1" parent="Zones/First1" index="2" instance=ExtResource("16")]
 transform = Transform3D( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -5.09597, 0, -8.99724 )
 
-[node name="SpawnPoint1" parent="Zones/First1/BoardedWindow1" index="12" instance=ExtResource( 17 )]
+[node name="SpawnPoint1" parent="Zones/First1/BoardedWindow1" index="12" instance=ExtResource("17")]
 transform = Transform3D( -0.958357, 0, -0.285571, 0, 1, 0, 0.285571, 0, -0.958357, 32.0656, 0, -35.2421 )
 
-[node name="SpawnPoint2" parent="Zones/First1/BoardedWindow1" index="13" instance=ExtResource( 17 )]
+[node name="SpawnPoint2" parent="Zones/First1/BoardedWindow1" index="13" instance=ExtResource("17")]
 transform = Transform3D( 0.997327, 0, -0.0730641, 0, 1, 0, 0.0730641, 0, 0.997327, -13.0625, -3.5, 27.625 )
 
-[node name="BoardedWindow2" parent="Zones/First1" index="3" instance=ExtResource( 16 )]
+[node name="BoardedWindow2" parent="Zones/First1" index="3" instance=ExtResource("16")]
 transform = Transform3D( -1, 0, -8.74226e-08, 0, 1, 0, 8.74226e-08, 0, -1, -2.61663, 0, -16.0993 )
 
-[node name="SpawnPoint1" parent="Zones/First1/BoardedWindow2" index="12" instance=ExtResource( 17 )]
+[node name="SpawnPoint1" parent="Zones/First1/BoardedWindow2" index="12" instance=ExtResource("17")]
 transform = Transform3D( 0.958357, 0, 0.285571, 0, 1, 0, -0.285571, 0, 0.958357, 14.1437, -3.5, 24.999 )
 
-[node name="SpawnPoint3" parent="Zones/First1/BoardedWindow2" index="13" instance=ExtResource( 17 )]
+[node name="SpawnPoint3" parent="Zones/First1/BoardedWindow2" index="13" instance=ExtResource("17")]
 transform = Transform3D( -0.113342, 0, 0.993555, 0, 1, 0, -0.993555, 0, -0.113342, 30.1677, -3.5, 6.01469 )
 
-[node name="SpawnPoint2" parent="Zones/First1/BoardedWindow2" index="14" instance=ExtResource( 17 )]
+[node name="SpawnPoint2" parent="Zones/First1/BoardedWindow2" index="14" instance=ExtResource("17")]
 transform = Transform3D( -0.0730641, 0, -0.997327, 0, 1, 0, 0.997327, 0, -0.0730641, -12.1387, 0, -36.649 )
 
-[node name="BoardedWindow3" parent="Zones/First1" index="4" instance=ExtResource( 16 )]
+[node name="BoardedWindow3" parent="Zones/First1" index="4" instance=ExtResource("16")]
 transform = Transform3D( -4.37112e-08, 0, 1, 0, 1, 0, -1, 0, -4.37112e-08, 4.10009, 0, -5.05622 )
 
-[node name="SpawnPoint1" parent="Zones/First1/BoardedWindow3" index="12" instance=ExtResource( 17 )]
+[node name="SpawnPoint1" parent="Zones/First1/BoardedWindow3" index="12" instance=ExtResource("17")]
 transform = Transform3D( 0.958357, 0, 0.285571, 0, 1, 0, -0.285571, 0, 0.958357, -26.6183, -3.5, 25.2755 )
 
-[node name="SpawnPoint2" parent="Zones/First1/BoardedWindow3" index="13" instance=ExtResource( 17 )]
+[node name="SpawnPoint2" parent="Zones/First1/BoardedWindow3" index="13" instance=ExtResource("17")]
 transform = Transform3D( 0.997327, 0, -0.0730641, 0, 1, 0, 0.0730641, 0, 0.997327, -32.3449, -3.5, 13.9063 )
 
-[node name="SpawnPoint3" parent="Zones/First1/BoardedWindow3" index="14" instance=ExtResource( 17 )]
+[node name="SpawnPoint3" parent="Zones/First1/BoardedWindow3" index="14" instance=ExtResource("17")]
 transform = Transform3D( 0.993255, 0, 0.115942, 0, 1, 0, -0.115942, 0, 0.993255, -25.432, 0, 5.52318 )
 
-[node name="BoardedWindow4" parent="Zones/First1" index="5" instance=ExtResource( 16 )]
+[node name="BoardedWindow4" parent="Zones/First1" index="5" instance=ExtResource("16")]
 transform = Transform3D( -4.37112e-08, 0, 1, 0, 1, 0, -1, 0, -4.37112e-08, 4.10009, 0, 1.96072 )
 
-[node name="SpawnPoint1" parent="Zones/First1/BoardedWindow4" index="12" instance=ExtResource( 17 )]
+[node name="SpawnPoint1" parent="Zones/First1/BoardedWindow4" index="12" instance=ExtResource("17")]
 transform = Transform3D( 0.958357, 0, 0.285571, 0, 1, 0, -0.285571, 0, 0.958357, -19.4991, -3.5, 25.377 )
 
-[node name="SpawnPoint2" parent="Zones/First1/BoardedWindow4" index="13" instance=ExtResource( 17 )]
+[node name="SpawnPoint2" parent="Zones/First1/BoardedWindow4" index="13" instance=ExtResource("17")]
 transform = Transform3D( -0.588307, 0, -0.808637, 0, 1, 0, 0.808637, 0, -0.588307, -34.4903, -3.5, 4.10948 )
 
-[node name="SpawnPoint3" parent="Zones/First1/BoardedWindow4" index="14" instance=ExtResource( 17 )]
+[node name="SpawnPoint3" parent="Zones/First1/BoardedWindow4" index="14" instance=ExtResource("17")]
 transform = Transform3D( 0.993255, 0, 0.115942, 0, 1, 0, -0.115942, 0, 0.993255, -18.4151, 0, 0.256115 )
 
-[node name="BoardedWindow5" parent="Zones/First1" index="6" instance=ExtResource( 16 )]
+[node name="BoardedWindow5" parent="Zones/First1" index="6" instance=ExtResource("16")]
 transform = Transform3D( 1, 0, -1.63425e-13, 0, 1, 0, 1.63425e-13, 0, 1, 0.934456, 0, 8.09629 )
 
-[node name="SpawnPoint1" parent="Zones/First1/BoardedWindow5" index="12" instance=ExtResource( 17 )]
+[node name="SpawnPoint1" parent="Zones/First1/BoardedWindow5" index="12" instance=ExtResource("17")]
 transform = Transform3D( -0.115942, 0, 0.993255, 0, 1, 0, -0.993255, 0, -0.115942, 3.41232, 0, 12.2795 )
 
-[node name="SpawnPoint2" parent="Zones/First1/BoardedWindow5" index="13" instance=ExtResource( 17 )]
+[node name="SpawnPoint2" parent="Zones/First1/BoardedWindow5" index="13" instance=ExtResource("17")]
 transform = Transform3D( 0.944141, 0, -0.329542, 0, 1, 0, 0.329542, 0, 0.944141, 20.2261, -3.5, 13.2578 )
 
-[node name="SpawnPoint3" parent="Zones/First1/BoardedWindow5" index="14" instance=ExtResource( 17 )]
+[node name="SpawnPoint3" parent="Zones/First1/BoardedWindow5" index="14" instance=ExtResource("17")]
 transform = Transform3D( 0.0554554, 0, 0.998461, 0, 1, 0, -0.998461, 0, 0.0554554, 4.77939, -9.53674e-07, 16.7022 )
 
 [node name="room_f1" type="MeshInstance3D" parent="Zones/First1" index="7"]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2 )
-mesh = SubResource( 77 )
+mesh = SubResource("77")
 skeleton = NodePath("../../../InaccesableSpaces")
 
 [node name="CollisionFloor" type="CSGCombiner3D" parent="Zones/First1" index="8" groups=["nav_f1", "nav_inside"]]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2 )
 visible = false
-material_override = SubResource( 66 )
+material_override = SubResource("66")
 use_collision = true
 
 [node name="Floor1" type="CSGBox3D" parent="Zones/First1/CollisionFloor" index="0"]
@@ -1960,7 +1959,7 @@ depth = 10.0
 [node name="CollisionWall" type="CSGCombiner3D" parent="Zones/First1" index="9" groups=["nav_f1", "nav_inside", "nav_outside"]]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2 )
 visible = false
-material_override = SubResource( 108 )
+material_override = SubResource("108")
 use_collision = true
 
 [node name="CSGBoxUnion1" type="CSGBox3D" parent="Zones/First1/CollisionWall" index="0"]
@@ -2051,65 +2050,65 @@ transform = Transform3D( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.79
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Zones/First1/CollisionStairRail" index="0"]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0407906 )
-shape = SubResource( 92 )
+shape = SubResource("92")
 
-[node name="ZoneEffectFortify" parent="Zones/First1" index="11" instance=ExtResource( 36 )]
+[node name="ZoneEffectFortify" parent="Zones/First1" index="11" instance=ExtResource("36")]
 transform = Transform3D( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -4.90739, 1.5, -5.00879 )
 
-[node name="First2" parent="Zones" index="4" instance=ExtResource( 2 )]
+[node name="First2" parent="Zones" index="4" instance=ExtResource("2")]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 3.5, 0 )
 _accessObstructionNodePaths = [ NodePath("../../Obstructions/F2-F3"), NodePath("../../Obstructions/F1-F2") ]
 
 [node name="NavMeshInst" type="NavigationRegion3D" parent="Zones/First2" index="1"]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -4.25 )
-navigation_mesh = SubResource( 30 )
+navigation_mesh = SubResource("30")
 navigation_layers = 2
 
-[node name="BoardedWindow1" parent="Zones/First2" index="2" instance=ExtResource( 16 )]
+[node name="BoardedWindow1" parent="Zones/First2" index="2" instance=ExtResource("16")]
 transform = Transform3D( -1, 0, -8.74226e-08, 0, 1, 0, 8.74226e-08, 0, -1, -5.62163, 0, -4.10071 )
 
-[node name="SpawnPoint1" parent="Zones/First2/BoardedWindow1" index="12" instance=ExtResource( 17 )]
+[node name="SpawnPoint1" parent="Zones/First2/BoardedWindow1" index="12" instance=ExtResource("17")]
 transform = Transform3D( 0.958357, 0, 0.285571, 0, 1, 0, -0.285571, 0, 0.958357, 6.15037, -3.5, 24.2366 )
 
-[node name="SpawnPoint2" parent="Zones/First2/BoardedWindow1" index="13" instance=ExtResource( 17 )]
+[node name="SpawnPoint2" parent="Zones/First2/BoardedWindow1" index="13" instance=ExtResource("17")]
 transform = Transform3D( -0.26665, 0, 0.963793, 0, 1, 0, -0.963793, 0, -0.26665, 38.6109, -3.5, -11.3634 )
 
-[node name="BoardedWindow2" parent="Zones/First2" index="3" instance=ExtResource( 16 )]
+[node name="BoardedWindow2" parent="Zones/First2" index="3" instance=ExtResource("16")]
 transform = Transform3D( 1, 0, 1.74845e-07, 0, 1, 0, -1.74845e-07, 0, 1, -0.615608, 0, 4.09576 )
 
-[node name="SpawnPoint1" parent="Zones/First2/BoardedWindow2" index="12" instance=ExtResource( 17 )]
+[node name="SpawnPoint1" parent="Zones/First2/BoardedWindow2" index="12" instance=ExtResource("17")]
 transform = Transform3D( 0.958357, 0, 0.285571, 0, 1, 0, -0.285571, 0, 0.958357, 10.1413, -3.5, 44.588 )
 
-[node name="SpawnPoint2" parent="Zones/First2/BoardedWindow2" index="13" instance=ExtResource( 17 )]
+[node name="SpawnPoint2" parent="Zones/First2/BoardedWindow2" index="13" instance=ExtResource("17")]
 transform = Transform3D( 0.277449, 0, 0.96074, 0, 1, 0, -0.96074, 0, 0.277449, 21.234, -3.5, 29.4146 )
 
-[node name="SpawnPoint3" parent="Zones/First2/BoardedWindow2" index="14" instance=ExtResource( 17 )]
+[node name="SpawnPoint3" parent="Zones/First2/BoardedWindow2" index="14" instance=ExtResource("17")]
 transform = Transform3D( -0.115942, 0, 0.993255, 0, 1, 0, -0.993255, 0, -0.115942, -2.64434, 0, 32.6066 )
 
-[node name="BoardedWindow3" parent="Zones/First2" index="4" instance=ExtResource( 16 )]
+[node name="BoardedWindow3" parent="Zones/First2" index="4" instance=ExtResource("16")]
 transform = Transform3D( 1, 0, 1.74845e-07, 0, 1, 0, -1.74845e-07, 0, 1, 7.38439, 0, 4.09576 )
 
-[node name="SpawnPoint1" parent="Zones/First2/BoardedWindow3" index="12" instance=ExtResource( 17 )]
+[node name="SpawnPoint1" parent="Zones/First2/BoardedWindow3" index="12" instance=ExtResource("17")]
 transform = Transform3D( 0.976989, 0, -0.213286, 0, 1, 0, 0.213286, 0, 0.976989, -8.1577, -3.5, 44.2532 )
 
-[node name="SpawnPoint2" parent="Zones/First2/BoardedWindow3" index="13" instance=ExtResource( 17 )]
+[node name="SpawnPoint2" parent="Zones/First2/BoardedWindow3" index="13" instance=ExtResource("17")]
 transform = Transform3D( -0.328421, 0, 0.944531, 0, 1, 0, -0.944531, 0, -0.328421, 13.0019, -3.5, 29.418 )
 
-[node name="BoardedWindow4" parent="Zones/First2" index="5" instance=ExtResource( 16 )]
+[node name="BoardedWindow4" parent="Zones/First2" index="5" instance=ExtResource("16")]
 transform = Transform3D( -2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 12.0991, 0, -2.98623 )
 
-[node name="SpawnPoint1" parent="Zones/First2/BoardedWindow4" index="12" instance=ExtResource( 17 )]
+[node name="SpawnPoint1" parent="Zones/First2/BoardedWindow4" index="12" instance=ExtResource("17")]
 transform = Transform3D( 0.120223, 0, -0.992746, 0, 1, 0, 0.992746, 0, 0.120223, -1.05287, 0, 8.61157 )
 
 [node name="room_f2" type="MeshInstance3D" parent="Zones/First2" index="6"]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0 )
-mesh = SubResource( 78 )
+mesh = SubResource("78")
 skeleton = NodePath("../../../InaccesableSpaces")
 
 [node name="CollisionFloor" type="CSGCombiner3D" parent="Zones/First2" index="7" groups=["nav_f2", "nav_inside"]]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0 )
 visible = false
-material_override = SubResource( 67 )
+material_override = SubResource("67")
 use_collision = true
 
 [node name="Floor5" type="CSGBox3D" parent="Zones/First2/CollisionFloor" index="0"]
@@ -2127,7 +2126,7 @@ depth = 8.0
 [node name="CollisionWall" type="CSGCombiner3D" parent="Zones/First2" index="8" groups=["nav_f2", "nav_inside", "nav_outside"]]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0 )
 visible = false
-material_override = SubResource( 109 )
+material_override = SubResource("109")
 use_collision = true
 
 [node name="CSGBoxUnion1" type="CSGBox3D" parent="Zones/First2/CollisionWall" index="0"]
@@ -2212,48 +2211,48 @@ width = 1.2
 height = 1.25
 depth = 1.0
 
-[node name="ZoneEffectFortify" parent="Zones/First2" index="9" instance=ExtResource( 36 )]
+[node name="ZoneEffectFortify" parent="Zones/First2" index="9" instance=ExtResource("36")]
 transform = Transform3D( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.385924, 1.5, -3.89802 )
 
-[node name="First3" parent="Zones" index="5" instance=ExtResource( 2 )]
+[node name="First3" parent="Zones" index="5" instance=ExtResource("2")]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 3.5, 6 )
 _accessObstructionNodePaths = [ NodePath("../../Obstructions/G1-F3"), NodePath("../../Obstructions/F2-F3") ]
 
 [node name="NavMeshInst" type="NavigationRegion3D" parent="Zones/First3" index="1"]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -4.25 )
-navigation_mesh = SubResource( 31 )
+navigation_mesh = SubResource("31")
 navigation_layers = 2
 
-[node name="BoardedWindow1" parent="Zones/First3" index="2" instance=ExtResource( 16 )]
+[node name="BoardedWindow1" parent="Zones/First3" index="2" instance=ExtResource("16")]
 transform = Transform3D( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -4.09997, 0, 0.945188 )
 
-[node name="SpawnPoint1" parent="Zones/First3/BoardedWindow1" index="12" instance=ExtResource( 17 )]
+[node name="SpawnPoint1" parent="Zones/First3/BoardedWindow1" index="12" instance=ExtResource("17")]
 transform = Transform3D( 0.27265, 0, 0.962113, 0, 1, 0, -0.962113, 0, 0.27265, 32.6793, -3.5, 28.1844 )
 
-[node name="SpawnPoint2" parent="Zones/First3/BoardedWindow1" index="13" instance=ExtResource( 17 )]
+[node name="SpawnPoint2" parent="Zones/First3/BoardedWindow1" index="13" instance=ExtResource("17")]
 transform = Transform3D( -0.456663, 0, 0.889639, 0, 1, 0, -0.889639, 0, -0.456663, 41.5332, -3.5, 2.3983 )
 
-[node name="BoardedWindow2" parent="Zones/First3" index="3" instance=ExtResource( 16 )]
+[node name="BoardedWindow2" parent="Zones/First3" index="3" instance=ExtResource("16")]
 transform = Transform3D( 1, 0, 1.74845e-07, 0, 1, 0, -1.74845e-07, 0, 1, -1.05956, 0, 9.10302 )
 
-[node name="SpawnPoint1" parent="Zones/First3/BoardedWindow2" index="12" instance=ExtResource( 17 )]
+[node name="SpawnPoint1" parent="Zones/First3/BoardedWindow2" index="12" instance=ExtResource("17")]
 transform = Transform3D( 0.630134, 0, -0.776486, 0, 1, 0, 0.776486, 0, 0.630134, -5.52449, 0, 20.3795 )
 
-[node name="BoardedWindow3" parent="Zones/First3" index="4" instance=ExtResource( 16 )]
+[node name="BoardedWindow3" parent="Zones/First3" index="4" instance=ExtResource("16")]
 transform = Transform3D( 1, 0, 1.74845e-07, 0, 1, 0, -1.74845e-07, 0, 1, 3.94044, 0, 9.10302 )
 
-[node name="SpawnPoint1" parent="Zones/First3/BoardedWindow3" index="12" instance=ExtResource( 17 )]
+[node name="SpawnPoint1" parent="Zones/First3/BoardedWindow3" index="12" instance=ExtResource("17")]
 transform = Transform3D( 0.264126, 0, 0.964487, 0, 1, 0, -0.964487, 0, 0.264126, 0.826153, 0, 20.7392 )
 
 [node name="room_f3" type="MeshInstance3D" parent="Zones/First3" index="5"]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -6 )
-mesh = SubResource( 79 )
+mesh = SubResource("79")
 skeleton = NodePath("../../../InaccesableSpaces")
 
 [node name="CollisionFloor" type="CSGCombiner3D" parent="Zones/First3" index="6" groups=["nav_f3", "nav_inside"]]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -6 )
 visible = false
-material_override = SubResource( 68 )
+material_override = SubResource("68")
 use_collision = true
 
 [node name="Floor1" type="CSGBox3D" parent="Zones/First3/CollisionFloor" index="0"]
@@ -2271,7 +2270,7 @@ depth = 10.0
 [node name="CollisionWall" type="CSGCombiner3D" parent="Zones/First3" index="7" groups=["nav_f3", "nav_inside", "nav_outside"]]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -6 )
 visible = false
-material_override = SubResource( 110 )
+material_override = SubResource("110")
 use_collision = true
 
 [node name="CSGBoxUnion1" type="CSGBox3D" parent="Zones/First3/CollisionWall" index="0"]
@@ -2338,155 +2337,143 @@ transform = Transform3D( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.771
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Zones/First3/CollisionStairRail" index="0"]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0407906 )
-shape = SubResource( 93 )
+shape = SubResource("93")
 
-[node name="ZoneEffectFortify" parent="Zones/First3" index="9" instance=ExtResource( 36 )]
+[node name="ZoneEffectFortify" parent="Zones/First3" index="9" instance=ExtResource("36")]
 transform = Transform3D( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.45327, 1.5, -6.90867 )
 
-[node name="Revolver" parent="WallBuys" index="0" instance=ExtResource( 10 )]
+[node name="Revolver" parent="WallBuys" index="0" instance=ExtResource("10")]
 transform = Transform3D( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 1.5, -3.88718 )
-GunPackedScene = ExtResource( 7 )
+GunPackedScene = ExtResource("7")
 
-[node name="Pistol" parent="WallBuys" index="1" instance=ExtResource( 10 )]
+[node name="Pistol" parent="WallBuys" index="1" instance=ExtResource("10")]
 transform = Transform3D( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15.9194, 1.5, -2.89494 )
-GunPackedScene = ExtResource( 6 )
+GunPackedScene = ExtResource("6")
 
-[node name="ShotgunSawnOff" parent="WallBuys" index="2" instance=ExtResource( 10 )]
+[node name="ShotgunSawnOff" parent="WallBuys" index="2" instance=ExtResource("10")]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1.5, 3.88771 )
-GunPackedScene = ExtResource( 12 )
+GunPackedScene = ExtResource("12")
 
-[node name="SemiAutoRifle" parent="WallBuys" index="3" instance=ExtResource( 10 )]
+[node name="SemiAutoRifle" parent="WallBuys" index="3" instance=ExtResource("10")]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.5, 24.9121 )
-GunPackedScene = ExtResource( 20 )
+GunPackedScene = ExtResource("20")
 
-[node name="BoltActionRifle" parent="WallBuys" index="4" instance=ExtResource( 10 )]
+[node name="BoltActionRifle" parent="WallBuys" index="4" instance=ExtResource("10")]
 transform = Transform3D( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 16.1139, 1.5, 7.91213 )
-GunPackedScene = ExtResource( 18 )
+GunPackedScene = ExtResource("18")
 
-[node name="AssaultRifle" parent="WallBuys" index="5" instance=ExtResource( 10 )]
+[node name="AssaultRifle" parent="WallBuys" index="5" instance=ExtResource("10")]
 transform = Transform3D( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 16.114, 5, 10.912 )
-GunPackedScene = ExtResource( 22 )
+GunPackedScene = ExtResource("22")
 
-[node name="SMG" parent="WallBuys" index="6" instance=ExtResource( 10 )]
+[node name="SMG" parent="WallBuys" index="6" instance=ExtResource("10")]
 transform = Transform3D( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.10564, 5, 9.912 )
-GunPackedScene = ExtResource( 21 )
+GunPackedScene = ExtResource("21")
 
-[node name="Shotgun" parent="WallBuys" index="7" instance=ExtResource( 10 )]
+[node name="Shotgun" parent="WallBuys" index="7" instance=ExtResource("10")]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 5, 3.90211 )
-GunPackedScene = ExtResource( 19 )
+GunPackedScene = ExtResource("19")
 
-[node name="G0-G1" parent="Obstructions" index="0" instance=ExtResource( 4 )]
+[node name="G0-G1" parent="Obstructions" index="0" instance=ExtResource("4")]
 transform = Transform3D( -1.45043e-07, 0, 1, 0, 1, 0, -1, 0, -1.45043e-07, 16, 0, 1 )
 
 [node name="NavMeshInst" type="NavigationRegion3D" parent="Obstructions/G0-G1" index="4"]
-navigation_mesh = SubResource( 47 )
+navigation_mesh = SubResource("47")
 navigation_layers = 2
-script = ExtResource( 1 )
-
 [node name="NavArea" type="MeshInstance3D" parent="Obstructions/G0-G1/NavMeshInst" index="0"]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 visible = false
-mesh = SubResource( 32 )
-material/0 = SubResource( 33 )
+mesh = SubResource("32")
+material/0 = SubResource("33")
 
 [node name="NavBlock" type="MeshInstance3D" parent="Obstructions/G0-G1" index="5" groups=["nav_g1"]]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0 )
 visible = false
-mesh = SubResource( 114 )
+mesh = SubResource("114")
 skeleton = NodePath("")
 
-[node name="G0-G2" parent="Obstructions" index="1" instance=ExtResource( 4 )]
+[node name="G0-G2" parent="Obstructions" index="1" instance=ExtResource("4")]
 transform = Transform3D( -1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, -1, -6, 0, 4 )
 
 [node name="NavMeshInst" type="NavigationRegion3D" parent="Obstructions/G0-G2" index="4"]
 transform = Transform3D( 1, 0, -7.35137e-08, 0, 1, 0, 7.35137e-08, 0, 1, 0, 0, -4.76837e-07 )
-navigation_mesh = SubResource( 47 )
+navigation_mesh = SubResource("47")
 navigation_layers = 2
-script = ExtResource( 1 )
-
 [node name="NavArea" type="MeshInstance3D" parent="Obstructions/G0-G2/NavMeshInst" index="0"]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 visible = false
-mesh = SubResource( 32 )
-material/0 = SubResource( 33 )
+mesh = SubResource("32")
+material/0 = SubResource("33")
 
-[node name="G1-F3" parent="Obstructions" index="2" instance=ExtResource( 23 )]
+[node name="G1-F3" parent="Obstructions" index="2" instance=ExtResource("23")]
 transform = Transform3D( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 24.396, 1.52131, 4.56133 )
 _buyCost = 1000
 
 [node name="NavMeshInst" type="NavigationRegion3D" parent="Obstructions/G1-F3" index="4"]
 transform = Transform3D( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.12, 0, -0.45 )
-navigation_mesh = SubResource( 94 )
+navigation_mesh = SubResource("94")
 navigation_layers = 2
-script = ExtResource( 1 )
-
 [node name="NavArea" type="MeshInstance3D" parent="Obstructions/G1-F3/NavMeshInst" index="0"]
 transform = Transform3D( 1, 0, 7.10543e-15, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-mesh = SubResource( 95 )
-material/0 = SubResource( 33 )
+mesh = SubResource("95")
+material/0 = SubResource("33")
 
 [node name="NavBlockStairsG1" type="MeshInstance3D" parent="Obstructions/G1-F3" index="5" groups=["nav_f3", "nav_g1"]]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0713749, 2, -0.542422 )
 visible = false
-mesh = SubResource( 69 )
+mesh = SubResource("69")
 skeleton = NodePath("")
 
 [node name="NavBlockStairsG2" type="MeshInstance3D" parent="Obstructions/G1-F3/NavBlockStairsG1" index="0" groups=["nav_f3", "nav_g1"]]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2 )
-mesh = SubResource( 60 )
+mesh = SubResource("60")
 skeleton = NodePath("")
 
-[node name="G2-F1" parent="Obstructions" index="3" instance=ExtResource( 23 )]
+[node name="G2-F1" parent="Obstructions" index="3" instance=ExtResource("23")]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.403, 1.51025, 14.4415 )
 _buyCost = 1000
 
 [node name="NavMeshInst" type="NavigationRegion3D" parent="Obstructions/G2-F1" index="4"]
 transform = Transform3D( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0200005, 0, -0.304167 )
-navigation_mesh = SubResource( 115 )
+navigation_mesh = SubResource("115")
 navigation_layers = 2
-script = ExtResource( 1 )
-
 [node name="NavArea" type="MeshInstance3D" parent="Obstructions/G2-F1/NavMeshInst" index="0"]
-mesh = SubResource( 116 )
-material/0 = SubResource( 33 )
+mesh = SubResource("116")
+material/0 = SubResource("33")
 
 [node name="NavBlockStairsG2" type="MeshInstance3D" parent="Obstructions/G2-F1" index="5" groups=["nav_f1", "nav_g2"]]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.027, 2, 0.006 )
 visible = false
-mesh = SubResource( 38 )
+mesh = SubResource("38")
 skeleton = NodePath("")
 
-[node name="F1-F2" parent="Obstructions" index="4" instance=ExtResource( 4 )]
+[node name="F1-F2" parent="Obstructions" index="4" instance=ExtResource("4")]
 transform = Transform3D( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, -3, 3.5, 0 )
 _buyCost = 1250
 
 [node name="NavMeshInst" type="NavigationRegion3D" parent="Obstructions/F1-F2" index="4"]
 transform = Transform3D( 1, 0, -7.35137e-08, 0, 1, 0, 7.35137e-08, 0, 1, 1.42109e-14, 0, -4.76837e-07 )
-navigation_mesh = SubResource( 52 )
+navigation_mesh = SubResource("52")
 navigation_layers = 2
-script = ExtResource( 1 )
-
 [node name="NavArea" type="MeshInstance3D" parent="Obstructions/F1-F2/NavMeshInst" index="0"]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 visible = false
-mesh = SubResource( 53 )
-material/0 = SubResource( 33 )
+mesh = SubResource("53")
+material/0 = SubResource("33")
 
-[node name="F2-F3" parent="Obstructions" index="5" instance=ExtResource( 4 )]
+[node name="F2-F3" parent="Obstructions" index="5" instance=ExtResource("4")]
 transform = Transform3D( 7.54979e-08, 0, -1, 0, 1, 0, 1, 0, 7.54979e-08, 16, 3.5, 1 )
 _buyCost = 1250
 
 [node name="NavMeshInst" type="NavigationRegion3D" parent="Obstructions/F2-F3" index="4"]
 transform = Transform3D( 1, 0, -7.35137e-08, 0, 1, 0, 7.35137e-08, 0, 1, 0, 0, 0 )
-navigation_mesh = SubResource( 54 )
+navigation_mesh = SubResource("54")
 navigation_layers = 2
-script = ExtResource( 1 )
-
 [node name="NavArea" type="MeshInstance3D" parent="Obstructions/F2-F3/NavMeshInst" index="0"]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 visible = false
-mesh = SubResource( 55 )
-material/0 = SubResource( 33 )
+mesh = SubResource("55")
+material/0 = SubResource("33")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="12"]
 transform = Transform3D( 0.866025, -0.353553, 0.353554, 0, 0.707107, 0.707106, -0.5, -0.612372, 0.612373, 0, 0, 0 )
@@ -2501,11 +2488,11 @@ transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 2.5 )
 
 [node name="inaccesable_f1" type="MeshInstance3D" parent="InaccesableSpaces" index="0"]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 3.5, 10 )
-mesh = SubResource( 80 )
+mesh = SubResource("80")
 
 [node name="Collision" type="CSGCombiner3D" parent="InaccesableSpaces/inaccesable_f1" index="0" groups=["nav_outside"]]
 visible = false
-material_override = SubResource( 56 )
+material_override = SubResource("56")
 use_collision = true
 
 [node name="CSGBoxUnion9" type="CSGBox3D" parent="InaccesableSpaces/inaccesable_f1/Collision" index="0"]
@@ -2570,7 +2557,7 @@ depth = 11.0
 
 [node name="Collision2" type="CSGCombiner3D" parent="InaccesableSpaces/inaccesable_f1" index="1" groups=["nav_outside"]]
 visible = false
-material_override = SubResource( 57 )
+material_override = SubResource("57")
 use_collision = true
 
 [node name="CSGBoxUnion9" type="CSGBox3D" parent="InaccesableSpaces/inaccesable_f1/Collision2" index="0"]
@@ -2611,11 +2598,11 @@ height = 2.5
 
 [node name="inaccesable_f3" type="MeshInstance3D" parent="InaccesableSpaces" index="1"]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 3.5, 10 )
-mesh = SubResource( 81 )
+mesh = SubResource("81")
 
 [node name="Collision" type="CSGCombiner3D" parent="InaccesableSpaces/inaccesable_f3" index="0" groups=["nav_outside"]]
 visible = false
-material_override = SubResource( 58 )
+material_override = SubResource("58")
 use_collision = true
 
 [node name="CSGBoxUnion12" type="CSGBox3D" parent="InaccesableSpaces/inaccesable_f3/Collision" index="0"]
@@ -2664,11 +2651,11 @@ depth = 16.0
 
 [node name="inaccesable_f4" type="MeshInstance3D" parent="InaccesableSpaces" index="2"]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 3.5, -27 )
-mesh = SubResource( 82 )
+mesh = SubResource("82")
 
 [node name="Collision" type="CSGCombiner3D" parent="InaccesableSpaces/inaccesable_f4" index="0" groups=["nav_outside"]]
 visible = false
-material_override = SubResource( 58 )
+material_override = SubResource("58")
 use_collision = true
 
 [node name="CSGBoxUnion12" type="CSGBox3D" parent="InaccesableSpaces/inaccesable_f4/Collision" index="0"]
@@ -2695,12 +2682,12 @@ height = 3.5
 depth = 0.2
 
 [node name="inaccesable_g1" type="MeshInstance3D" parent="InaccesableSpaces" index="3"]
-mesh = SubResource( 83 )
+mesh = SubResource("83")
 
 [node name="Collision" type="CSGCombiner3D" parent="InaccesableSpaces/inaccesable_g1" index="0" groups=["nav_outside"]]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 3.5, 10 )
 visible = false
-material_override = SubResource( 111 )
+material_override = SubResource("111")
 use_collision = true
 
 [node name="CSGBoxUnion9" type="CSGBox3D" parent="InaccesableSpaces/inaccesable_g1/Collision" index="0"]
@@ -2741,7 +2728,7 @@ depth = 6.0
 [node name="Collision2" type="CSGCombiner3D" parent="InaccesableSpaces/inaccesable_g1" index="1" groups=["nav_outside"]]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 3.5, 10 )
 visible = false
-material_override = SubResource( 58 )
+material_override = SubResource("58")
 use_collision = true
 
 [node name="CSGBoxUnion9" type="CSGBox3D" parent="InaccesableSpaces/inaccesable_g1/Collision2" index="0"]
@@ -2780,12 +2767,12 @@ height = 0.5
 depth = 7.0
 
 [node name="inaccesable_g4" type="MeshInstance3D" parent="InaccesableSpaces" index="4"]
-mesh = SubResource( 84 )
+mesh = SubResource("84")
 
 [node name="Collision" type="CSGCombiner3D" parent="InaccesableSpaces/inaccesable_g4" index="0" groups=["nav_outside"]]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 3.5, -1 )
 visible = false
-material_override = SubResource( 56 )
+material_override = SubResource("56")
 use_collision = true
 
 [node name="CSGBoxUnion7" type="CSGBox3D" parent="InaccesableSpaces/inaccesable_g4/Collision" index="0"]
@@ -2820,7 +2807,7 @@ depth = 2.55
 [node name="Collision2" type="CSGCombiner3D" parent="InaccesableSpaces/inaccesable_g4" index="1" groups=["nav_outside"]]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 3.5, 10 )
 visible = false
-material_override = SubResource( 111 )
+material_override = SubResource("111")
 use_collision = true
 
 [node name="CSGBoxUnion9" type="CSGBox3D" parent="InaccesableSpaces/inaccesable_g4/Collision2" index="0"]
@@ -2859,19 +2846,19 @@ height = 0.5
 depth = 7.0
 
 [node name="external_wall_1" type="MeshInstance3D" parent="InaccesableSpaces" index="5"]
-mesh = SubResource( 85 )
+mesh = SubResource("85")
 
 [node name="external_wall_2" type="MeshInstance3D" parent="InaccesableSpaces" index="6"]
-mesh = SubResource( 86 )
+mesh = SubResource("86")
 
 [node name="walkway_1" type="MeshInstance3D" parent="InaccesableSpaces" index="7"]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65, 0, 29 )
-mesh = SubResource( 87 )
+mesh = SubResource("87")
 
 [node name="Collision" type="CSGCombiner3D" parent="InaccesableSpaces/walkway_1" index="0" groups=["nav_outside"]]
 transform = Transform3D( 1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 12.9912, -0.5, -12 )
 visible = false
-material_override = ExtResource( 9 )
+material_override = ExtResource("9")
 use_collision = true
 
 [node name="BoxUnion" type="CSGBox3D" parent="InaccesableSpaces/walkway_1/Collision" index="0"]
@@ -2900,7 +2887,7 @@ depth = 4.0
 [node name="Collision2" type="CSGCombiner3D" parent="InaccesableSpaces/walkway_1" index="1" groups=["nav_outside"]]
 transform = Transform3D( 1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 12.9912, -0.5, -12 )
 visible = false
-material_override = SubResource( 112 )
+material_override = SubResource("112")
 use_collision = true
 
 [node name="BoxUnion2" type="CSGBox3D" parent="InaccesableSpaces/walkway_1/Collision2" index="0"]
@@ -2926,30 +2913,30 @@ transform = Transform3D( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.812
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InaccesableSpaces/walkway_1/CollisionStairRail1" index="0"]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0407906 )
-shape = SubResource( 96 )
+shape = SubResource("96")
 
 [node name="CollisionStairRail2" type="StaticBody3D" parent="InaccesableSpaces/walkway_1" index="3" groups=["nav_outside"]]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.155409, 4.63806, -15.6217 )
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InaccesableSpaces/walkway_1/CollisionStairRail2" index="0"]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.312149 )
-shape = SubResource( 97 )
+shape = SubResource("97")
 
 [node name="CollisionStairRail3" type="StaticBody3D" parent="InaccesableSpaces/walkway_1" index="4" groups=["nav_outside"]]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8446, 4.63806, -17.6217 )
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InaccesableSpaces/walkway_1/CollisionStairRail3" index="0"]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0114822, 0, -0.119918 )
-shape = SubResource( 98 )
+shape = SubResource("98")
 
 [node name="walkway_2" type="MeshInstance3D" parent="InaccesableSpaces" index="8"]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65, 0.01, 29 )
-mesh = SubResource( 88 )
+mesh = SubResource("88")
 
 [node name="Collision" type="CSGCombiner3D" parent="InaccesableSpaces/walkway_2" index="0" groups=["nav_outside"]]
 transform = Transform3D( 1.31135e-07, 0, -1, 0, 1, 0, 1, 0, 1.31135e-07, -16.0088, -0.5, -34.2126 )
 visible = false
-material_override = ExtResource( 9 )
+material_override = ExtResource("9")
 use_collision = true
 
 [node name="BoxUnion" type="CSGBox3D" parent="InaccesableSpaces/walkway_2/Collision" index="0"]
@@ -2978,7 +2965,7 @@ depth = 4.0
 [node name="Collision2" type="CSGCombiner3D" parent="InaccesableSpaces/walkway_2" index="1" groups=["nav_outside"]]
 transform = Transform3D( 1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -13.65, -0.5, -15 )
 visible = false
-material_override = SubResource( 112 )
+material_override = SubResource("112")
 use_collision = true
 
 [node name="BoxUnion1" type="CSGBox3D" parent="InaccesableSpaces/walkway_2/Collision2" index="0"]
@@ -3004,16 +2991,16 @@ transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.0369, 4.63806, -22.6217 
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InaccesableSpaces/walkway_2/CollisionStairRail1" index="0"]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.06811 )
-shape = SubResource( 99 )
+shape = SubResource("99")
 
 [node name="fountain" type="MeshInstance3D" parent="InaccesableSpaces" index="9"]
 transform = Transform3D( 0.201871, 0, 0.979412, 0, 1, 0, -0.979412, 0, 0.201871, 7.7991, 0, 13 )
-mesh = SubResource( 89 )
+mesh = SubResource("89")
 
 [node name="Collision" type="CSGCombiner3D" parent="InaccesableSpaces/fountain" index="0" groups=["nav_outside"]]
 transform = Transform3D( 0.201871, 0, -0.979412, 0, 1, 0, 0.979412, 0, 0.201871, 11.1579, 0, -10.2629 )
 visible = false
-material_override = ExtResource( 5 )
+material_override = ExtResource("5")
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="InaccesableSpaces/fountain/Collision" index="0"]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.7991, 0, 13 )
@@ -3023,16 +3010,16 @@ sides = 16
 
 [node name="ground_courtyard" type="MeshInstance3D" parent="InaccesableSpaces" index="10"]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.7991, 0, 13 )
-mesh = SubResource( 90 )
+mesh = SubResource("90")
 
 [node name="ground_outside" type="MeshInstance3D" parent="InaccesableSpaces" index="11"]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.799, -0.01, 13 )
-mesh = SubResource( 91 )
+mesh = SubResource("91")
 
 [node name="Collision" type="CSGCombiner3D" parent="InaccesableSpaces/ground_outside" index="0" groups=["nav_outside"]]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.7991, 0, -13 )
 visible = false
-material_override = SubResource( 113 )
+material_override = SubResource("113")
 use_collision = true
 
 [node name="BoxUnion1" type="CSGBox3D" parent="InaccesableSpaces/ground_outside/Collision" index="0"]
@@ -3089,4 +3076,4 @@ height = 1.0
 depth = 7.0
 
 [node name="NavMeshInst" type="NavigationRegion3D" parent="InaccesableSpaces" index="12"]
-navigation_mesh = SubResource( 100 )
+navigation_mesh = SubResource("100")

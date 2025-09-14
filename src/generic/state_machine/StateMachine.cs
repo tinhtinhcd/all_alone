@@ -45,7 +45,7 @@ namespace GameGeneral.FSM
 
         public void PhysicsUpdate(float delta)
         {
-            _currentState.PhysicsUpdate(delta);
+            _currentState.PhysicsUpdate((float)delta);
         }
 
         protected void TransitionTo(State targetState)

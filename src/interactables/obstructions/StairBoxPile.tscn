@@ -1,8 +1,7 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=12 format=3]
 
 [ext_resource path="res://src/interactables/obstructions/sound_effects/obstruction_clear_1.ogg" type="AudioStream" id=1]
 [ext_resource path="res://src/interactables/obstructions/models/Box.material" type="Material" id=2]
-[ext_resource path="res://src/interactables/obstructions/Obstruction.cs" type="Script" id=3]
 [ext_resource path="res://particle_textures/kenney/smoke_08.png" type="Texture2D" id=4]
 
 [sub_resource type="BoxShape3D" id=2]
@@ -12,7 +11,7 @@ extents = Vector3( 1.40276, 1.50677, 0.699386 )
 _data = [ Vector2( 0, 0.0181818 ), 0.0, 0.0, 0, 0, Vector2( 0.204819, 0.981818 ), 0.0, 0.0, 0, 0, Vector2( 0.855422, 0.863636 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.290909 ), 0.0, 0.0, 0, 0 ]
 
 [sub_resource type="CurveTexture" id=7]
-curve = SubResource( 6 )
+curve = SubResource("6")
 
 [sub_resource type="ParticleProcessMaterial" id=3]
 emission_shape = 1
@@ -26,7 +25,7 @@ angular_velocity = 60.0
 angular_velocity_random = 0.5
 angle = 360.0
 angle_random = 1.0
-scale_curve = SubResource( 7 )
+scale_curve = SubResource("7")
 
 [sub_resource type="StandardMaterial3D" id=4]
 flags_transparent = true
@@ -36,7 +35,7 @@ params_billboard_mode = 3
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
-albedo_texture = ExtResource( 4 )
+albedo_texture = ExtResource("4")
 emission_enabled = true
 emission = Color( 0.47451, 0.47451, 0.47451, 1 )
 emission_energy = 1.0
@@ -44,7 +43,7 @@ emission_operator = 0
 emission_on_uv2 = false
 
 [sub_resource type="QuadMesh" id=5]
-material = SubResource( 4 )
+material = SubResource("4")
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "obstruction_stair_box_Cube027"
@@ -63,15 +62,13 @@ surfaces/0 = {
 [node name="StairBoxPile" type="StaticBody3D"]
 process_mode = 1
 collision_layer = 33
-script = ExtResource( 3 )
-
 [node name="CollisionShapeBottom" type="CollisionShape3D" parent="."]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0469716, 3.19492 )
-shape = SubResource( 2 )
+shape = SubResource("2")
 
 [node name="CollisionShapeTop" type="CollisionShape3D" parent="."]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.43333, -4.18901 )
-shape = SubResource( 2 )
+shape = SubResource("2")
 
 [node name="ClearEffect" type="Particles" parent="."]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.14031, -0.476798 )
@@ -81,17 +78,17 @@ lifetime = 2.0
 one_shot = true
 explosiveness = 1.0
 visibility_aabb = AABB( -2.64646, -3.67247, -4.36151, 5.29291, 7.34495, 8.72302 )
-process_material = SubResource( 3 )
-draw_pass_1 = SubResource( 5 )
+process_material = SubResource("3")
+draw_pass_1 = SubResource("5")
 
 [node name="AudioClear" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13741, 0 )
-stream = ExtResource( 1 )
+stream = ExtResource("1")
 volume_db = -10.0
 unit_size = 4.0
 bus = "SoundEffects"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource( 1 )
+mesh = SubResource("1")
 skeleton = NodePath("")
-material/0 = ExtResource( 2 )
+material/0 = ExtResource("2")

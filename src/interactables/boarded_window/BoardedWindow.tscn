@@ -1,7 +1,6 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=24 format=3]
 
 [ext_resource path="res://src/interactables/boarded_window/Board.tscn" type="PackedScene" id=1]
-[ext_resource path="res://src/interactables/boarded_window/BoardedWindow.cs" type="Script" id=2]
 [ext_resource path="res://src/interactables/boarded_window/wooden_board_pull_away.ogg" type="AudioStream" id=3]
 [ext_resource path="res://src/interactables/boarded_window/wooden_board_nail_in.ogg" type="AudioStream" id=4]
 [ext_resource path="res://src/debug/materials/tool_highlight.tres" type="Material" id=5]
@@ -513,46 +512,44 @@ process_mode = 1
 collision_layer = 32
 collision_mask = 0
 monitoring = false
-script = ExtResource( 2 )
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5222, 0 )
-shape = SubResource( 3 )
+shape = SubResource("3")
 
 [node name="Boards" type="Node3D" parent="."]
 
-[node name="Board6" parent="Boards" instance=ExtResource( 1 )]
+[node name="Board6" parent="Boards" instance=ExtResource("1")]
 transform = Transform3D( 0.971739, -0.236058, 0, 0.236058, 0.971739, 0, 0, 0, 1, 0, 1.14388, 0.0141531 )
 
-[node name="Board5" parent="Boards" instance=ExtResource( 1 )]
+[node name="Board5" parent="Boards" instance=ExtResource("1")]
 transform = Transform3D( 0.703581, 0.710615, -8.74228e-08, 0.710615, -0.703581, 8.74229e-08, 6.15032e-10, -1.23633e-07, -1, -0.221596, 1.80809, 0.0141531 )
 
-[node name="Board4" parent="Boards" instance=ExtResource( 1 )]
+[node name="Board4" parent="Boards" instance=ExtResource("1")]
 transform = Transform3D( 0.990022, 0.137729, 0.0297709, -0.13779, 0.990461, 0, -0.0294869, -0.00410214, 0.999556, 0, 1.94, 0.0331158 )
 
-[node name="Board3" parent="Boards" instance=ExtResource( 1 )]
+[node name="Board3" parent="Boards" instance=ExtResource("1")]
 transform = Transform3D( 0.807094, -0.590422, -8.74228e-08, -0.590422, -0.807094, -8.44439e-08, -2.07008e-08, 1.19771e-07, -1, -0.168835, 1.1433, 0.0473534 )
 
-[node name="Board2" parent="Boards" instance=ExtResource( 1 )]
+[node name="Board2" parent="Boards" instance=ExtResource("1")]
 transform = Transform3D( 0.644417, 0.764674, 0, -0.764674, 0.644417, 0, 0, 0, 1, 0.153007, 1.28576, 0.0366495 )
 
-[node name="Board1" parent="Boards" instance=ExtResource( 1 )]
+[node name="Board1" parent="Boards" instance=ExtResource("1")]
 transform = Transform3D( -0.177899, -0.983793, 0.0224367, -0.983858, 0.17737, -0.023728, 0.0193638, -0.0262957, -0.999466, 0.348223, 1.5865, 0.0455922 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/RESET = SubResource( 17 )
-anims/add_board_1 = SubResource( 27 )
-anims/add_board_2 = SubResource( 28 )
-anims/add_board_3 = SubResource( 23 )
-anims/add_board_4 = SubResource( 24 )
-anims/add_board_5 = SubResource( 25 )
-anims/add_board_6 = SubResource( 26 )
-anims/remove_board_1 = SubResource( 16 )
-anims/remove_board_2 = SubResource( 18 )
-anims/remove_board_3 = SubResource( 19 )
-anims/remove_board_4 = SubResource( 20 )
-anims/remove_board_5 = SubResource( 21 )
-anims/remove_board_6 = SubResource( 22 )
+anims/RESET = SubResource("17")
+anims/add_board_1 = SubResource("27")
+anims/add_board_2 = SubResource("28")
+anims/add_board_3 = SubResource("23")
+anims/add_board_4 = SubResource("24")
+anims/add_board_5 = SubResource("25")
+anims/add_board_6 = SubResource("26")
+anims/remove_board_1 = SubResource("16")
+anims/remove_board_2 = SubResource("18")
+anims/remove_board_3 = SubResource("19")
+anims/remove_board_4 = SubResource("20")
+anims/remove_board_5 = SubResource("21")
+anims/remove_board_6 = SubResource("22")
 
 [node name="ZombieAttackPoint" type="Marker3D" parent="."]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.63 )
@@ -574,38 +571,38 @@ transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.83 )
 
 [node name="AudioStreamAddBoard" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.42821, 0 )
-stream = ExtResource( 4 )
+stream = ExtResource("4")
 unit_size = 5.0
 bus = "SoundEffects"
 
 [node name="AudioStreamRemoveBoard" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.42821, 0 )
-stream = ExtResource( 3 )
+stream = ExtResource("3")
 unit_size = 5.0
 bus = "SoundEffects"
 
 [node name="BuildGuide" type="MeshInstance3D" parent="."]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, -0.1 )
-mesh = SubResource( 13 )
-material/0 = ExtResource( 5 )
+mesh = SubResource("13")
+material/0 = ExtResource("5")
 
 [node name="MeshInstance1" type="MeshInstance3D" parent="BuildGuide"]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.675, 1.175, 0 )
-mesh = SubResource( 14 )
+mesh = SubResource("14")
 skeleton = NodePath("../..")
-material/0 = ExtResource( 5 )
+material/0 = ExtResource("5")
 
 [node name="MeshInstance2" type="MeshInstance3D" parent="BuildGuide"]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.675, 1.175, 0 )
-mesh = SubResource( 14 )
+mesh = SubResource("14")
 skeleton = NodePath("../..")
-material/0 = ExtResource( 5 )
+material/0 = ExtResource("5")
 
 [node name="MeshInstance3" type="MeshInstance3D" parent="BuildGuide"]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0 )
-mesh = SubResource( 15 )
+mesh = SubResource("15")
 skeleton = NodePath("../..")
-material/0 = ExtResource( 5 )
+material/0 = ExtResource("5")
 
 [node name="ZombieQueueArea" type="Area3D" parent="."]
 collision_layer = 0
@@ -614,4 +611,4 @@ monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ZombieQueueArea"]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40877, 0 )
-shape = SubResource( 29 )
+shape = SubResource("29")

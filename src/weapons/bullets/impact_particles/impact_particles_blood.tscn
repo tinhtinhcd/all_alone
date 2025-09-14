@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=7 format=3]
 
 [ext_resource path="res://raw_assets/particle_textures/splat_1.png" type="Texture2D" id=1]
 
@@ -9,14 +9,14 @@ params_billboard_mode = 3
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
-albedo_texture = ExtResource( 1 )
+albedo_texture = ExtResource("1")
 
 [sub_resource type="Curve" id=12]
 max_value = 0.2
 _data = [ Vector2( 0, 0.0890909 ), 0.0, 0.0, 0, 0, Vector2( 0.75, 0.138182 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.0690909 ), 0.0, 0.0, 0, 0 ]
 
 [sub_resource type="CurveTexture" id=13]
-curve = SubResource( 12 )
+curve = SubResource("12")
 
 [sub_resource type="ParticleProcessMaterial" id=14]
 spread = 180.0
@@ -26,17 +26,17 @@ initial_velocity_random = 0.1
 angular_velocity = 45.0
 angle = 45.0
 angle_random = 1.0
-scale_curve = SubResource( 13 )
+scale_curve = SubResource("13")
 color = Color( 0.470588, 0.0392157, 0.0392157, 1 )
 
 [sub_resource type="QuadMesh" id=10]
 
 [node name="ImpactParticlesBlood" type="Particles"]
-material_override = SubResource( 11 )
+material_override = SubResource("11")
 emitting = false
 amount = 6
 lifetime = 0.55
 one_shot = true
 explosiveness = 1.0
-process_material = SubResource( 14 )
-draw_pass_1 = SubResource( 10 )
+process_material = SubResource("14")
+draw_pass_1 = SubResource("10")

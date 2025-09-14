@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=8 format=3]
 
 [sub_resource type="StandardMaterial3D" id=1]
 vertex_color_use_as_albedo = true
@@ -12,13 +12,13 @@ offsets = PackedFloat32Array( 0.00731707, 1 )
 colors = PackedColorArray( 0.963867, 0.90628, 0.244732, 1, 0.870117, 0.487443, 0.227726, 1 )
 
 [sub_resource type="GradientTexture2D" id=7]
-gradient = SubResource( 6 )
+gradient = SubResource("6")
 
 [sub_resource type="Curve" id=2]
 _data = [ Vector2( 0, 0.167045 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.0261364 ), 0.0, 0.0, 0, 0 ]
 
 [sub_resource type="CurveTexture" id=3]
-curve = SubResource( 2 )
+curve = SubResource("2")
 
 [sub_resource type="ParticleProcessMaterial" id=8]
 spread = 180.0
@@ -27,18 +27,18 @@ initial_velocity = 1.0
 angle = 360.0
 angle_random = 1.0
 scale = 0.3
-scale_curve = SubResource( 3 )
-color_ramp = SubResource( 7 )
+scale_curve = SubResource("3")
+color_ramp = SubResource("7")
 
 [sub_resource type="QuadMesh" id=5]
 size = Vector2( 0.444, 1 )
 
 [node name="ImpactParticlesMetal" type="Particles"]
-material_override = SubResource( 1 )
+material_override = SubResource("1")
 emitting = false
 amount = 14
 lifetime = 0.5
 one_shot = true
 explosiveness = 1.0
-process_material = SubResource( 8 )
-draw_pass_1 = SubResource( 5 )
+process_material = SubResource("8")
+draw_pass_1 = SubResource("5")

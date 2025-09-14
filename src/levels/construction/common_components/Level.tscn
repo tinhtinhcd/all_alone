@@ -1,10 +1,7 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=11 format=3]
 
 [ext_resource path="res://src/menu_ui/pause_menu/PauseMenu.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/menu_ui/game_over_screen/GameOverScreen.tscn" type="PackedScene" id=3]
-[ext_resource path="res://src/levels/construction/common_components/Stopwatch.cs" type="Script" id=4]
-[ext_resource path="res://src/levels/construction/common_components/RoundCounter.cs" type="Script" id=5]
-[ext_resource path="res://src/levels/construction/common_components/LevelManager.cs" type="Script" id=6]
 [ext_resource path="res://src/characters/player/Player.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/hoard_director/HoardDirector.tscn" type="PackedScene" id=14]
 [ext_resource path="res://src/weapons/bullets/spawner/BulletSpawner.tscn" type="PackedScene" id=15]
@@ -13,15 +10,14 @@
 
 [node name="Level" type="Node3D"]
 process_mode = 3
-script = ExtResource( 6 )
-_playerPackedScene = ExtResource( 7 )
+_playerPackedScene = ExtResource("7")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 3
 
-[node name="GameOverScreen" parent="CanvasLayer" instance=ExtResource( 3 )]
+[node name="GameOverScreen" parent="CanvasLayer" instance=ExtResource("3")]
 
-[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource( 2 )]
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("2")]
 visible = false
 
 [node name="AudioNewRoundStart" type="AudioStreamPlayer" parent="."]
@@ -34,24 +30,20 @@ one_shot = true
 
 [node name="Stopwatch" type="Node" parent="."]
 process_mode = 1
-script = ExtResource( 4 )
-
 [node name="RoundCounter" type="Node" parent="."]
 process_mode = 1
-script = ExtResource( 5 )
-
-[node name="PointsAwarder" parent="." instance=ExtResource( 17 )]
+[node name="PointsAwarder" parent="." instance=ExtResource("17")]
 process_mode = 1
 _pointsZombieKill = 30
 _pointsZombieKillOutsidePlayerArea = 10
 _pointsZombieKillByCritical = 50
 _pointsBoardBuilt = 5
 
-[node name="BulletSpawner" parent="." instance=ExtResource( 15 )]
+[node name="BulletSpawner" parent="." instance=ExtResource("15")]
 
-[node name="PowerUpSpawner" parent="." instance=ExtResource( 16 )]
+[node name="PowerUpSpawner" parent="." instance=ExtResource("16")]
 
-[node name="HoardDirector" parent="." instance=ExtResource( 14 )]
+[node name="HoardDirector" parent="." instance=ExtResource("14")]
 _newZombiesPerRound = 2
 _zombieSpawnTime = 1.5
 _powerUpDropChance = 0.2

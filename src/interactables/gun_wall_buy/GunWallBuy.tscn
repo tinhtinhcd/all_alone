@@ -1,6 +1,5 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=8 format=3]
 
-[ext_resource path="res://src/interactables/gun_wall_buy/GunWallBuy.cs" type="Script" id=1]
 [ext_resource path="res://src/weapons/guns/assault_rifle/icon.png" type="Texture2D" id=2]
 [ext_resource path="res://src/interactables/gun_wall_buy/buy.ogg" type="AudioStream" id=3]
 
@@ -59,24 +58,22 @@ transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0 )
 collision_layer = 32
 collision_mask = 0
 monitoring = false
-script = ExtResource( 1 )
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.01 )
-shape = SubResource( 1 )
+shape = SubResource("1")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.02 )
 flip_h = true
 pixel_size = 0.0045
-texture = ExtResource( 2 )
+texture = ExtResource("2")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource( 3 )
+stream = ExtResource("3")
 volume_db = 2.0
 bus = "SoundEffects"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/RESET = SubResource( 2 )
-anims/flash_bad = SubResource( 3 )
-anims/flash_good = SubResource( 4 )
+anims/RESET = SubResource("2")
+anims/flash_bad = SubResource("3")
+anims/flash_good = SubResource("4")

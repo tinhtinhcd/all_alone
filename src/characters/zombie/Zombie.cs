@@ -52,12 +52,12 @@ namespace ZombieHoardGame.ZombieCharacter
 
         public override void _Process(double delta)
         {
-            _stateMachine.Update((float)delta);
+            _controller.Update((float)delta);
         }
 
         public override void _PhysicsProcess(double delta)
         {
-            _stateMachine.PhysicsUpdate((float)delta);
+            _controller.PhysicsUpdate((float)delta);
         }
         
         //////////////////////////////

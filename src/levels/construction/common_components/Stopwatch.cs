@@ -17,7 +17,7 @@ namespace ZombieHoardGame
         {
             if (!_isStopped)
             {
-                _timeSeconds += delta;
+                _timeSeconds += (float)delta;
             }
         }
 

@@ -1,4 +1,5 @@
 using Godot;
+using System;
 using GameGeneral;
 
 
@@ -54,7 +55,7 @@ namespace UI
         {
             if (IsActive)
             {
-                _userPreferences.BorderlessWindow = _checkBtnBorderless.Pressed;
+                _userPreferences.BorderlessWindow = _checkBtnBorderless.ButtonPressed;
             }
         }
 
@@ -62,7 +63,7 @@ namespace UI
         {
             if (IsActive)
             {
-                _userPreferences.Vsync = _checkBtnVsync.Pressed;
+                _userPreferences.Vsync = _checkBtnVsync.ButtonPressed;
             }
         }
 
@@ -70,7 +71,7 @@ namespace UI
         {
             if (IsActive)
             {
-                _userPreferences.ScreenSpaceAa = _checkBtnVsync.Pressed;
+                _userPreferences.Fxaa = _checkBtnFxaa.ButtonPressed;
             }
         }
 
@@ -107,9 +108,9 @@ namespace UI
 
             _sliderMouseSensitivity.Value = _userPreferences.MouseSensitivity;
 
-            _checkBtnBorderless.Pressed += _userPreferences.BorderlessWindow;
-            _checkBtnFxaa.Pressed += _userPreferences.ScreenSpaceAa;
-            _checkBtnVsync.Pressed += _userPreferences.Vsync;
+            _checkBtnBorderless.Connect("pressed", new Callable(this, nameof(OnCheckBtnBorderlessPressed)));
+            _checkBtnFxaa.Connect("pressed", new Callable(this, nameof(OnCheckBtnFxaaPressed)));
+            _checkBtnVsync.Connect("pressed", new Callable(this, nameof(OnCheckBtnVsyncPressed)));
             _optionBtnMsaa.Selected = (int)_userPreferences.Msaa;
         }
     }

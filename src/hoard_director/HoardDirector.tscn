@@ -1,12 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3]
 
-[ext_resource path="res://src/hoard_director/HoardDirector.cs" type="Script" id=1]
 [ext_resource path="res://src/characters/zombie/Zombie.tscn" type="PackedScene" id=2]
 
 [node name="HoardDirector" type="Node"]
 process_mode = 1
-script = ExtResource( 1 )
-_zombiePackedScene = ExtResource( 2 )
+_zombiePackedScene = ExtResource("2")
 
 [node name="SpawnTimer" type="Timer" parent="."]
 one_shot = true

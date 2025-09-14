@@ -1,4 +1,5 @@
 using Godot;
+using System;
 
 
 namespace ZombieHoardGame.ZombieCharacter.States
@@ -46,7 +47,7 @@ namespace ZombieHoardGame.ZombieCharacter.States
             float rotationAcceleration = 4;
             float characterRotationY = Mathf.LerpAngle(
 			    _blackboard.Character.Rotation.Y, Mathf.Atan2(-direction.X, -direction.Z), 
-			    rotationAcceleration * delta
+			    rotationAcceleration * (float)delta
 	        );
             _blackboard.Character.Rotation =  new Vector3(
                 0,
